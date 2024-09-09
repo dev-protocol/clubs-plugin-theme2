@@ -1,4 +1,4 @@
-import theme from './theme'
+import example from './example'
 import thisPlugin from '../src/index'
 
-export default [theme, thisPlugin]
+export default [example, thisPlugin]

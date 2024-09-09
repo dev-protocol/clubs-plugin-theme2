@@ -1,4 +1,5 @@
 import { encode } from '@devprotocol/clubs-core'
+import { GlobalConfig, HomeConfig } from '../src/types'
 
 export default () =>
 	encode({
@@ -9,19 +10,32 @@ export default () =>
 		propertyAddress: '',
 		chainId: 137,
 		rpcUrl: 'https://polygon-rpc.com/',
-		adminRolePoints: 50,
+		adminRolePoints: 0,
 		plugins: [
 			{
-				id: 'example-theme',
-				options: [],
+				id: 'devprotocol:clubs:theme-2',
+				options: [
+					{
+						key: 'homeConfig',
+						value: {
+							hero: {
+								image:
+									'https://images.unsplash.com/photo-1681106447892-fde093d56df8?q=80&w=2626&auto=format&fit=crop',
+								text: '',
+							},
+							body: 'Hendrerit pellentesque tincidunt, sociis dictumst.',
+							description: 'Description',
+						} satisfies HomeConfig,
+					},
+					{
+						key: 'globalConfig',
+						value: { bg: '#ADADAD', ink: '#fff' } satisfies GlobalConfig,
+					},
+				],
 			},
 			{
-				id: 'unique-and-descriptive-name-here',
-				options: [
-					{ key: 'slug', value: 'stokens' },
-					{ key: 'rpc', value: 'https://polygon-rpc.com/' },
-					{ key: 'maxpage', value: 30 },
-				],
+				id: 'example',
+				options: [],
 			},
 		],
 	})
