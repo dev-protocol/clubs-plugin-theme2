@@ -97,3 +97,6 @@ package-lock.json
 
 # vitest output
 vitest.config.ts.*
+
+# astro
+.astro
