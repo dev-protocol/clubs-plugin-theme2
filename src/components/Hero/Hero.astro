@@ -22,12 +22,14 @@ const backgroundGradientColorFrom = globalConfig?.backgroundGradient?.[0]
 const backgroundGradientColorTo = globalConfig?.backgroundGradient?.[1]
 ---
 
-<style define:vars={{
-	backgroundGradientColorFrom,
-	backgroundGradientColorTo,
-	backgroundImageSrc: `url(${HeroImage.src})`,
-	backgroundImageSrcMb: `url(${HeroImageMb.src})`
-}}>
+<style
+	define:vars={{
+		backgroundGradientColorFrom,
+		backgroundGradientColorTo,
+		backgroundImageSrc: `url(${HeroImage.src})`,
+		backgroundImageSrcMb: `url(${HeroImageMb.src})`,
+	}}
+>
 	.gradient {
 		background: radial-gradient(
 			50% 50% at 50% 50%,
@@ -82,18 +84,22 @@ const backgroundGradientColorTo = globalConfig?.backgroundGradient?.[1]
 	@media (min-width: 768px) {
 		.hero-image .subtitle {
 			left: 3.76vw;
-			bottom: 19.10vw;
+			bottom: 19.1vw;
 			font-size: 1.39vw;
 		}
 	}
 </style>
 
 <!-- Cover image -->
-<section class="relative mb-16 md:mb-0 w-full h-[149.87vw] md:h-[66.67vw] hero-image bg-top bg-cover bg-no-repeat ">
-	<h1 class="absolute logo">
-		<img src={Logo.src} class="w-full h-auto" alt="" />
+<section
+	class="hero-image relative mb-16 h-[149.87vw] w-full bg-cover bg-top bg-no-repeat md:mb-0 md:h-[66.67vw]"
+>
+	<h1 class="logo absolute">
+		<img src={Logo.src} class="h-auto w-full" alt="" />
 	</h1>
-	<p class="absolute subtitle text-white">Into a world where magic and mystery intertwine.</p>
+	<p class="subtitle absolute text-white">
+		Into a world where magic and mystery intertwine.
+	</p>
 </section>
 
 <!--
