@@ -1,6 +1,9 @@
 ---
 import Description from './Description.svelte'
 import type { MembersCountVisibilityValue } from '../../index'
+import HeroImage from '../../assets/bg_image01.png'
+import HeroImageMb from '../../assets/bg_image01_mb.png'
+import Logo from '../../assets/logo.png'
 
 const { globalConfig, image, avatar, name, description, compact } =
 	Astro.props as {
@@ -19,7 +22,12 @@ const backgroundGradientColorFrom = globalConfig?.backgroundGradient?.[0]
 const backgroundGradientColorTo = globalConfig?.backgroundGradient?.[1]
 ---
 
-<style define:vars={{ backgroundGradientColorFrom, backgroundGradientColorTo }}>
+<style define:vars={{
+	backgroundGradientColorFrom,
+	backgroundGradientColorTo,
+	backgroundImageSrc: `url(${HeroImage.src})`,
+	backgroundImageSrcMb: `url(${HeroImageMb.src})`
+}}>
 	.gradient {
 		background: radial-gradient(
 			50% 50% at 50% 50%,
@@ -28,6 +36,7 @@ const backgroundGradientColorTo = globalConfig?.backgroundGradient?.[1]
 		);
 	}
 
+	/*
 	#cover-image {
 		mask-image: linear-gradient(
 			to bottom,
@@ -36,9 +45,58 @@ const backgroundGradientColorTo = globalConfig?.backgroundGradient?.[1]
 			transparent 100%
 		);
 	}
+	 */
+
+	.hero-image {
+		background-image: var(--backgroundImageSrcMb);
+		height: 149.87vw;
+	}
+
+	@media (min-width: 768px) {
+		.hero-image {
+			background-image: var(--backgroundImageSrc);
+			height: 66.67vw;
+		}
+	}
+
+	.hero-image .logo {
+		left: 3.31vw;
+		bottom: 2.54vw;
+		width: 93.37vw;
+	}
+
+	@media (min-width: 768px) {
+		.hero-image .logo {
+			left: 3.76vw;
+			bottom: 21.43vw;
+			width: 48.15vw;
+		}
+	}
+
+	.hero-image .subtitle {
+		left: 3.31vw;
+		bottom: -6.62vw;
+		font-size: 3.56vw;
+	}
+
+	@media (min-width: 768px) {
+		.hero-image .subtitle {
+			left: 3.76vw;
+			bottom: 19.10vw;
+			font-size: 1.39vw;
+		}
+	}
 </style>
 
 <!-- Cover image -->
+<section class="relative mb-16 md:mb-0 w-full h-[149.87vw] md:h-[66.67vw] hero-image bg-top bg-cover bg-no-repeat ">
+	<h1 class="absolute logo">
+		<img src={Logo.src} class="w-full h-auto" alt="" />
+	</h1>
+	<p class="absolute subtitle text-white">Into a world where magic and mystery intertwine.</p>
+</section>
+
+<!--
 <div
 	role="presentation"
 	class:list={[
@@ -71,12 +129,13 @@ const backgroundGradientColorTo = globalConfig?.backgroundGradient?.[1]
 		!compact && (
 			<img
 				id="cover-image"
-				src={image}
+				src={PreviewImage.src}
 				class="absolute aspect-square h-full w-full max-w-full object-cover"
 			/>
 		)
 	}
 </div>
+-->
 
 <!-- Avatar, Title, etc.  -->
 <section
