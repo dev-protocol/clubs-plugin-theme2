@@ -18,6 +18,7 @@ const { globalConfig, image, avatar, name, description, compact } =
 		compact?: boolean
 	}
 ---
+
 <style
 	define:vars={{
 		backgroundImageSrc: `url(${HeroImage.src})`,
@@ -38,14 +39,14 @@ const { globalConfig, image, avatar, name, description, compact } =
 <!-- Cover image -->
 <section
 	class:list={[
-		'relative mb-16 h-[149.87vw] w-full bg-cover bg-top bg-no-repeat hero-image',
+		'hero-image relative mb-16 h-[149.87vw] w-full bg-cover bg-top bg-no-repeat',
 		'md:mb-0 md:h-[66.67vw]',
 	]}
 >
 	<h1
 		class:list={[
-			'absolute left-[3.31vw] bottom-[2.54vw] w-[93.37vw]',
-			'md:left-[3.76vw] md:bottom-[21.43vw] md:w-[48.15vw]',
+			'absolute bottom-[2.54vw] left-[3.31vw] w-[93.37vw]',
+			'md:bottom-[21.43vw] md:left-[3.76vw] md:w-[48.15vw]',
 		]}
 	>
 		<img src={Logo.src} class="h-auto w-full" alt="" />
@@ -53,10 +54,11 @@ const { globalConfig, image, avatar, name, description, compact } =
 	<p
 		class:list={[
 			'absolute text-white',
-			'left-[3.31vw] bottom-[-6.62vw] text-[3.56vw]',
-			'md:left-[3.76vw] md:bottom-[19.1vw] md:text-[1.39vw]',
+			'bottom-[-6.62vw] left-[3.31vw] text-[3.56vw]',
+			'md:bottom-[19.1vw] md:left-[3.76vw] md:text-[1.39vw]',
 		]}
-		class="subtitle absolute text-white">
+		class="subtitle absolute text-white"
+	>
 		Into a world where magic and mystery intertwine.
 	</p>
 </section>
