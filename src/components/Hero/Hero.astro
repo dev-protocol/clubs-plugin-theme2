@@ -17,87 +17,46 @@ const { globalConfig, image, avatar, name, description, compact } =
 		description?: string
 		compact?: boolean
 	}
-
-const backgroundGradientColorFrom = globalConfig?.backgroundGradient?.[0]
-const backgroundGradientColorTo = globalConfig?.backgroundGradient?.[1]
 ---
-
 <style
 	define:vars={{
-		backgroundGradientColorFrom,
-		backgroundGradientColorTo,
 		backgroundImageSrc: `url(${HeroImage.src})`,
 		backgroundImageSrcMb: `url(${HeroImageMb.src})`,
 	}}
 >
-	.gradient {
-		background: radial-gradient(
-			50% 50% at 50% 50%,
-			var(--backgroundGradientColorFrom) 0%,
-			var(--backgroundGradientColorTo) 100%
-		);
-	}
-
-	/*
-	#cover-image {
-		mask-image: linear-gradient(
-			to bottom,
-			black 0%,
-			black 40%,
-			transparent 100%
-		);
-	}
-	 */
-
 	.hero-image {
 		background-image: var(--backgroundImageSrcMb);
-		height: 149.87vw;
 	}
 
 	@media (min-width: 768px) {
 		.hero-image {
 			background-image: var(--backgroundImageSrc);
-			height: 66.67vw;
-		}
-	}
-
-	.hero-image .logo {
-		left: 3.31vw;
-		bottom: 2.54vw;
-		width: 93.37vw;
-	}
-
-	@media (min-width: 768px) {
-		.hero-image .logo {
-			left: 3.76vw;
-			bottom: 21.43vw;
-			width: 48.15vw;
-		}
-	}
-
-	.hero-image .subtitle {
-		left: 3.31vw;
-		bottom: -6.62vw;
-		font-size: 3.56vw;
-	}
-
-	@media (min-width: 768px) {
-		.hero-image .subtitle {
-			left: 3.76vw;
-			bottom: 19.1vw;
-			font-size: 1.39vw;
 		}
 	}
 </style>
 
 <!-- Cover image -->
 <section
-	class="hero-image relative mb-16 h-[149.87vw] w-full bg-cover bg-top bg-no-repeat md:mb-0 md:h-[66.67vw]"
+	class:list={[
+		'relative mb-16 h-[149.87vw] w-full bg-cover bg-top bg-no-repeat hero-image',
+		'md:mb-0 md:h-[66.67vw]',
+	]}
 >
-	<h1 class="logo absolute">
+	<h1
+		class:list={[
+			'absolute left-[3.31vw] bottom-[2.54vw] w-[93.37vw]',
+			'md:left-[3.76vw] md:bottom-[21.43vw] md:w-[48.15vw]',
+		]}
+	>
 		<img src={Logo.src} class="h-auto w-full" alt="" />
 	</h1>
-	<p class="subtitle absolute text-white">
+	<p
+		class:list={[
+			'absolute text-white',
+			'left-[3.31vw] bottom-[-6.62vw] text-[3.56vw]',
+			'md:left-[3.76vw] md:bottom-[19.1vw] md:text-[1.39vw]',
+		]}
+		class="subtitle absolute text-white">
 		Into a world where magic and mystery intertwine.
 	</p>
 </section>
