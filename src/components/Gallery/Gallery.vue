@@ -11,17 +11,21 @@ import thumbnail2 from '../../assets/gallery/thumbnail02.png'
 import thumbnail3 from '../../assets/gallery/thumbnail03.png'
 import thumbnail4 from '../../assets/gallery/thumbnail04.png'
 
-
 const currentSlide = ref(0)
 
 const slideTo = (index: number) => {
 	currentSlide.value = index
 }
-
 </script>
 
 <template>
-	<Carousel id="gallery" :items-to-show="1" :wrap-around="false" v-model="currentSlide" class="mb-3">
+	<Carousel
+		id="gallery"
+		:items-to-show="1"
+		:wrap-around="false"
+		v-model="currentSlide"
+		class="mb-3"
+	>
 		<Slide :key="1">
 			<div class="carousel__item">
 				<img class="w-full" :src="image1.src" alt="" />
@@ -70,7 +74,7 @@ const slideTo = (index: number) => {
 			<div class="" @click="slideTo(3)">
 				<img :src="thumbnail4.src" alt="" />
 			</div>
-			</Slide>
+		</Slide>
 	</Carousel>
 </template>
 
@@ -89,5 +93,4 @@ const slideTo = (index: number) => {
 		width: auto !important;
 	}
 }
-
 </style>
