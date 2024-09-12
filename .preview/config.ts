@@ -29,7 +29,7 @@ export default () =>
 					},
 					{
 						key: 'globalConfig',
-						value: { bg: '#ADADAD', ink: '#fff' } satisfies GlobalConfig,
+						value: { bg: '#1D1464', ink: '#fff' } satisfies GlobalConfig,
 					},
 				],
 			},

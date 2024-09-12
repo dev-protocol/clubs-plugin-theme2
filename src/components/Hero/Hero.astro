@@ -1,6 +1,9 @@
 ---
 import Description from './Description.svelte'
 import type { MembersCountVisibilityValue } from '../../index'
+import HeroImage from '../../assets/bg_image01.png'
+import HeroImageMb from '../../assets/bg_image01_mb.png'
+import Logo from '../../assets/logo.png'
 
 const { globalConfig, image, avatar, name, description, compact } =
 	Astro.props as {
@@ -14,31 +17,53 @@ const { globalConfig, image, avatar, name, description, compact } =
 		description?: string
 		compact?: boolean
 	}
-
-const backgroundGradientColorFrom = globalConfig?.backgroundGradient?.[0]
-const backgroundGradientColorTo = globalConfig?.backgroundGradient?.[1]
 ---
 
-<style define:vars={{ backgroundGradientColorFrom, backgroundGradientColorTo }}>
-	.gradient {
-		background: radial-gradient(
-			50% 50% at 50% 50%,
-			var(--backgroundGradientColorFrom) 0%,
-			var(--backgroundGradientColorTo) 100%
-		);
+<style
+	define:vars={{
+		backgroundImageSrc: `url(${HeroImage.src})`,
+		backgroundImageSrcMb: `url(${HeroImageMb.src})`,
+	}}
+>
+	.hero-image {
+		background-image: var(--backgroundImageSrcMb);
 	}
 
-	#cover-image {
-		mask-image: linear-gradient(
-			to bottom,
-			black 0%,
-			black 40%,
-			transparent 100%
-		);
+	@media (min-width: 768px) {
+		.hero-image {
+			background-image: var(--backgroundImageSrc);
+		}
 	}
 </style>
 
 <!-- Cover image -->
+<section
+	class:list={[
+		'hero-image relative mb-16 h-[149.87vw] w-full bg-cover bg-top bg-no-repeat',
+		'md:mb-0 md:h-[66.67vw]',
+	]}
+>
+	<h1
+		class:list={[
+			'absolute bottom-[2.54vw] left-[3.31vw] w-[93.37vw]',
+			'md:bottom-[21.43vw] md:left-[3.76vw] md:w-[48.15vw]',
+		]}
+	>
+		<img src={Logo.src} class="h-auto w-full" alt="" />
+	</h1>
+	<p
+		class:list={[
+			'absolute text-white',
+			'bottom-[-6.62vw] left-[3.31vw] text-[3.56vw]',
+			'md:bottom-[19.1vw] md:left-[3.76vw] md:text-[1.39vw]',
+		]}
+		class="subtitle absolute text-white"
+	>
+		Into a world where magic and mystery intertwine.
+	</p>
+</section>
+
+<!--
 <div
 	role="presentation"
 	class:list={[
@@ -71,12 +96,13 @@ const backgroundGradientColorTo = globalConfig?.backgroundGradient?.[1]
 		!compact && (
 			<img
 				id="cover-image"
-				src={image}
+				src={PreviewImage.src}
 				class="absolute aspect-square h-full w-full max-w-full object-cover"
 			/>
 		)
 	}
 </div>
+-->
 
 <!-- Avatar, Title, etc.  -->
 <section
