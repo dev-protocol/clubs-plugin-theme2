@@ -136,9 +136,14 @@ const truncatedDescription = ((desc) =>
 			membersCountConfig={membersCountConfig}
 		/>
 
-		<section class="container mx-auto">
-			<Gallery client:only="vue" />
-		</section>
+		{
+			// Display gallery only on the home page
+			!page && (
+				<section class="container mx-auto">
+					<Gallery client:only="vue" />
+				</section>
+			)
+		}
 
 		{
 			!displayFullPage && (

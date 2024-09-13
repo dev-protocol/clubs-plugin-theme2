@@ -27,6 +27,12 @@ const { globalConfig, image, avatar, name, description, compact } =
 >
 	.hero-image {
 		background-image: var(--backgroundImageSrcMb);
+		mask-image: linear-gradient(
+			to bottom,
+			black 0%,
+			black 40%,
+			transparent 100%
+		);
 	}
 
 	@media (min-width: 768px) {
@@ -37,16 +43,17 @@ const { globalConfig, image, avatar, name, description, compact } =
 </style>
 
 <!-- Cover image -->
-<section
-	class:list={[
-		'hero-image relative mb-16 h-[149.87vw] w-full bg-cover bg-top bg-no-repeat',
-		'md:mb-0 md:h-[66.67vw]',
-	]}
->
+<section class="relative mb-16 md:mb-0">
+	<div
+		class:list={[
+			'hero-image h-[149.87vw] w-full bg-cover bg-top bg-no-repeat',
+			'md:h-[66.67vw]',
+		]}
+	/>
 	<h1
 		class:list={[
 			'absolute bottom-[2.54vw] left-[3.31vw] w-[93.37vw]',
-			'md:bottom-[21.43vw] md:left-[3.76vw] md:w-[48.15vw]',
+			'md:bottom-[7.29vw] md:left-[3.76vw] md:w-[48.15vw]',
 		]}
 	>
 		<img src={Logo.src} class="h-auto w-full" alt="" />
@@ -55,7 +62,7 @@ const { globalConfig, image, avatar, name, description, compact } =
 		class:list={[
 			'absolute text-white',
 			'bottom-[-6.62vw] left-[3.31vw] text-[3.56vw]',
-			'md:bottom-[19.1vw] md:left-[3.76vw] md:text-[1.39vw]',
+			'md:bottom-[4.98vw] md:left-[3.76vw] md:text-[1.39vw]',
 		]}
 		class="subtitle absolute text-white"
 	>
