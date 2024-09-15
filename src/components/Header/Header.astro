@@ -8,6 +8,7 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 	connection?: boolean
 }
 ---
+
 <script>
 	const menuButton = document.getElementById('menu-button')
 	const closeButton = document.getElementById('close-button')
@@ -67,8 +68,8 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 	.menu-item {
 		opacity: 0;
 		transform: translateY(-8px);
-		transition-delay: calc(.2s + var(--r-globalnav-flyout-item-number)* 20ms);
-		transition-duration: .24s;
+		transition-delay: calc(0.2s + var(--r-globalnav-flyout-item-number) * 20ms);
+		transition-duration: 0.24s;
 		transition-property: opacity, transform, visibility;
 		transition-timing-function: ease-in-out, ease-in-out, step-start;
 
@@ -88,25 +89,28 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 		}
 	}
 </style>
-<header class="absolute flex justify-between items-center px-[3.70vw] py-[1.27vw] w-full z-10">
+<header
+	class="absolute z-10 flex w-full items-center justify-between px-[3.70vw] py-[1.27vw]"
+>
 	<div class="flex items-center">
-		<a
-			href="https://www.clubs.place/"
-			class="block mr-[2.08vw]"
-		>
-		<span
-			class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--backgroundColor)] p-1"
-		>
-			<Clubs class="h-full" />
-		</span>
+		<a href="https://www.clubs.place/" class="mr-[2.08vw] block">
+			<span
+				class="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--backgroundColor)] p-1"
+			>
+				<Clubs class="h-full" />
+			</span>
 		</a>
 		<ul
 			class:list={[
-				'menu fixed top-0 left-0 flex flex-col gap-4 py-12 px-10 w-[100vw] h-[100vh] bg-black text-white font-bold', // MB
-				'md:relative md:flex-row md:gap-4 md:py-0 md:px-0 md:w-auto md:h-auto md:bg-transparent', // PC
+				'menu fixed left-0 top-0 flex h-[100vh] w-[100vw] flex-col gap-4 bg-black px-10 py-12 font-bold text-white', // MB
+				'md:relative md:h-auto md:w-auto md:flex-row md:gap-4 md:bg-transparent md:px-0 md:py-0', // PC
 			]}
-			class="">
-			<button id="close-button" class="menu-item md:hidden absolute top-0 right-0 w-12 h-12">
+			class=""
+		>
+			<button
+				id="close-button"
+				class="menu-item absolute right-0 top-0 h-12 w-12 md:hidden"
+			>
 				<img src={closeIcon.src} alt="close" />
 			</button>
 			<li class="menu-item" style="--r-globalnav-flyout-item-number: 2">
