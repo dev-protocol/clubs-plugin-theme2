@@ -16,6 +16,7 @@ import type { MembersCountVisibilityValue } from '..'
 import type { GlobalConfig, HomeConfig } from '../types'
 import Gallery from '../components/Gallery/Gallery.vue'
 import Clips from '../components/Clips/Clips.vue'
+import PassportSkins from '../components/PassportSkins/PassportSkins.vue'
 
 const { page } = Astro.params
 const {
@@ -164,6 +165,14 @@ const truncatedDescription = ((desc) =>
 				!page && (
 					<section class="mb-9">
 						<Clips client:only="vue" />
+					</section>
+				)
+			}
+			{
+				// Display navigation only on the home page
+				!page && (
+					<section class="mb-9">
+						<PassportSkins client:only="vue" />
 					</section>
 				)
 			}
