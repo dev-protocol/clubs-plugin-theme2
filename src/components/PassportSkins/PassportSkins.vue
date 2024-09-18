@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import Image01 from '../../assets/passportSkins/image01.png'
 </script>
 

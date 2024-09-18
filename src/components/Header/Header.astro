@@ -90,11 +90,11 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 	}
 </style>
 <header
-	class="absolute z-10 flex w-full items-center justify-between px-[6.11vw] md:px-[3.70vw] pt-[5.60vw] md:pt-[1.27vw]"
+	class="absolute z-10 flex w-full items-center justify-between px-[6.11vw] pt-[5.60vw] md:px-[3.70vw] md:pt-[1.27vw]"
 >
 	<div class="flex items-center">
 		<a href="https://www.clubs.place/" class="mr-[2.08vw] block">
-				<Clubs class="w-24 h-full bg-transparent" />
+			<Clubs class="h-full w-24 bg-transparent" />
 		</a>
 		<ul
 			class:list={[
@@ -105,7 +105,7 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 		>
 			<button
 				id="close-button"
-				class="menu-item absolute right-[6.11vw] top-[5.60vw] h-12 w-12 md:hidden z-10"
+				class="menu-item absolute right-[6.11vw] top-[5.60vw] z-10 h-12 w-12 md:hidden"
 			>
 				<img src={closeIcon.src} alt="close" />
 			</button>
