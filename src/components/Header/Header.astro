@@ -22,6 +22,7 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 		menuItems.forEach((item, index) => {
 			item.classList.add('active')
 		})
+		closeButton?.classList.add('active')
 	})
 
 	closeButton?.addEventListener('click', () => {
@@ -30,6 +31,7 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 		menuItems.forEach((item, index) => {
 			item.classList.remove('active')
 		})
+		closeButton?.classList.remove('active')
 	})
 </script>
 <style>
@@ -88,6 +90,21 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 			transition-delay: 0s;
 		}
 	}
+
+	.close-button {
+		opacity: 0;
+		transform: translateY(-8px);
+		transition-duration: 0.2s;
+		transition-property: opacity, transform;
+		transition-timing-function: ease-in-out;
+		z-index: -1;
+
+		&.active {
+			opacity: 1;
+			z-index: 20;
+		}
+	}
+
 </style>
 <header
 	class="absolute z-10 flex w-full items-center justify-between px-[6.11vw] pt-[5.60vw] md:px-[3.70vw] md:pt-[1.27vw]"
@@ -101,14 +118,7 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 				'menu fixed left-0 top-0 flex h-[100vh] w-[100vw] flex-col gap-4 bg-black px-10 py-12 font-bold text-white', // MB
 				'md:relative md:h-auto md:w-auto md:flex-row md:gap-4 md:bg-transparent md:px-0 md:py-0', // PC
 			]}
-			class=""
 		>
-			<button
-				id="close-button"
-				class="menu-item absolute right-[6.11vw] top-[5.60vw] z-10 h-12 w-12 md:hidden"
-			>
-				<img src={closeIcon.src} alt="close" />
-			</button>
 			<li class="menu-item" style="--r-globalnav-flyout-item-number: 2">
 				<a href="#">Creators</a>
 			</li>
@@ -121,15 +131,24 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 		</ul>
 	</div>
 
-	<!--
-	<div
-		class="container mx-auto flex max-w-7xl items-center justify-between px-6 xl:px-0"
-	>
-		<i class="" role="presentation"></i>
-		{connection && <slot name="header:connect-button" />}
+	<div class="flex gap-4">
+		<!-- signin button -->
+
+			<span slot="clubs:connect-button">
+				<button class="px-4 py-2 text-xs rounded-lg bg-white text-black font-bold">SignIn</button>
+			</span>
+
+		<!-- Mobile menu button -->
+		<button id="menu-button" class="block md:hidden">
+			<img src={menuIcon.src} alt="menu" />
+		</button>
 	</div>
-	-->
-	<button id="menu-button" class="block md:hidden">
-		<img src={menuIcon.src} alt="menu" />
+
+	<!-- Close button -->
+	<button
+		id="close-button"
+		class="close-button absolute right-[6.11vw] top-[5.60vw] z-10 h-12 w-12 md:hidden"
+	>
+		<img src={closeIcon.src} alt="close" />
 	</button>
 </header>

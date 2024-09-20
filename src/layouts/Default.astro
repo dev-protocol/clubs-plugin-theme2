@@ -17,6 +17,7 @@ import type { GlobalConfig, HomeConfig } from '../types'
 import Gallery from '../components/Gallery/Gallery.vue'
 import Clips from '../components/Clips/Clips.vue'
 import PassportSkins from '../components/PassportSkins/PassportSkins.vue'
+import Videos from '../components/Videos/Videos.vue'
 
 const { page } = Astro.params
 const {
@@ -138,11 +139,22 @@ const truncatedDescription = ((desc) =>
 			membersCountConfig={membersCountConfig}
 		/>
 
-		<main class="container mx-auto p-3 md:p-0">
+		<main class="container mx-auto px-5 py-3 md:p-5">
+			{
+				page && (
+					<section class="mb-9">
+						<p class="text-sm text-white">
+							Lorem ipsum odor amet, consectetuer adipiscing elit. Venenatis facilisis arcu venenatis hac ac purus auctor in. Eget tincidunt nibh ad; feugiat cubilia in! Proin auctor erat, cursus augue venenatis rutrum imperdiet torquent. Erat sem convallis efficitur proin rhoncus condimentum felis. Donec penatibus tempor efficitur eget neque ex ex condimentum ex. Parturient elit porta fermentum eros gravida ac augue posuere? Adipiscing lacinia purus nec massa sapien lorem.<br />
+							<br />
+							Quis netus taciti amet dolor elit rhoncus. Condimentum curabitur per fermentum litora dictumst habitasse. Dis suspendisse imperdiet facilisi ad primis amet urna nisi. Sollicitudin orci non donec adipiscing torquent laoreet scelerisque. Posuere natoque auctor pellentesque consectetur parturient elementum nibh. Nibh interdum hendrerit risus aliquam egestas est efficitur magnis eget. Convallis luctus turpis lacinia vulputate nisi. Nascetur sodales ridiculus laoreet elementum per tristique sodales sagittis. Dolor hac donec habitasse eleifend viverra; torquent quis neque phasellus. Ante velit odio amet, eros cursus luctus consequat?<br />
+						</p>
+					</section>
+				)
+			}
 			{
 				// Display gallery only on the home page
 				!page && (
-					<section class="mb-9">
+					<section class=" mb-9">
 						<Gallery client:only="vue" />
 					</section>
 				)
@@ -165,6 +177,14 @@ const truncatedDescription = ((desc) =>
 				!page && (
 					<section class="mb-9">
 						<Clips client:only="vue" />
+					</section>
+				)
+			}
+			{
+				// Display navigation only on the home page
+				!page && (
+					<section class="mb-9">
+						<Videos client:only="vue" />
 					</section>
 				)
 			}
