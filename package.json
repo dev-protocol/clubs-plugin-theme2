@@ -39,7 +39,8 @@
 		"@devprotocol/util-ts": "4.0.0",
 		"bignumber.js": "9.1.2",
 		"ramda": "0.30.1",
-		"sass": "1.78.0"
+		"sass": "1.78.0",
+		"vue3-carousel": "^0.3.3"
 	},
 	"peerDependencies": {
 		"@devprotocol/clubs-core": "^2.1.1 || ^3.0.0",
@@ -50,7 +51,7 @@
 		"@astrojs/svelte": "^5.0.0",
 		"@astrojs/tailwind": "^5.0.0",
 		"@astrojs/vue": "^4.0.0",
-		"@devprotocol/clubs-core": "3.17.5",
+		"@devprotocol/clubs-core": "3.18.0",
 		"@rollup/plugin-typescript": "11.1.6",
 		"@tailwindcss/typography": "^0.5.10",
 		"@types/dotenv": "8.2.0",
