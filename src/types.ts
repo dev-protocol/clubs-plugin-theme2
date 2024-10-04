@@ -28,4 +28,6 @@ export type Override = Readonly<{
 }>
 export type ComposedItem = Override & { source: Membership }
 
-export type PassportItemData = ClubsOffering<Membership> & { passportItem: PassportItemDocument }
+export type PassportItemData = ClubsOffering<Membership> & {
+	passportItem: PassportItemDocument
+}

@@ -19,7 +19,10 @@ import Preview1 from './assets/default-theme-1.jpg'
 import Preview2 from './assets/default-theme-2.jpg'
 import Preview3 from './assets/default-theme-3.jpg'
 import { composeItems } from './utils/compose-items'
-import passportPlugin, { getPassportItemFromPayload, type PassportItemDocument } from '@devprotocol/clubs-plugin-passport'
+import passportPlugin, {
+	getPassportItemFromPayload,
+	type PassportItemDocument,
+} from '@devprotocol/clubs-plugin-passport'
 
 export const colorPresets = {
 	Purple: {
@@ -112,19 +115,31 @@ export const getPagePaths = (async (options, config, utils) => {
 	)
 	const clubsPaymentsOverrides = composeItems(clubsPay?.options || [], utils)
 
-	const _passportOfferings = (config?.offerings ?? ([] as ClubsOffering<Membership>[]))?.filter(
-		(offering) => offering.managedBy === passportPlugin.meta.id,
-	)
-	const passportOfferingWithItemData: UndefinedOr<PassportItemData> = await Promise.all(
-		_passportOfferings?.map(offering =>
-			getPassportItemFromPayload({ sTokenPayload: bytes32Hex(offering.payload ?? '') ?? '' })
-				.then((item:  Error | PassportItemDocument | undefined ): UndefinedOr<PassportItemData> => (item instanceof Error || !item ? undefined : { ...offering, passportItem: item }))
-				.catch(undefined)
-		) ?? ([] as Array<PassportItemData | undefined>)
-	)
-		.then((items: Array<PassportItemData | undefined>) => items.filter((items) => !!items))
-    	.then((items: PassportItemData[]) => (items.length ? items : undefined))
-    	.catch(() => undefined)
+	const _passportOfferings = (
+		config?.offerings ?? ([] as ClubsOffering<Membership>[])
+	)?.filter((offering) => offering.managedBy === passportPlugin.meta.id)
+	const passportOfferingWithItemData: UndefinedOr<PassportItemData> =
+		await Promise.all(
+			_passportOfferings?.map((offering) =>
+				getPassportItemFromPayload({
+					sTokenPayload: bytes32Hex(offering.payload ?? '') ?? '',
+				})
+					.then(
+						(
+							item: Error | PassportItemDocument | undefined,
+						): UndefinedOr<PassportItemData> =>
+							item instanceof Error || !item
+								? undefined
+								: { ...offering, passportItem: item },
+					)
+					.catch(undefined),
+			) ?? ([] as Array<PassportItemData | undefined>),
+		)
+			.then((items: Array<PassportItemData | undefined>) =>
+				items.filter((items) => !!items),
+			)
+			.then((items: PassportItemData[]) => (items.length ? items : undefined))
+			.catch(() => undefined)
 
 	return homeConfig
 		? [
