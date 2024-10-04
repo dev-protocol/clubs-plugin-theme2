@@ -1,5 +1,5 @@
 {
-	"extends": "astro/tsconfigs/strict",
+	"extends": "astro/tsconfigs/base",
 	"compilerOptions": {
 		"noEmit": true,
 		"outDir": "dist",
@@ -7,9 +7,11 @@
 		"declaration": true,
 		"skipLibCheck": true,
 		"resolveJsonModule": true,
+		"moduleResolution": "node",
 		"verbatimModuleSyntax": true,
 		"types": ["node", "astro/client"],
-		"allowImportingTsExtensions": true
+		"allowImportingTsExtensions": true,
+		"allowSyntheticDefaultImports": true,
 	},
 	"include": [
 		"src",
