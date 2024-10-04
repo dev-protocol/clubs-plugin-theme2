@@ -35,7 +35,7 @@
 	"author": "",
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@devprotocol/clubs-plugin-passport": "^0.1.0-beta.10",
+		"@devprotocol/clubs-plugin-passport": "^0.1.0-beta.11",
 		"@devprotocol/dev-kit": "8.7.0",
 		"@devprotocol/util-ts": "4.0.0",
 		"bignumber.js": "9.1.2",
