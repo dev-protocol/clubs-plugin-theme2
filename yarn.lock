@@ -6852,9 +6852,9 @@ vue-tsc@^2.0.0:
     semver "^7.5.4"
 
 vue3-carousel@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.3.3.tgz#72cdddbeb5ab64dc6fc7d54ab133b644e4a72f8f"
-  integrity sha512-VsuOBE4LG9lxAiYGR9U7ps4RyJ4oFQGzk79/49ybvoxzNpahPAVWIDHKK3a1lOv0CSplFq6u4FvaFLZ8x3FgWg==
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.3.4.tgz#8ef6d6b592385b7f8e97fcd508a3f4db29a2391e"
+  integrity sha512-jImUDbQa/9pELxUQdkflUPXL94V+iQZaOPUxWDBKSffCuxhYcV3sDM40pxoiYxUxXoNCDLUF4u9Ug6Xjdt4nkA==
 
 vue@3.5.11:
   version "3.5.11"
