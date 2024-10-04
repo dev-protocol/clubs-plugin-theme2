@@ -1,5 +1,6 @@
 /* eslint-disable functional/type-declaration-immutability */
-import type { Membership } from '@devprotocol/clubs-core'
+import type { ClubsOffering, Membership } from '@devprotocol/clubs-core'
+import type { PassportItemDocument } from '@devprotocol/clubs-plugin-passport'
 
 export type HomeConfig = {
 	hero: {
@@ -26,3 +27,5 @@ export type Override = Readonly<{
 	}
 }>
 export type ComposedItem = Override & { source: Membership }
+
+export type PassportItemData = ClubsOffering<Membership> & { passportItem: PassportItemDocument }
