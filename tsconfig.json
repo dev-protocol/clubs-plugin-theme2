@@ -1,15 +1,13 @@
 {
 	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
-		"noEmit": true,
 		"outDir": "dist",
-		"jsx": "preserve",
 		"declaration": true,
 		"skipLibCheck": true,
 		"resolveJsonModule": true,
-		"verbatimModuleSyntax": true,
-		"types": ["node", "astro/client"],
-		"allowImportingTsExtensions": true
+		"jsx": "preserve",
+		"verbatimModuleSyntax": false,
+		"types": ["node", "astro/client"]
 	},
 	"include": [
 		"src",
