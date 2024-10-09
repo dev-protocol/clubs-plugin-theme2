@@ -33,6 +33,31 @@ export default () =>
 		],
 		plugins: [
 			{
+				id: 'devprotocol:clubs:theme-2',
+				options: [
+					{
+						key: 'homeConfig',
+						value: {
+							hero: {
+								image:
+									'https://images.unsplash.com/photo-1681106447892-fde093d56df8?q=80&w=2626&auto=format&fit=crop',
+								text: '',
+							},
+							body: 'Hendrerit pellentesque tincidunt, sociis dictumst.',
+							description: 'Description',
+						} satisfies HomeConfig,
+					},
+					{
+						key: 'globalConfig',
+						value: { bg: '#1D1464', ink: '#fff' } satisfies GlobalConfig,
+					},
+				],
+			},
+			{
+				id: 'example',
+				options: [],
+			},
+			{
 				id: 'clubs-core:admin',
 				name: 'admin',
 				options: [],
