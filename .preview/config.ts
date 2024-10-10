@@ -128,16 +128,7 @@ export default () =>
 								currency: 'MATIC',
 								price: 0.000001,
 								description: 'This is my first passport skin.',
-								payload: {
-									'0': 98,
-									'1': 62,
-									'2': 172,
-									'3': 159,
-									'4': 95,
-									'5': 88,
-									'6': 96,
-									'7': 240,
-								},
+								payload: new Uint8Array([98, 62, 172, 159, 95, 88, 96, 240]),
 								paymentType: 'instant',
 								fee: {
 									percentage: 1,
@@ -153,16 +144,7 @@ export default () =>
 								price: 0.000001,
 								description:
 									'This membership represents a passport item with image available at: https://wallpapersmug.com/large/d0eb43/monkey-d-luffy-one-piece-aime.jpg',
-								payload: {
-									'0': 87,
-									'1': 163,
-									'2': 197,
-									'3': 95,
-									'4': 4,
-									'5': 64,
-									'6': 104,
-									'7': 5,
-								},
+								payload: new Uint8Array([87, 163, 197, 95, 4, 64, 104, 5]),
 								paymentType: 'instant',
 								fee: {
 									percentage: 1,
@@ -177,16 +159,7 @@ export default () =>
 								price: 0.000001,
 								description:
 									'This is a passport item where the image used is available at https://cdn.pixabay.com/photo/2023/10/06/23/29/ai-generated-8299238_1280.jpg',
-								payload: {
-									'0': 56,
-									'1': 100,
-									'2': 246,
-									'3': 160,
-									'4': 19,
-									'5': 253,
-									'6': 12,
-									'7': 241,
-								},
+								payload: new Uint8Array([56, 100, 246, 160, 19, 253, 12, 241]),
 								paymentType: 'stake',
 								fee: {
 									percentage: 0.1,
@@ -201,16 +174,7 @@ export default () =>
 								price: 0.000001,
 								description:
 									'This is a passport skin with dummy CSS:\n\nwith CSS available at https://github.com/dev-protocol/clubsx/blob/main/src/pages/passport2/dummyData.css',
-								payload: {
-									'0': 219,
-									'1': 147,
-									'2': 175,
-									'3': 66,
-									'4': 60,
-									'5': 105,
-									'6': 87,
-									'7': 121,
-								},
+								payload: new Uint8Array([219, 147, 175, 66, 60, 105, 87, 121]),
 								paymentType: 'custom',
 								fee: {
 									percentage: 0.4,
@@ -225,16 +189,7 @@ export default () =>
 								price: 0.000001,
 								description:
 									'This is a passport skin with dummy CSS:\n\nwith CSS available at https://github.com/dev-protocol/clubsx/blob/main/src/pages/passport2/dummyData.css',
-								payload: {
-									'0': 157,
-									'1': 129,
-									'2': 78,
-									'3': 48,
-									'4': 48,
-									'5': 12,
-									'6': 231,
-									'7': 145,
-								},
+								payload: new Uint8Array([157, 129, 78, 48, 48, 12, 231, 145]),
 								paymentType: 'custom',
 								fee: {
 									percentage: 0.8,
@@ -248,16 +203,7 @@ export default () =>
 								currency: 'MATIC',
 								price: 0.000001,
 								description: 'This is my second-membership',
-								payload: {
-									'0': 210,
-									'1': 227,
-									'2': 51,
-									'3': 234,
-									'4': 74,
-									'5': 195,
-									'6': 246,
-									'7': 191,
-								},
+								payload: new Uint8Array([210, 227, 51, 234, 74, 195, 246, 191]),
 								paymentType: 'custom',
 								fee: {
 									percentage: 0.5,
@@ -272,16 +218,7 @@ export default () =>
 								currency: 'MATIC',
 								price: 0.000001,
 								description: 'Membership for development purposes.',
-								payload: {
-									'0': 25,
-									'1': 159,
-									'2': 109,
-									'3': 15,
-									'4': 97,
-									'5': 91,
-									'6': 23,
-									'7': 97,
-								},
+								payload: new Uint8Array([25, 159, 109, 15, 97, 91, 23, 97]),
 								paymentType: 'custom',
 								fee: {
 									percentage: 0.5,
@@ -312,16 +249,7 @@ export default () =>
 		],
 		offerings: [
 			{
-				payload: {
-					'0': 61,
-					'1': 192,
-					'2': 94,
-					'3': 90,
-					'4': 63,
-					'5': 143,
-					'6': 128,
-					'7': 99,
-				},
+				payload: new Uint8Array([61, 192, 94, 90, 63, 143, 128, 99]),
 				name: 'Passport Image- One Piece',
 				imageSrc: 'https://i.imgur.com/2zGWsvL.jpeg',
 				price: 0.000001,
@@ -336,16 +264,7 @@ export default () =>
 				managedBy: 'devprotocol:clubs:plugin:passport',
 			},
 			{
-				payload: {
-					'0': 223,
-					'1': 184,
-					'2': 5,
-					'3': 157,
-					'4': 157,
-					'5': 113,
-					'6': 151,
-					'7': 210,
-				},
+				payload: new Uint8Array([223, 184, 5, 157, 157, 113, 151, 210]),
 				name: 'Passport Image- Naruto',
 				imageSrc:
 					'https://cdn.pixabay.com/photo/2023/10/06/23/29/ai-generated-8299238_1280.jpg',
@@ -361,16 +280,7 @@ export default () =>
 				managedBy: 'devprotocol:clubs:plugin:passport',
 			},
 			{
-				payload: {
-					'0': 225,
-					'1': 164,
-					'2': 186,
-					'3': 106,
-					'4': 243,
-					'5': 112,
-					'6': 57,
-					'7': 90,
-				},
+				payload: new Uint8Array([225, 164, 186, 106, 243, 112, 57, 90]),
 				name: 'Passort Skin- CSS Type A',
 				imageSrc: 'https://i.imgur.com/dE4Ok06.png',
 				price: 0.000001,
@@ -385,16 +295,7 @@ export default () =>
 				managedBy: 'devprotocol:clubs:plugin:passport',
 			},
 			{
-				payload: {
-					'0': 24,
-					'1': 78,
-					'2': 173,
-					'3': 213,
-					'4': 194,
-					'5': 201,
-					'6': 142,
-					'7': 35,
-				},
+				payload: new Uint8Array([24, 78, 173, 213, 194, 201, 142, 35]),
 				name: 'Passort Skin- CSS Type B',
 				imageSrc: 'https://i.imgur.com/59p923q.jpeg',
 				price: 0.000001,
