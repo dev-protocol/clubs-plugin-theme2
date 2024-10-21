@@ -128,15 +128,8 @@ const truncatedDescription = ((desc) =>
 		</Header>
 		<Hero
 			image={homeConfig?.hero?.image}
-			avatar={avatarImgSrc}
-			name={name}
-			propertyAddress={propertyAddress}
-			rpcUrl={rpcUrl}
-			socialLinks={socialLinks}
-			description={homeConfig?.description}
-			globalConfig={globalConfig}
-			compact={displayFullPage}
-			membersCountConfig={membersCountConfig}
+			logo={homeConfig?.hero?.logo}
+			text={homeConfig?.hero?.text?.en}
 		/>
 
 		<main class="container mx-auto px-5 py-3 md:p-5">
@@ -171,7 +164,7 @@ const truncatedDescription = ((desc) =>
 			}
 			{
 				// Display gallery only on the home page
-				!page && (
+				!page && false && (
 					<section class="mb-9">
 						<Gallery client:only="vue" />
 					</section>

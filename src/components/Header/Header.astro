@@ -106,7 +106,7 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 	}
 </style>
 <header
-	class="absolute z-10 flex w-full items-center justify-between px-[6.11vw] pt-[5.60vw] md:px-[3.70vw] md:pt-[1.27vw]"
+	class="flex w-full items-center justify-between px-[6.11vw] pt-[5.60vw] md:px-[3.70vw] md:pt-[1.27vw]"
 >
 	<div class="flex items-center">
 		<a href="https://www.clubs.place/" class="mr-[2.08vw] block">
@@ -114,7 +114,7 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 		</a>
 		<ul
 			class:list={[
-				'menu fixed left-0 top-0 flex h-[100vh] w-[100vw] flex-col gap-4 bg-black px-10 py-12 font-bold text-white', // MB
+				'menu fixed left-0 top-0 flex h-[100vh] w-[100vw] flex-col gap-4 bg-black px-10 py-12 font-bold', // MB
 				'md:relative md:h-auto md:w-auto md:flex-row md:gap-4 md:bg-transparent md:px-0 md:py-0', // PC
 			]}
 		>
@@ -134,7 +134,7 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 		<!-- signin button -->
 
 		<span slot="clubs:connect-button">
-			<button class="rounded-lg bg-white px-4 py-2 text-xs font-bold text-black"
+			<button class="rounded-lg px-4 py-2 text-xs font-bold text-white bg-black"
 				>SignIn</button
 			>
 		</span>
