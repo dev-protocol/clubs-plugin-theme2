@@ -1,17 +1,16 @@
 ---
-const { image, logo, text } =
-	Astro.props as {
-		image?: string
-		logo?: string
-		text?: string
-	}
+const { image, logo, text } = Astro.props as {
+	image?: string
+	logo?: string
+	text?: string
+}
 ---
 
-<section class="relative mb-2 md:mb-2 p-2">
-	<div class="flex bg-black rounded overflow-hidden">
-		<div class="flex flex-col justify-center w-[calc((100%/3)*1)] px-8">
+<section class="relative mb-2 p-2 md:mb-2">
+	<div class="flex overflow-hidden rounded bg-black">
+		<div class="flex w-[calc((100%/3)*1)] flex-col justify-center px-8">
 			<img src={logo} class="" alt="" />
-			<p class="text-white text-[1.3889vw]">
+			<p class="text-[1.3889vw] text-white">
 				{text}
 			</p>
 		</div>

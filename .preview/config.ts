@@ -56,7 +56,7 @@ export default () =>
 						key: 'globalConfig',
 						value: {
 							bg: '#fff',
-							ink: '#000'
+							ink: '#000',
 						} satisfies GlobalConfig,
 					},
 				],
