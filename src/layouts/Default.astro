@@ -162,11 +162,7 @@ const truncatedDescription = ((desc) =>
 					</section>
 				)
 			}
-			{
-				!page && (
-					<Home client:only="vue" />
-				)
-			}
+			{!page && <Home client:only="vue" />}
 		</main>
 	</body>
 </html>

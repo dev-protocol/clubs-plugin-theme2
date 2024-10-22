@@ -7,12 +7,12 @@ import { onMounted, ref } from 'vue'
 
 const items = ref<
 	| {
-	key: number
-	tag: "Clip" | "Skin" | "BGM"
-	image: string
-	title: string
-	description: string
-}[]
+			key: number
+			tag: 'Clip' | 'Skin' | 'BGM'
+			image: string
+			title: string
+			description: string
+	  }[]
 	| []
 >([])
 
@@ -20,7 +20,7 @@ const items = ref<
 const getItems = (nextGroupKey: number, count: number) => {
 	const nextItems: {
 		key: number
-		tag: "Clip" | "Skin" | "BGM"
+		tag: 'Clip' | 'Skin' | 'BGM'
 		image: string
 		title: string
 		description: string
@@ -44,23 +44,18 @@ const getItems = (nextGroupKey: number, count: number) => {
 
 		// ランダムなタグを作成する
 		const getRandomInt = (min: number, max: number) => {
-			min = Math.ceil(min);
-			max = Math.floor(max);
-			return Math.floor(Math.random() * (max - min + 1)) + min;
+			min = Math.ceil(min)
+			max = Math.floor(max)
+			return Math.floor(Math.random() * (max - min + 1)) + min
 		}
 
 		const random = getRandomInt(0, 2)
-		const tag = random === 0 ? "Clip" : random === 1 ? "Skin" : "BGM"
+		const tag = random === 0 ? 'Clip' : random === 1 ? 'Skin' : 'BGM'
 
 		nextItems.push({
 			key: nextKey,
 			tag: tag,
-			image:
-				random === 0
-					? clips1.src
-					: random === 1
-						? clips2.src
-						: clips3.src,
+			image: random === 0 ? clips1.src : random === 1 ? clips2.src : clips3.src,
 			title: `PV - ${title}`,
 			description: description,
 		})
@@ -69,10 +64,9 @@ const getItems = (nextGroupKey: number, count: number) => {
 }
 
 onMounted(async () => {
-	console.log("mounted")
+	console.log('mounted')
 	items.value = getItems(0, 10)
 })
-
 </script>
 <template>
 	<div class="flex gap-9">
@@ -81,106 +75,68 @@ onMounted(async () => {
 			<li>
 				<button
 					type="button"
-					class="
-									py-4
-									px-8
-									text-white
-									text-sm
-									font-bold
-									bg-gray-800
-									hover:bg-gray-900
-									rounded-lg
-									ring-2
-									ring-gray-800
-									ring-offset-2
-									ring-offset-white
-									border-gray-800
-									">All</button>
+					class="rounded-lg border-gray-800 bg-gray-800 px-8 py-4 text-sm font-bold text-white ring-2 ring-gray-800 ring-offset-2 ring-offset-white hover:bg-gray-900"
+				>
+					All
+				</button>
 			</li>
 			<li>
 				<button
 					type="button"
-					class="
-									flex
-									justify-between
-									gap-1
-									p-4
-									text-white
-									text-sm
-									font-bold
-									bg-gray-800
-									hover:bg-gray-900
-									rounded-lg
-									">
+					class="flex justify-between gap-1 rounded-lg bg-gray-800 p-4 text-sm font-bold text-white hover:bg-gray-900"
+				>
 					Clip
-					<span class="py-1 px-2 bg-blue-100 text-xs text-cyan-800 font-bold rounded-2xl">78</span>
+					<span
+						class="rounded-2xl bg-blue-100 px-2 py-1 text-xs font-bold text-cyan-800"
+						>78</span
+					>
 				</button>
 			</li>
 			<li>
 				<button
 					type="button"
-					class="
-									flex
-									justify-between
-									gap-1
-									p-4
-									text-white
-									text-sm
-									font-bold
-									bg-gray-800
-									hover:bg-gray-900
-									rounded-lg
-									">
+					class="flex justify-between gap-1 rounded-lg bg-gray-800 p-4 text-sm font-bold text-white hover:bg-gray-900"
+				>
 					Skin
-					<span class="py-1 px-2 bg-blue-100 text-xs text-cyan-800 font-bold rounded-2xl">12</span>
+					<span
+						class="rounded-2xl bg-blue-100 px-2 py-1 text-xs font-bold text-cyan-800"
+						>12</span
+					>
 				</button>
 			</li>
 			<li>
 				<button
 					type="button"
-					class="
-									flex
-									justify-between
-									gap-1
-									p-4
-									text-white
-									text-sm
-									font-bold
-									bg-gray-800
-									hover:bg-gray-900
-									rounded-lg
-									">
+					class="flex justify-between gap-1 rounded-lg bg-gray-800 p-4 text-sm font-bold text-white hover:bg-gray-900"
+				>
 					BGM
-					<span class="py-1 px-2 bg-blue-100 text-xs text-cyan-800 font-bold rounded-2xl">6</span>
+					<span
+						class="rounded-2xl bg-blue-100 px-2 py-1 text-xs font-bold text-cyan-800"
+						>6</span
+					>
 				</button>
 			</li>
 			<li>
 				<button
 					type="button"
-					class="
-									flex
-									justify-between
-									gap-1
-									p-4
-									text-white
-									text-sm
-									font-bold
-									bg-gray-800
-									hover:bg-gray-900
-									rounded-lg
-									">
+					class="flex justify-between gap-1 rounded-lg bg-gray-800 p-4 text-sm font-bold text-white hover:bg-gray-900"
+				>
 					PV
-					<span class="py-1 px-2 bg-blue-100 text-xs text-cyan-800 font-bold rounded-2xl">6</span>
+					<span
+						class="rounded-2xl bg-blue-100 px-2 py-1 text-xs font-bold text-cyan-800"
+						>6</span
+					>
 				</button>
 			</li>
 		</ul>
 		<!-- content -->
 		<div class="flex flex-wrap gap-4">
-			<Clip v-for="item in items"
-						:tag="item.tag"
-						:image="item.image"
-						:title="item.title"
-						:description="item.description"
+			<Clip
+				v-for="item in items"
+				:tag="item.tag"
+				:image="item.image"
+				:title="item.title"
+				:description="item.description"
 			/>
 		</div>
 	</div>
