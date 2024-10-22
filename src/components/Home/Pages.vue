@@ -2,6 +2,7 @@
 import clips1 from '../../assets/clips/clips01.png'
 import clips2 from '../../assets/clips/clips02.png'
 import clips3 from '../../assets/clips/clips03.png'
+import skin1 from '../../assets/skins/image01.png'
 import Clip from '../Clips/Clip.vue'
 import { onMounted, ref } from 'vue'
 
@@ -55,7 +56,7 @@ const getItems = (nextGroupKey: number, count: number) => {
 		nextItems.push({
 			key: nextKey,
 			tag: tag,
-			image: random === 0 ? clips1.src : random === 1 ? clips2.src : clips3.src,
+			image: random === 0 ? clips1.src : random === 1 ? skin1.src : clips3.src,
 			title: `PV - ${title}`,
 			description: description,
 		})
