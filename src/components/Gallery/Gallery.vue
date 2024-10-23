@@ -9,6 +9,13 @@ import image4 from '../../assets/gallery/image04.png'
 
 const currentSlide = ref(0)
 
+const breakpoints = {
+	768: {
+		itemsToShow: 2,
+		itemsToScroll: 2,
+	},
+}
+
 const slideTo = (index: number) => {
 	currentSlide.value = index
 }
@@ -17,11 +24,12 @@ const slideTo = (index: number) => {
 <template>
 	<Carousel
 		id="gallery"
-		:items-to-show="2"
-		:items-to-scroll="2"
+		:items-to-show="1"
+		:items-to-scroll="1"
 		:wrap-around="true"
 		snap-align="start"
 		:autoplay="0"
+		:breakpoints="breakpoints"
 		v-model="currentSlide"
 	>
 		<Slide :key="1">
