@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
 	<ul
@@ -21,7 +20,7 @@
 				Clip
 				<span
 					class="rounded-2xl bg-blue-100 px-2 py-1 text-xs font-bold text-cyan-800"
-				>78</span
+					>78</span
 				>
 			</button>
 		</li>
@@ -33,7 +32,7 @@
 				Skin
 				<span
 					class="rounded-2xl bg-blue-100 px-2 py-1 text-xs font-bold text-cyan-800"
-				>12</span
+					>12</span
 				>
 			</button>
 		</li>
@@ -45,7 +44,7 @@
 				BGM
 				<span
 					class="rounded-2xl bg-blue-100 px-2 py-1 text-xs font-bold text-cyan-800"
-				>6</span
+					>6</span
 				>
 			</button>
 		</li>
@@ -57,7 +56,7 @@
 				PV
 				<span
 					class="rounded-2xl bg-blue-100 px-2 py-1 text-xs font-bold text-cyan-800"
-				>6</span
+					>6</span
 				>
 			</button>
 		</li>
