@@ -114,18 +114,18 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 		</a>
 		<ul
 			class:list={[
-				'menu fixed left-0 top-0 flex flex-col gap-4 h-[100dvh] w-[100dvw] bg-black px-10 py-12 z-40', // MB
+				'menu fixed left-0 top-0 z-40 flex h-[100dvh] w-[100dvw] flex-col gap-4 bg-black px-10 py-12', // MB
 				'md:relative md:h-auto md:w-auto md:flex-row md:gap-4 md:bg-transparent md:px-0 md:py-0', // PC
 			]}
 		>
 			<li class="menu-item" style="--r-globalnav-flyout-item-number: 2">
-				<a class="text-white md:text-black font-bold" href="#">Creators</a>
+				<a class="font-bold text-white md:text-black" href="#">Creators</a>
 			</li>
 			<li class="menu-item" style="--r-globalnav-flyout-item-number: 4">
-				<a class="text-white md:text-black font-bold" href="＃">Community</a>
+				<a class="font-bold text-white md:text-black" href="＃">Community</a>
 			</li>
 			<li class="menu-item" style="--r-globalnav-flyout-item-number: 6">
-				<a class="text-white md:text-black font-bold" href="＃">News</a>
+				<a class="font-bold text-white md:text-black" href="＃">News</a>
 			</li>
 		</ul>
 	</div>
