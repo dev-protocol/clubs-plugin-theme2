@@ -19,8 +19,10 @@ const imageEle = useTemplateRef('image-element')
 
 watchEffect(async () => {
 	if (tag === 'Skin' && imageEle.value) {
-		const fac = new FastAverageColor();
-		color.value = await fac.getColorAsync(imageEle.value).catch((e) => new Error(e))
+		const fac = new FastAverageColor()
+		color.value = await fac
+			.getColorAsync(imageEle.value)
+			.catch((e) => new Error(e))
 	}
 })
 </script>
@@ -55,7 +57,7 @@ watchEffect(async () => {
 				ref="image-element"
 				class="aspect-square h-[232px] w-[232px]"
 				:class="{
-					'hidden': tag === 'Skin',
+					hidden: tag === 'Skin',
 				}"
 				:src="image"
 				alt="Clip"
