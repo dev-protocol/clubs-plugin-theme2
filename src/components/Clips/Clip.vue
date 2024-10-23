@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { defineProps, ref, useTemplateRef, watchEffect } from 'vue'
+import { FastAverageColor } from 'fast-average-color'
 
 // Define the types of props
 type Props = {
@@ -11,6 +12,17 @@ type Props = {
 
 // Define props with types
 const { image, title, description, tag } = defineProps<Props>()
+
+const color = ref<any>('')
+
+const imageEle = useTemplateRef('image-element')
+
+watchEffect(async () => {
+	if (tag === 'Skin' && imageEle.value) {
+		const fac = new FastAverageColor();
+		color.value = await fac.getColorAsync(imageEle.value).catch((e) => new Error(e))
+	}
+})
 </script>
 <style scoped>
 .gradation {
@@ -24,7 +36,7 @@ const { image, title, description, tag } = defineProps<Props>()
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: linear-gradient(0deg, #7639ee 25%, transparent);
+	background: linear-gradient(0deg, v-bind(color.hex) 25%, transparent);
 }
 </style>
 <template>
@@ -40,8 +52,11 @@ const { image, title, description, tag } = defineProps<Props>()
 	>
 		<div class="relative overflow-hidden rounded">
 			<img
-				v-if="tag !== 'Skin'"
+				ref="image-element"
 				class="aspect-square h-[232px] w-[232px]"
+				:class="{
+					'hidden': tag === 'Skin',
+				}"
 				:src="image"
 				alt="Clip"
 			/>
