@@ -6886,10 +6886,10 @@ vue-tsc@^2.0.0:
     "@vue/language-core" "2.1.6"
     semver "^7.5.4"
 
-vue3-carousel@^0.3.3:
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.3.4.tgz#8ef6d6b592385b7f8e97fcd508a3f4db29a2391e"
-  integrity sha512-jImUDbQa/9pELxUQdkflUPXL94V+iQZaOPUxWDBKSffCuxhYcV3sDM40pxoiYxUxXoNCDLUF4u9Ug6Xjdt4nkA==
+vue3-carousel@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.4.0.tgz#acc9facc956ad709ce6cd9c24fb6d3bfbaf4ba05"
+  integrity sha512-S8amVc3CiYb5SFHvSzSZ5vXDClL5H717847FcCQ0+iKYF9iTcPEAWoHcqSy2kU/rZ3HTq7IcmZl9R0wcKVnguQ==
 
 vue@3.5.12:
   version "3.5.12"
