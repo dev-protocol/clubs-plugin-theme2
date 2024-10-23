@@ -5,6 +5,7 @@ import clips3 from '../../assets/clips/clips03.png'
 import skin1 from '../../assets/skins/image01.png'
 import Clip from '../Clips/Clip.vue'
 import { onMounted, ref } from 'vue'
+import Gallery from '../Gallery/Gallery.vue'
 
 const items = ref<
 	| {
@@ -65,7 +66,6 @@ const getItems = (nextGroupKey: number, count: number) => {
 }
 
 onMounted(async () => {
-	console.log('mounted')
 	items.value = getItems(0, 10)
 })
 </script>
@@ -131,14 +131,19 @@ onMounted(async () => {
 			</li>
 		</ul>
 		<!-- content -->
-		<div class="flex flex-wrap gap-4">
-			<Clip
-				v-for="item in items"
-				:tag="item.tag"
-				:image="item.image"
-				:title="item.title"
-				:description="item.description"
-			/>
+		<div class="flex flex-col gap-16">
+			<section>
+				<Gallery />
+			</section>
+			<section class="flex flex-wrap gap-4">
+				<Clip
+					v-for="item in items"
+					:tag="item.tag"
+					:image="item.image"
+					:title="item.title"
+					:description="item.description"
+				/>
+			</section>
 		</div>
 	</div>
 </template>
