@@ -43,7 +43,7 @@ watchEffect(async () => {
 </style>
 <template>
 	<div
-		class="flex flex-col gap-4 overflow-hidden rounded border border-gray-300 p-1 md:p-2 shadow"
+		class="flex flex-col gap-4 overflow-hidden rounded border border-gray-300 p-1 shadow md:p-2"
 		:class="{
 			'bg-white': tag === 'Clip' || tag === 'BGM',
 			'gradation bg-cover bg-no-repeat': tag === 'Skin',
@@ -62,7 +62,10 @@ watchEffect(async () => {
 				:src="image"
 				alt="Clip"
 			/>
-			<div v-if="tag === 'Skin'" class="h-[40.458vw] w-[40.458vw] md:h-[232px] md:w-[232px]" />
+			<div
+				v-if="tag === 'Skin'"
+				class="h-[40.458vw] w-[40.458vw] md:h-[232px] md:w-[232px]"
+			/>
 			<div
 				class="absolute bottom-1 left-1 rounded px-2 py-1 text-xs text-white"
 				:class="{

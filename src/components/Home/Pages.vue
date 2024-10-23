@@ -70,9 +70,11 @@ onMounted(async () => {
 })
 </script>
 <template>
-	<div class="flex flex-col md:flex-row gap-9">
+	<div class="flex flex-col gap-9 md:flex-row">
 		<!-- filtering menu -->
-		<ul class="flex flex-row md:flex-col gap-4 overflow-x-auto md:overflow-visible">
+		<ul
+			class="flex flex-row gap-4 overflow-x-auto md:flex-col md:overflow-visible"
+		>
 			<li>
 				<button
 					type="button"
@@ -135,7 +137,9 @@ onMounted(async () => {
 			<section>
 				<Gallery />
 			</section>
-			<section class="flex justify-between md:justify-start flex-wrap gap-2 md:gap-4">
+			<section
+				class="flex flex-wrap justify-between gap-2 md:justify-start md:gap-4"
+			>
 				<Clip
 					v-for="item in items"
 					:tag="item.tag"
