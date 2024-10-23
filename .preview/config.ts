@@ -42,7 +42,6 @@ export default () =>
 						value: {
 							hero: {
 								image: HeroImage.src,
-								logo: Logo.src,
 								text: {
 									ja: 'Into a world where magic and mystery intertwine.',
 									en: 'Into a world where magic and mystery intertwine.',
@@ -57,6 +56,7 @@ export default () =>
 						value: {
 							bg: '#fff',
 							ink: '#000',
+							logo: Logo.src,
 						} satisfies GlobalConfig,
 					},
 				],

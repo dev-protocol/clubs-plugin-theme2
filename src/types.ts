@@ -5,7 +5,6 @@ import type { PassportItemDocument } from '@devprotocol/clubs-plugin-passport'
 export type HomeConfig = {
 	hero: {
 		image: string
-		logo: string
 		text: {
 			ja: string
 			en: string
@@ -19,6 +18,7 @@ export type GlobalConfig = {
 	bg?: string
 	backgroundGradient?: [string, string]
 	ink?: string
+	logo: string
 }
 
 export type Override = Readonly<{
