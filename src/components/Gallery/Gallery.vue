@@ -48,11 +48,14 @@ const slideTo = (index: number) => {
 
 	<div class="mt-4 w-full text-center" style="line-height: 0">
 		<div class="relative inline-flex gap-0">
-			<div class="absolute w-[50px] h-[5px] bg-gray-600 transition-all" :style="`left: calc((100% / 4) * ${currentSlide})`" />
-			<div class="w-[50px] h-[5px] bg-gray-200" @click="slideTo(0)"></div>
-			<div class="w-[50px] h-[5px] bg-gray-200" @click="slideTo(1)"></div>
-			<div class="w-[50px] h-[5px] bg-gray-200" @click="slideTo(2)"></div>
-			<div class="w-[50px] h-[5px] bg-gray-200" @click="slideTo(3)"></div>
+			<div
+				class="absolute h-[5px] w-[50px] bg-gray-600 transition-all"
+				:style="`left: calc((100% / 4) * ${currentSlide})`"
+			/>
+			<div class="h-[5px] w-[50px] bg-gray-200" @click="slideTo(0)"></div>
+			<div class="h-[5px] w-[50px] bg-gray-200" @click="slideTo(1)"></div>
+			<div class="h-[5px] w-[50px] bg-gray-200" @click="slideTo(2)"></div>
+			<div class="h-[5px] w-[50px] bg-gray-200" @click="slideTo(3)"></div>
 		</div>
 	</div>
 </template>
