@@ -101,12 +101,12 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 
 		&.active {
 			opacity: 1;
-			z-index: 20;
+			z-index: 40;
 		}
 	}
 </style>
 <header
-	class="absolute z-10 flex w-full items-center justify-between px-[6.11vw] pt-[5.60vw] md:px-[3.70vw] md:pt-[1.27vw]"
+	class="flex w-full items-center justify-between px-3 py-3 md:px-6 md:py-2"
 >
 	<div class="flex items-center">
 		<a href="https://www.clubs.place/" class="mr-[2.08vw] block">
@@ -114,18 +114,18 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 		</a>
 		<ul
 			class:list={[
-				'menu fixed left-0 top-0 flex h-[100vh] w-[100vw] flex-col gap-4 bg-black px-10 py-12 font-bold text-white', // MB
+				'menu fixed left-0 top-0 z-40 flex h-[100dvh] w-[100dvw] flex-col gap-4 bg-black px-10 py-12', // MB
 				'md:relative md:h-auto md:w-auto md:flex-row md:gap-4 md:bg-transparent md:px-0 md:py-0', // PC
 			]}
 		>
 			<li class="menu-item" style="--r-globalnav-flyout-item-number: 2">
-				<a href="#">Creators</a>
+				<a class="font-bold text-white md:text-black" href="#">Creators</a>
 			</li>
 			<li class="menu-item" style="--r-globalnav-flyout-item-number: 4">
-				<a href="＃">Community</a>
+				<a class="font-bold text-white md:text-black" href="＃">Community</a>
 			</li>
 			<li class="menu-item" style="--r-globalnav-flyout-item-number: 6">
-				<a href="＃">News</a>
+				<a class="font-bold text-white md:text-black" href="＃">News</a>
 			</li>
 		</ul>
 	</div>
@@ -134,7 +134,7 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 		<!-- signin button -->
 
 		<span slot="clubs:connect-button">
-			<button class="rounded-lg bg-white px-4 py-2 text-xs font-bold text-black"
+			<button class="rounded-lg bg-black px-4 py-2 text-xs font-bold text-white"
 				>SignIn</button
 			>
 		</span>
@@ -148,7 +148,7 @@ const { connection = true } = Astro.props as ClubsPropsPages & {
 	<!-- Close button -->
 	<button
 		id="close-button"
-		class="close-button absolute right-[6.11vw] top-[5.60vw] z-10 h-12 w-12 md:hidden"
+		class="close-button absolute right-[6.11vw] top-[5.60vw] h-12 w-12 md:hidden"
 	>
 		<img src={closeIcon.src} alt="close" />
 	</button>

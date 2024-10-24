@@ -9,15 +9,10 @@ import '@devprotocol/clubs-core/styles'
 import Header from '../components/Header/Header.astro'
 import Hero from '../components/Hero/Hero.astro'
 import type { ClubsNavigationLink as NavLink } from '@devprotocol/clubs-core'
-import Navigation from '../components/Navigation/Navigation.astro'
-import StartWithClubs from '../assets/Start-with-Clubs--dark.png'
 import type { Membership } from '@devprotocol/clubs-core'
 import type { MembersCountVisibilityValue } from '..'
 import type { GlobalConfig, HomeConfig } from '../types'
-import Gallery from '../components/Gallery/Gallery.vue'
-import Clips from '../components/Clips/Clips.vue'
-import PassportSkins from '../components/PassportSkins/PassportSkins.vue'
-import Videos from '../components/Videos/Videos.vue'
+import Home from '../components/Home/Pages.vue'
 
 const { page } = Astro.params
 const {
@@ -118,7 +113,7 @@ const truncatedDescription = ((desc) =>
 		</style>
 	</head>
 
-	<body class="grid min-h-screen gap-5 overflow-x-hidden font-body">
+	<body class="font-body">
 		<Header
 			chainId={chainId}
 			config={config}
@@ -128,15 +123,8 @@ const truncatedDescription = ((desc) =>
 		</Header>
 		<Hero
 			image={homeConfig?.hero?.image}
-			avatar={avatarImgSrc}
-			name={name}
-			propertyAddress={propertyAddress}
-			rpcUrl={rpcUrl}
-			socialLinks={socialLinks}
-			description={homeConfig?.description}
-			globalConfig={globalConfig}
-			compact={displayFullPage}
-			membersCountConfig={membersCountConfig}
+			logo={globalConfig?.logo}
+			text={homeConfig?.hero?.text?.en}
 		/>
 
 		<main class="container mx-auto px-5 py-3 md:p-5">
@@ -169,79 +157,7 @@ const truncatedDescription = ((desc) =>
 					</section>
 				)
 			}
-			{
-				// Display gallery only on the home page
-				!page && (
-					<section class="mb-9">
-						<Gallery client:only="vue" />
-					</section>
-				)
-			}
-			{
-				// Display navigation only on the home page
-				!page && (
-					<section class="mb-9 text-sm">
-						<p>
-							Mystic Horizon invites you into a mesmerizing world where magic
-							and mystery intertwine. As an intrepid explorer, you’ll traverse
-							stunning landscapes, encounter mythical creatures, and unlock the
-							secrets of an ancient realm.
-						</p>
-					</section>
-				)
-			}
-			{
-				// Display navigation only on the home page
-				!page && (
-					<section class="mb-9">
-						<Clips client:only="vue" />
-					</section>
-				)
-			}
-			{
-				// Display navigation only on the home page
-				!page && (
-					<section class="mb-9">
-						<Videos client:only="vue" />
-					</section>
-				)
-			}
-			{
-				// Display navigation only on the home page
-				!page && (
-					<section class="mb-9">
-						<PassportSkins client:only="vue" />
-					</section>
-				)
-			}
+			{!page && <Home client:only="vue" />}
 		</main>
-		<footer
-			id="info"
-			class="container mx-auto grid max-w-2xl justify-center justify-items-center gap-24 px-4 py-16"
-		>
-			{
-				footerLinks && (
-					<section>
-						<ul class="my-4 grid gap-2">
-							{footerLinks.map((x) => (
-								<li>
-									<a href={x.path} class="text-sm opacity-80">
-										{x.display}
-									</a>
-								</li>
-							))}
-						</ul>
-					</section>
-				)
-			}
-			<a href="https://clubs.place"
-				><img
-					src={StartWithClubs.src}
-					width="130"
-					height="46"
-					class="w-[190px]"
-				/></a
-			>
-		</footer>
 	</body>
 </html>

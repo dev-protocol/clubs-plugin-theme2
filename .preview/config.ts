@@ -1,5 +1,7 @@
 import { encode } from '@devprotocol/clubs-core'
 import { GlobalConfig, HomeConfig } from '../src/types'
+import HeroImage from '../src/assets/bg_image01.png'
+import Logo from '../src/assets/logo.png'
 
 export default () =>
 	encode({
@@ -39,9 +41,11 @@ export default () =>
 						key: 'homeConfig',
 						value: {
 							hero: {
-								image:
-									'https://images.unsplash.com/photo-1681106447892-fde093d56df8?q=80&w=2626&auto=format&fit=crop',
-								text: '',
+								image: HeroImage.src,
+								text: {
+									ja: 'Into a world where magic and mystery intertwine.',
+									en: 'Into a world where magic and mystery intertwine.',
+								},
 							},
 							body: 'Hendrerit pellentesque tincidunt, sociis dictumst.',
 							description: 'Description',
@@ -49,7 +53,11 @@ export default () =>
 					},
 					{
 						key: 'globalConfig',
-						value: { bg: '#1D1464', ink: '#fff' } satisfies GlobalConfig,
+						value: {
+							bg: '#fff',
+							ink: '#000',
+							logo: Logo.src,
+						} satisfies GlobalConfig,
 					},
 				],
 			},
