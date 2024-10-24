@@ -121,14 +121,16 @@ const truncatedDescription = ((desc) =>
 		>
 			<slot name="clubs:connect-button" slot="header:connect-button" />
 		</Header>
-		{ !page && (
-			<Hero
-				client:only="vue"
-				image={homeConfig?.hero?.image}
-				logo={globalConfig?.logo}
-				text={homeConfig?.hero?.text?.en}
-			/>
-		)}
+		{
+			!page && (
+				<Hero
+					client:only="vue"
+					image={homeConfig?.hero?.image}
+					logo={globalConfig?.logo}
+					text={homeConfig?.hero?.text?.en}
+				/>
+			)
+		}
 
 		<main class="container mx-auto px-5 py-3 md:p-5">
 			{
