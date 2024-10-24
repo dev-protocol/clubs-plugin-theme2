@@ -1,14 +1,11 @@
 ---
 import type { Membership } from '@devprotocol/clubs-core'
-import { markdownToHtml, ProseTextInherit } from '@devprotocol/clubs-core'
-import { ClubsSlotName, type ClubsPropsPages } from '@devprotocol/clubs-core'
+import { type ClubsPropsPages } from '@devprotocol/clubs-core'
 
 import type { SectionOrderingValue } from '..'
-import About_ from '../components/About.svelte'
-import WaitForLaunch from '../components/WaitForLaunch.svelte'
-import MembershipTitle from '../components/MembershipTitle.svelte'
-import Memberships from '../components/Memberships/Memberships.astro'
 import type { ComposedItem, HomeConfig } from '../types'
+import type { PassportItemData } from '../types.ts'
+import Home from '../components/Home/Pages.vue'
 
 type Props = ClubsPropsPages & {
 	memberships?: Membership[]
@@ -16,6 +13,7 @@ type Props = ClubsPropsPages & {
 	name: string
 	sectionsOrderConfig: SectionOrderingValue
 	clubsPaymentsOverrides: ComposedItem[]
+	passportOfferings: PassportItemData[]
 }
 
 const {
@@ -25,88 +23,8 @@ const {
 	clubs,
 	sectionsOrderConfig,
 	clubsPaymentsOverrides,
+	passportOfferings,
 } = Astro.props
 
-const htmlString = markdownToHtml(homeConfig.body)
-
-const SlotsPageContentHomeBeforeContent = clubs.slots.filter(({ slot }) => {
-	return slot === ClubsSlotName.PageContentHomeBeforeContent
-})
-const SlotsPageContentHomeAfterContent = clubs.slots.filter(({ slot }) => {
-	return slot === ClubsSlotName.PageContentHomeAfterContent
-})
 ---
-
-<article class="grid gap-6">
-	{
-		// Display slots of PageContentHomeBeforeContent
-		SlotsPageContentHomeBeforeContent.map((Slot) => (
-			<Slot.component {...Slot.props} />
-		))
-	}
-
-	{
-		sectionsOrderConfig && sectionsOrderConfig === 'about-first' ? (
-			<>
-				<About_ client:only="svelte" name={name} />
-				<div class={ProseTextInherit}>
-					<Fragment set:html={htmlString} />
-				</div>
-			</>
-		) : (
-			<section class="grid">
-				{memberships ? (
-					<>
-						<MembershipTitle
-							client:only="svelte"
-							hasSingleMembership={!memberships || memberships?.length <= 1}
-						/>
-						<Memberships
-							memberships={memberships}
-							name={name}
-							overrides={clubsPaymentsOverrides}
-						/>
-					</>
-				) : (
-					<WaitForLaunch client:only="svelte" />
-				)}
-			</section>
-		)
-	}
-
-	{
-		sectionsOrderConfig && sectionsOrderConfig === 'about-first' ? (
-			<section class="grid">
-				{memberships ? (
-					<>
-						<MembershipTitle
-							client:only="svelte"
-							hasSingleMembership={!memberships || memberships?.length <= 1}
-						/>
-						<Memberships
-							memberships={memberships}
-							name={name}
-							overrides={clubsPaymentsOverrides}
-						/>
-					</>
-				) : (
-					<WaitForLaunch client:only="svelte" />
-				)}
-			</section>
-		) : (
-			<>
-				<About_ client:only="svelte" name={name} />
-				<div class={ProseTextInherit}>
-					<Fragment set:html={htmlString} />
-				</div>
-			</>
-		)
-	}
-
-	{
-		// Display slots of SlotsPageContentHomeAfterContent
-		SlotsPageContentHomeAfterContent.map((Slot) => (
-			<Slot.component {...Slot.props} />
-		))
-	}
-</article>
+<Home client:only="vue" passportOfferings={passportOfferings} />
