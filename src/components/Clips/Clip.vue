@@ -24,7 +24,6 @@ const getTagName = (tag: PassportItemAssetType) => {
 	return 'Unknown'
 }
 
-
 // Define props with types
 const { image, title, description, tag } = defineProps<Props>()
 
@@ -62,7 +61,8 @@ watchEffect(async () => {
 	<div
 		class="flex flex-col gap-4 overflow-hidden rounded border border-gray-300 p-1 shadow md:p-2"
 		:class="{
-			'bg-white': CLIP.includes(tag) || BGM.includes(tag) || VIDEO.includes(tag),
+			'bg-white':
+				CLIP.includes(tag) || BGM.includes(tag) || VIDEO.includes(tag),
 			'gradation bg-cover bg-no-repeat': SKIN.includes(tag),
 		}"
 		:style="{
@@ -99,7 +99,8 @@ watchEffect(async () => {
 			<h3
 				class="overflow-hidden text-ellipsis text-nowrap font-bold"
 				:class="{
-					'text-base': CLIP.includes(tag) || BGM.includes(tag) || VIDEO.includes(tag),
+					'text-base':
+						CLIP.includes(tag) || BGM.includes(tag) || VIDEO.includes(tag),
 					'text-white': SKIN.includes(tag),
 				}"
 			>
@@ -108,7 +109,8 @@ watchEffect(async () => {
 			<p
 				class="overflow-hidden text-ellipsis text-nowrap text-sm"
 				:class="{
-					'text-gray-800': CLIP.includes(tag) || BGM.includes(tag) || VIDEO.includes(tag),
+					'text-gray-800':
+						CLIP.includes(tag) || BGM.includes(tag) || VIDEO.includes(tag),
 					'text-white': SKIN.includes(tag),
 				}"
 				style="--tw-text-opacity: 0.6"
