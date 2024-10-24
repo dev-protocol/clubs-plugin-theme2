@@ -7,7 +7,7 @@ import { ClubsPictogramAdaptable as Favicon } from '@devprotocol/clubs-core/imag
 import type { UndefinedOr } from '@devprotocol/util-ts'
 import '@devprotocol/clubs-core/styles'
 import Header from '../components/Header/Header.astro'
-import Hero from '../components/Hero/Hero.astro'
+import Hero from '../components/Hero/Hero.vue'
 import type { ClubsNavigationLink as NavLink } from '@devprotocol/clubs-core'
 import type { Membership } from '@devprotocol/clubs-core'
 import type { MembersCountVisibilityValue } from '..'
@@ -122,6 +122,7 @@ const truncatedDescription = ((desc) =>
 			<slot name="clubs:connect-button" slot="header:connect-button" />
 		</Header>
 		<Hero
+			client:only="vue"
 			image={homeConfig?.hero?.image}
 			logo={globalConfig?.logo}
 			text={homeConfig?.hero?.text?.en}
