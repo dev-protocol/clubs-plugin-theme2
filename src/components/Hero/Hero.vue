@@ -13,7 +13,7 @@ const { image, logo, text } = defineProps<Props>()
 <template>
 	<section class="relative md:mb-2 md:p-2">
 		<div
-			class="flex flex-col-reverse overflow-hidden rounded-b-xl md:rounded-2xl md:flex-row  aspect-[2/3] md:aspect-[2/1] bg-top md:bg-right bg-cover bg-no-repeat"
+			class="flex aspect-[2/3] flex-col-reverse overflow-hidden rounded-b-xl bg-cover bg-top bg-no-repeat md:aspect-[2/1] md:flex-row md:rounded-2xl md:bg-right"
 			:style="`background-image: url(${image});`"
 		>
 			<div
@@ -26,21 +26,19 @@ const { image, logo, text } = defineProps<Props>()
 					{{ text }}
 				</p>
 			</div>
-			<div class="w-full md:w-1/2">
-			</div>
+			<div class="w-full md:w-1/2"></div>
 		</div>
 	</section>
 </template>
 
 <style scoped>
 .gradient {
-	background-image: linear-gradient(0deg, #4A0C43 43%, transparent 100%);
+	background-image: linear-gradient(0deg, #4a0c43 43%, transparent 100%);
 }
 
 @media (min-width: 768px) {
 	.gradient {
-		background-image: linear-gradient(90deg, #4A0C43 69%, transparent 100%);
+		background-image: linear-gradient(90deg, #4a0c43 69%, transparent 100%);
 	}
 }
-
 </style>
