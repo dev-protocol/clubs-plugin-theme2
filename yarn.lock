@@ -539,10 +539,10 @@
     "@babel/helper-validator-identifier" "^7.25.7"
     to-fast-properties "^2.0.0"
 
-"@devprotocol/clubs-core@3.21.1":
-  version "3.21.1"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-core/-/clubs-core-3.21.1.tgz#5bfa7e12439eb8e83e3dfe3621f31805a2003b7b"
-  integrity sha512-WphLFeCyK21Kyk8U3cFVQWYsDM44jwqdvmC35i6FEaTiiVTe3Aei+W10OgVetpQrDwTsnu0zFDM4EnYbYZEVnQ==
+"@devprotocol/clubs-core@3.22.0":
+  version "3.22.0"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-core/-/clubs-core-3.22.0.tgz#c14591d1080f6f9ef42600246cb63efbfb05906d"
+  integrity sha512-OFudBh8eyt7goCne3qBwLMu8niqRFasBROZkT0UpSob2Iv7DSOU3B363IHriJaYHa6PVBhNgKmq+ZnWUXALbPA==
   dependencies:
     "@devprotocol/dev-kit" "8.7.0"
     "@devprotocol/elements" "1.5.3"
@@ -561,11 +561,11 @@
     p-queue "^8.0.1"
     ramda "^0.30.0"
     rxjs "^7.8.1"
-    yaml "2.5.1"
+    yaml "2.6.0"
   optionalDependencies:
     react "^18.0.0"
     react-dom "^18.0.0"
-    svelte "^4.0.0"
+    svelte "^5.0.0"
     vue "^3.2.0"
 
 "@devprotocol/clubs-core@^3.18.0":
@@ -7084,15 +7084,15 @@ yaml@2.5.0:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.5.0.tgz#c6165a721cf8000e91c36490a41d7be25176cf5d"
   integrity sha512-2wWLbGbYDiSqqIKoPjar3MPgB94ErzCtrNE1FdqGuaO0pi2JGjmE8aW8TDZwzU7vuxcGRdL/4gPQwQ7hD5AMSw==
 
-yaml@2.5.1, yaml@^2.5.0:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.5.1.tgz#c9772aacf62cb7494a95b0c4f1fb065b563db130"
-  integrity sha512-bLQOjaX/ADgQ20isPJRvF0iRUHIxVhYvr53Of7wGcWlO2jvtUlH5m87DsmulFVxRpNLOnI4tB6p/oh8D7kpn9Q==
-
-yaml@^2.3.4:
+yaml@2.6.0, yaml@^2.3.4:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.6.0.tgz#14059ad9d0b1680d0f04d3a60fe00f3a857303c3"
   integrity sha512-a6ae//JvKDEra2kdi1qzCyrJW/WZCgFi8ydDV+eXExl95t+5R+ijnqHJbz9tmMh8FUjx3iv2fCQ4dclAQlO2UQ==
+
+yaml@^2.5.0:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.5.1.tgz#c9772aacf62cb7494a95b0c4f1fb065b563db130"
+  integrity sha512-bLQOjaX/ADgQ20isPJRvF0iRUHIxVhYvr53Of7wGcWlO2jvtUlH5m87DsmulFVxRpNLOnI4tB6p/oh8D7kpn9Q==
 
 yargs-parser@^21.1.1:
   version "21.1.1"
