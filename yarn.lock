@@ -1668,10 +1668,10 @@
   dependencies:
     "@types/unist" "*"
 
-"@types/node@20.17.0":
-  version "20.17.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.17.0.tgz#d0620ba0fe4cf2a0f12351c7bdd805fc4e1f036b"
-  integrity sha512-a7zRo0f0eLo9K5X9Wp5cAqTUNGzuFLDG2R7C4HY2BhcMAsxgSPuRvAC1ZB6QkuUQXf0YZAgfOX2ZyrBa2n4nHQ==
+"@types/node@20.17.1":
+  version "20.17.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.17.1.tgz#2b968e060dfb04b7f9550fe3db5f552721c14566"
+  integrity sha512-j2VlPv1NnwPJbaCNv69FO/1z4lId0QmGvpT41YxitRtWlg96g/j8qcv2RKsLKe2F6OJgyXhupN1Xo17b2m139Q==
   dependencies:
     undici-types "~6.19.2"
 
@@ -6216,9 +6216,9 @@ svelte@^4.0.0:
     periscopic "^3.1.0"
 
 svelte@^5.0.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.1.0.tgz#8e19c5356860b02f9e84629f9309d6ea7355a553"
-  integrity sha512-qD0pUvL3P26Vx+K1VodZROSu7MjDHFDunEVZ+2d3LUDWHyYI87AJFOIws0HufKWHDgXbPO4FCSugmysnX4LDwA==
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-5.1.2.tgz#6aa4cc97bc501654c8ade65fb026a1a2cd6723b5"
+  integrity sha512-IovgkB3eQq0CdqQB1rd1F4SZbg8Z7VBSbAqhD2eE9t8l0KfJXZ/iHmfqnW5pxs5Lr89/cpIZTLU5buemsydYRw==
   dependencies:
     "@ampproject/remapping" "^2.3.0"
     "@jridgewell/sourcemap-codec" "^1.5.0"
