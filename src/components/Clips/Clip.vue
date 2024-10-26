@@ -132,7 +132,9 @@ watchEffect(async () => {
 					'text-white': SKIN.includes(tag),
 				}"
 				style="--tw-text-opacity: 0.6"
-			>{{price}} {{currency}}</p>
+			>
+				{{ price }} {{ currency }}
+			</p>
 		</div>
 		<Modal
 			:modalClose="modalClose"
