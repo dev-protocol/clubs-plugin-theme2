@@ -2,6 +2,9 @@
 import { defineProps, ref, useTemplateRef, watchEffect } from 'vue'
 import { FastAverageColor } from 'fast-average-color'
 import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
+import ModalContent from './ModalContent.vue'
+import Modal from '../Home/Modal.vue'
+import { Checkout } from '@devprotocol/clubs-core/ui/vue'
 
 // Define the types of props
 type Props = {
@@ -9,6 +12,9 @@ type Props = {
 	title: string
 	description: string
 	tag: PassportItemAssetType
+	propertyAddress?: string
+	price?: number
+	currency?: string
 }
 
 const SKIN = ['css', 'stylesheet-link']
@@ -27,6 +33,19 @@ const getTagName = (tag: PassportItemAssetType) => {
 // Define props with types
 const { image, title, description, tag } = defineProps<Props>()
 
+// modal visibility
+const modalVisible = ref(false)
+
+// open modal
+const modalOpen = () => {
+	modalVisible.value = true
+}
+
+// close modal
+const modalClose = () => {
+	modalVisible.value = false
+}
+
 const color = ref<any>('')
 
 const imageEle = useTemplateRef('image-element')
@@ -37,8 +56,6 @@ watchEffect(async () => {
 		color.value = await fac
 			.getColorAsync(imageEle.value)
 			.catch((e) => new Error(e))
-
-		console.log(color.value)
 	}
 })
 </script>
@@ -68,6 +85,7 @@ watchEffect(async () => {
 		:style="{
 			backgroundImage: SKIN.includes(tag) ? `url(${image})` : '',
 		}"
+		@click="modalOpen"
 	>
 		<div class="relative overflow-hidden rounded">
 			<img
@@ -114,8 +132,20 @@ watchEffect(async () => {
 					'text-white': SKIN.includes(tag),
 				}"
 				style="--tw-text-opacity: 0.6"
-				v-html="description"
-			/>
+			>{{price}} {{currency}}</p>
 		</div>
+		<Modal
+			:modalClose="modalClose"
+			:is-visible="modalVisible"
+			:modal-content="Checkout"
+			:attrs="{
+				amount: price,
+				currency: currency,
+				propertyAddress: propertyAddress,
+				itemImageSrc: image,
+				itemName: title,
+				description: description,
+			}"
+		/>
 	</div>
 </template>

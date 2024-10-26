@@ -23,14 +23,17 @@ const { passportOfferings } = defineProps<Props>()
 			</section>
 			<FilteringMenu class="flex md:hidden" />
 			<section
-				class="flex flex-wrap justify-between gap-2 md:justify-start md:gap-4"
+				class="flex flex-wrap justify-between gap-4 md:justify-start md:gap-4"
 			>
 				<Clip
 					v-for="item in passportOfferings"
 					:tag="item.passportItem.itemAssetType"
 					:image="item.imageSrc"
 					:title="item.passportItem.itemAssetType"
-					:description="`${item.price} ${item.currency}`"
+					:description="item.description"
+					:property-address="item.id"
+					:price="item.price"
+					:currency="item.currency"
 				/>
 			</section>
 		</div>
