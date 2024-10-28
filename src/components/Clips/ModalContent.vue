@@ -42,4 +42,8 @@ const { itemImageSrc, itemName, description, tag } = defineProps<Props>()
 	display: block;
 	overflow: hidden;
 }
+
+#modal-container > div.modal-content > div > div > section > aside > p {
+	word-break: break-all;
+}
 </style>
