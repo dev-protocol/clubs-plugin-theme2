@@ -14,7 +14,6 @@ type Props = {
 
 // Define props with types
 const { itemImageSrc, itemName, description, tag } = defineProps<Props>()
-
 </script>
 
 <template>
@@ -31,21 +30,16 @@ const { itemImageSrc, itemName, description, tag } = defineProps<Props>()
 </template>
 
 <style>
-
-#modal-container > div.modal-content
-{
+#modal-container > div.modal-content {
 	width: auto;
 }
 
-#modal-container > div.modal-content > div
-{
+#modal-container > div.modal-content > div {
 	margin-bottom: 0;
 }
 
-#modal-container > div.modal-content > div > div > section > div > span
-{
+#modal-container > div.modal-content > div > div > section > div > span {
 	display: block;
 	overflow: hidden;
 }
-
 </style>
