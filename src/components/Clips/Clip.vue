@@ -139,7 +139,7 @@ watchEffect(async () => {
 		<Modal
 			:modalClose="modalClose"
 			:is-visible="modalVisible"
-			:modal-content="Checkout"
+			:modal-content="ModalContent"
 			:attrs="{
 				amount: price,
 				currency: currency,
