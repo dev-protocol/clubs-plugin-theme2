@@ -4,16 +4,11 @@ import { ClipCategory, PassportItemData } from '../../types.ts'
 import { getTagName } from '../../utils/filtering-clips.ts'
 
 type Props = {
-	image?: string
-	logo?: string
-	text?: string
-	gradientColor?: string
 	items: PassportItemData[]
 }
 
-const { image, logo, text, items } = defineProps<Props>()
+const { items } = defineProps<Props>()
 
-// itemsの中のpassportItem.itemAssetTypeでグループ化
 const groupedItems = items.reduce(
 	(acc, item) => {
 		const itemAssetType = item.passportItem.itemAssetType
@@ -25,7 +20,7 @@ const groupedItems = items.reduce(
 		acc[key].push(item)
 		return acc
 	},
-	{} as Record<ClipCategory, PassportItemData[]>,
+	{} as { [key: string]: PassportItemData[] },
 )
 
 const selectedCategory = ref<ClipCategory>('All')
