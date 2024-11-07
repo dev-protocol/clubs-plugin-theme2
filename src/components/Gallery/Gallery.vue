@@ -47,7 +47,11 @@ const slideTo = (index: number) => {
 				class="absolute h-[5px] w-[50px] bg-gray-600 transition-all"
 				:style="`left: calc((100% / ${features.length}) * ${currentSlide})`"
 			/>
-			<div v-for="index in features.length" class="h-[5px] w-[50px] bg-gray-200" @click="slideTo(index -1)"></div>
+			<div
+				v-for="index in features.length"
+				class="h-[5px] w-[50px] bg-gray-200"
+				@click="slideTo(index - 1)"
+			></div>
 		</div>
 	</div>
 </template>

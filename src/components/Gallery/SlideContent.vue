@@ -14,7 +14,6 @@ const i18nBase = i18nFactory({
 	description: feature.description,
 })
 const i18n = i18nBase(navigator.languages)
-
 </script>
 
 <template>
@@ -36,6 +35,4 @@ const i18n = i18nBase(navigator.languages)
 	</div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
