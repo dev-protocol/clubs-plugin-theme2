@@ -29,35 +29,42 @@ const getTagName = (tag: PassportItemAssetType) => {
 }
 
 // itemsの中のpassportItem.itemAssetTypeでグループ化
-const groupedItems = items.reduce((acc, item) => {
-	const itemAssetType = item.passportItem.itemAssetType
-	const key = getTagName(itemAssetType)
+const groupedItems = items.reduce(
+	(acc, item) => {
+		const itemAssetType = item.passportItem.itemAssetType
+		const key = getTagName(itemAssetType)
 
-	if (!acc[key]) {
-		acc[key] = []
-	}
-	acc[key].push(item)
-	return acc
-}, {} as Record<Category, PassportItemData[]>)
+		if (!acc[key]) {
+			acc[key] = []
+		}
+		acc[key].push(item)
+		return acc
+	},
+	{} as Record<Category, PassportItemData[]>,
+)
 
 const selectedCategory = ref<Category>('All')
 selectedCategory.value = 'All'
-
 </script>
 
 <template>
 	<ul
-		class="flex flex-row gap-4 md:flex-col p-2 md:p-0 overflow-x-auto md:overflow-visible"
+		class="flex flex-row gap-4 overflow-x-auto p-2 md:flex-col md:overflow-visible md:p-0"
 	>
 		<li>
 			<button
 				type="button"
 				class="w-full rounded-lg bg-gray-800 p-4 text-sm font-bold text-white hover:bg-gray-900"
-				:class="{ 'border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white': selectedCategory === 'All' }"
-				@click="() => {
-					selectedCategory = 'All'
-					$emit('selectedCategory', 'All')
+				:class="{
+					'border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white':
+						selectedCategory === 'All',
 				}"
+				@click="
+					() => {
+						selectedCategory = 'All'
+						$emit('selectedCategory', 'All')
+					}
+				"
 			>
 				All
 			</button>
@@ -65,12 +72,17 @@ selectedCategory.value = 'All'
 		<li v-for="[category, _] of Object.entries(groupedItems)">
 			<button
 				type="button"
-				class="flex justify-between items-center gap-1 w-full rounded-lg bg-gray-800 p-4 text-sm font-bold text-white hover:bg-gray-900"
-				:class="{ 'border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white': selectedCategory === category }"
-				@click="() => {
-					selectedCategory = category as Category
-					$emit('selectedCategory', category)
+				class="flex w-full items-center justify-between gap-1 rounded-lg bg-gray-800 p-4 text-sm font-bold text-white hover:bg-gray-900"
+				:class="{
+					'border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white':
+						selectedCategory === category,
 				}"
+				@click="
+					() => {
+						selectedCategory = category as Category
+						$emit('selectedCategory', category)
+					}
+				"
 			>
 				{{ category }}
 				<span

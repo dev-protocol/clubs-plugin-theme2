@@ -90,7 +90,7 @@ export default () =>
 						value: {
 							hero: {
 								image: 'https://i.imgur.com/ldH4ZIo.jpg',
-								gradientColor: '#4a0c43'
+								gradientColor: '#4a0c43',
 							},
 							description:
 								'I create art in Canada using flowers and light refraction. Recently, I have focused on creating online artworks that allow user interaction through JavaScript.',

@@ -30,21 +30,30 @@ const getTagName = (tag: PassportItemAssetType) => {
 	return 'Unknown'
 }
 
-watch(selectedCategory, (category) => {
-	filteredItems.value = passportOfferings.filter((item) => {
-		const itemAssetType = item.passportItem.itemAssetType
-		const key = getTagName(itemAssetType)
-		return category === 'All' || key === category
-	})
-}, { immediate: true })
-
+watch(
+	selectedCategory,
+	(category) => {
+		filteredItems.value = passportOfferings.filter((item) => {
+			const itemAssetType = item.passportItem.itemAssetType
+			const key = getTagName(itemAssetType)
+			return category === 'All' || key === category
+		})
+	},
+	{ immediate: true },
+)
 </script>
 <template>
 	<div class="flex flex-col gap-9 md:flex-row">
 		<!-- filtering menu -->
-		<FilteringMenu class="hidden md:flex" :items="passportOfferings" @selected-category="(category) => {
-			selectedCategory = category
-		}" />
+		<FilteringMenu
+			class="hidden md:flex"
+			:items="passportOfferings"
+			@selected-category="
+				(category) => {
+					selectedCategory = category
+				}
+			"
+		/>
 
 		<!-- content -->
 		<div class="flex flex-col gap-9 md:gap-16">

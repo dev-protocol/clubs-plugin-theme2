@@ -34,12 +34,20 @@ const { image, logo, text } = defineProps<Props>()
 
 <style scoped>
 .gradient {
-	background-image: linear-gradient(0deg, v-bind(gradientColor) 43%, transparent 100%);
+	background-image: linear-gradient(
+		0deg,
+		v-bind(gradientColor) 43%,
+		transparent 100%
+	);
 }
 
 @media (min-width: 768px) {
 	.gradient {
-		background-image: linear-gradient(90deg, v-bind(gradientColor) 69%, transparent 100%);
+		background-image: linear-gradient(
+			90deg,
+			v-bind(gradientColor) 69%,
+			transparent 100%
+		);
 	}
 }
 </style>
