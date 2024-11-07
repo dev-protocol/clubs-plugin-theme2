@@ -42,7 +42,7 @@ watch(
 		/>
 
 		<!-- content -->
-		<div class="flex flex-col gap-9 md:gap-16 w-full">
+		<div class="flex w-full flex-col gap-9 md:gap-16">
 			<div>
 				<Gallery :features="homeConfig.features" />
 			</div>

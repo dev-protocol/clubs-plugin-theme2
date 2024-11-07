@@ -1,13 +1,17 @@
 ---
 import { ClubsLogo as Clubs } from '@devprotocol/clubs-core/layouts'
-import type { ClubsNavigationLink, ClubsPropsPages } from '@devprotocol/clubs-core'
+import type {
+	ClubsNavigationLink,
+	ClubsPropsPages,
+} from '@devprotocol/clubs-core'
 import menuIcon from '../../assets/menu.svg'
 import closeIcon from '../../assets/close.svg'
 
-const { connection = true, navigationLinks } = Astro.props as ClubsPropsPages & {
-	connection?: boolean
-	navigationLinks: ClubsNavigationLink[]
-}
+const { connection = true, navigationLinks } =
+	Astro.props as ClubsPropsPages & {
+		connection?: boolean
+		navigationLinks: ClubsNavigationLink[]
+	}
 ---
 
 <script>
@@ -119,11 +123,18 @@ const { connection = true, navigationLinks } = Astro.props as ClubsPropsPages & 
 				'md:relative md:h-auto md:w-auto md:flex-row md:gap-4 md:bg-transparent md:px-0 md:py-0', // PC
 			]}
 		>
-			{navigationLinks.map((link, index) => (
-				<li class="menu-item" style={`--r-globalnav-flyout-item-number: ${(index + 1) * 2}`}>
-					<a class="font-bold text-white md:text-black" href={link.path}>{link.display}</a>
-				</li>
-			))}
+			{
+				navigationLinks.map((link, index) => (
+					<li
+						class="menu-item"
+						style={`--r-globalnav-flyout-item-number: ${(index + 1) * 2}`}
+					>
+						<a class="font-bold text-white md:text-black" href={link.path}>
+							{link.display}
+						</a>
+					</li>
+				))
+			}
 			<!--
 			<li class="menu-item" style="--r-globalnav-flyout-item-number: 2">
 				<a class="font-bold text-white md:text-black" href="#">Creators</a>

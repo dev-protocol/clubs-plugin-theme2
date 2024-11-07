@@ -16,7 +16,7 @@ function mapFeaturesToTitles(features: HomeConfig['features']) {
 		return {
 			...acc,
 			[`title${index}`]: feature.title,
-			[`description${index}`]: feature.description
+			[`description${index}`]: feature.description,
 		}
 	}, {})
 }
@@ -59,8 +59,12 @@ const slideTo = (index: number) => {
 					class="flex w-full flex-col items-start justify-end p-6 font-bold text-white"
 					:style="`background-image: linear-gradient(0deg, ${feature.color} 10%, transparent 100%);`"
 				>
-					<p class="text-[8.142vw] md:text-[1.852vw]">{{ i18n(`title${index}`) }}</p>
-					<p class="text-[3.563vw] md:text-[0.810vw]">{{ i18n(`description${index}`) }}</p>
+					<p class="text-[8.142vw] md:text-[1.852vw]">
+						{{ i18n(`title${index}`) }}
+					</p>
+					<p class="text-[3.563vw] md:text-[0.810vw]">
+						{{ i18n(`description${index}`) }}
+					</p>
 				</div>
 			</div>
 		</Slide>
