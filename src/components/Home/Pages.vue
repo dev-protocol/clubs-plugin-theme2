@@ -3,14 +3,15 @@ import Clip from '../Clips/Clip.vue'
 import { defineProps, ref, watch, watchEffect } from 'vue'
 import Gallery from '../Gallery/Gallery.vue'
 import FilteringMenu from '../Clips/FilteringMenu.vue'
-import type { ClipCategory, PassportItemData } from '../../types.ts'
+import type { ClipCategory, HomeConfig, PassportItemData } from '../../types.ts'
 import { getTagName } from '../../utils/filtering-clips.ts'
 
 type Props = {
 	passportOfferings: PassportItemData[]
+	homeConfig: HomeConfig
 }
 
-const { passportOfferings } = defineProps<Props>()
+const { passportOfferings, homeConfig } = defineProps<Props>()
 
 const selectedCategory = ref<ClipCategory>('All')
 const filteredItems = ref<PassportItemData[]>([])
@@ -28,7 +29,7 @@ watch(
 )
 </script>
 <template>
-	<div class="flex flex-col gap-9 md:flex-row">
+	<div class="flex flex-col grow gap-9 md:flex-row">
 		<!-- filtering menu -->
 		<FilteringMenu
 			class="hidden md:flex"
@@ -43,9 +44,17 @@ watch(
 		<!-- content -->
 		<div class="flex flex-col gap-9 md:gap-16">
 			<section>
-				<Gallery />
+				<Gallery :features="homeConfig.features" />
 			</section>
-			<FilteringMenu class="flex md:hidden" :items="passportOfferings" />
+			<FilteringMenu
+				class="flex md:hidden"
+				:items="passportOfferings"
+				@selected-category="
+					(category) => {
+						selectedCategory = category
+					}
+				"
+			/>
 			<section
 				class="flex flex-wrap justify-between gap-4 md:justify-start md:gap-4"
 			>

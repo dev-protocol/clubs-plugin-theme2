@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
-import { ref } from 'vue'
-import image1 from '../../assets/gallery/image01.png'
-import image2 from '../../assets/gallery/image02.png'
-import image3 from '../../assets/gallery/image03.png'
-import image4 from '../../assets/gallery/image04.png'
+import { defineProps, ref } from 'vue'
+import type { HomeConfig } from '../../types.ts'
+
+type Props = {
+	features: HomeConfig['features']
+}
+
+const { features } = defineProps<Props>()
 
 const currentSlide = ref(0)
 
@@ -32,24 +35,16 @@ const slideTo = (index: number) => {
 		:breakpoints="breakpoints"
 		v-model="currentSlide"
 	>
-		<Slide :key="1">
-			<div class="">
-				<img class="w-full" :src="image1.src" alt="" />
-			</div>
-		</Slide>
-		<Slide :key="2">
-			<div class="">
-				<img class="w-full" :src="image2.src" alt="" />
-			</div>
-		</Slide>
-		<Slide :key="3">
-			<div class="">
-				<img class="w-full" :src="image3.src" alt="" />
-			</div>
-		</Slide>
-		<Slide :key="4">
-			<div class="">
-				<img class="w-full" :src="image4.src" alt="" />
+		<Slide v-for="(feature, index) in features" :key="index">
+			<div
+				class="flex w-full aspect-[5/3] overflow-hidden rounded bg-cover bg-top bg-no-repeat
+				md:aspect-[5/3] md:flex-row md:rounded-2xl md:bg-right"
+				:style="`background-image: url(${feature.image});`"
+			>
+				<div class="flex flex-col justify-end items-start p-6 w-full text-white font-bold" :style="`background-image: linear-gradient(0deg, ${feature.color} 10%, transparent 100%);`">
+					<p class="text-[8.142vw] md:text-[1.852vw]">{{feature.title.en}}</p>
+					<p class="text-[3.563vw] md:text-[0.810vw]">{{feature.description.en}}</p>
+				</div>
 			</div>
 		</Slide>
 	</Carousel>
