@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps, ref } from 'vue'
-import { PassportItemData } from '../../types.ts'
-import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
+import { ClipCategory, PassportItemData } from '../../types.ts'
+import { getTagName } from '../../utils/filtering-clips.ts'
 
 type Props = {
 	image?: string
@@ -11,22 +11,7 @@ type Props = {
 	items: PassportItemData[]
 }
 
-type Category = 'All' | 'Skin' | 'Clip' | 'BGM' | 'Video' | 'Unknown'
-
 const { image, logo, text, items } = defineProps<Props>()
-
-const SKIN = ['css', 'stylesheet-link']
-const CLIP = ['image', 'image-link']
-const BGM = ['bgm', 'bgm-link']
-const VIDEO = ['video', 'video-link']
-
-const getTagName = (tag: PassportItemAssetType) => {
-	if (SKIN.includes(tag)) return 'Skin'
-	if (CLIP.includes(tag)) return 'Clip'
-	if (BGM.includes(tag)) return 'BGM'
-	if (VIDEO.includes(tag)) return 'Video'
-	return 'Unknown'
-}
 
 // itemsの中のpassportItem.itemAssetTypeでグループ化
 const groupedItems = items.reduce(
@@ -40,11 +25,10 @@ const groupedItems = items.reduce(
 		acc[key].push(item)
 		return acc
 	},
-	{} as Record<Category, PassportItemData[]>,
+	{} as Record<ClipCategory, PassportItemData[]>,
 )
 
-const selectedCategory = ref<Category>('All')
-selectedCategory.value = 'All'
+const selectedCategory = ref<ClipCategory>('All')
 </script>
 
 <template>
@@ -79,7 +63,7 @@ selectedCategory.value = 'All'
 				}"
 				@click="
 					() => {
-						selectedCategory = category as Category
+						selectedCategory = category as ClipCategory
 						$emit('selectedCategory', category)
 					}
 				"

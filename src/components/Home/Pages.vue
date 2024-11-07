@@ -3,32 +3,17 @@ import Clip from '../Clips/Clip.vue'
 import { defineProps, ref, watch, watchEffect } from 'vue'
 import Gallery from '../Gallery/Gallery.vue'
 import FilteringMenu from '../Clips/FilteringMenu.vue'
-import type { PassportItemData } from '../../types.ts'
-import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
+import type { ClipCategory, PassportItemData } from '../../types.ts'
+import { getTagName } from '../../utils/filtering-clips.ts'
 
 type Props = {
 	passportOfferings: PassportItemData[]
 }
 
-type Category = 'All' | 'Skin' | 'Clip' | 'BGM' | 'Video' | 'Unknown'
-
 const { passportOfferings } = defineProps<Props>()
 
-const selectedCategory = ref<Category>('All')
+const selectedCategory = ref<ClipCategory>('All')
 const filteredItems = ref<PassportItemData[]>([])
-
-const SKIN = ['css', 'stylesheet-link']
-const CLIP = ['image', 'image-link']
-const BGM = ['bgm', 'bgm-link']
-const VIDEO = ['video', 'video-link']
-
-const getTagName = (tag: PassportItemAssetType) => {
-	if (SKIN.includes(tag)) return 'Skin'
-	if (CLIP.includes(tag)) return 'Clip'
-	if (BGM.includes(tag)) return 'BGM'
-	if (VIDEO.includes(tag)) return 'Video'
-	return 'Unknown'
-}
 
 watch(
 	selectedCategory,

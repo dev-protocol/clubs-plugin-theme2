@@ -4,6 +4,7 @@ import { FastAverageColor } from 'fast-average-color'
 import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
 import ModalContent from './ModalContent.vue'
 import Modal from '../Home/Modal.vue'
+import { BGM, CLIP, getTagName, SKIN, VIDEO } from '../../utils/filtering-clips.ts'
 
 // Define the types of props
 type Props = {
@@ -14,19 +15,6 @@ type Props = {
 	propertyAddress?: string
 	price?: number
 	currency?: string
-}
-
-const SKIN = ['css', 'stylesheet-link']
-const CLIP = ['image', 'image-link']
-const BGM = ['bgm', 'bgm-link']
-const VIDEO = ['video', 'video-link']
-
-const getTagName = (tag: PassportItemAssetType) => {
-	if (SKIN.includes(tag)) return 'Skin'
-	if (CLIP.includes(tag)) return 'Clip'
-	if (BGM.includes(tag)) return 'BGM'
-	if (VIDEO.includes(tag)) return 'Video'
-	return 'Unknown'
 }
 
 // Define props with types

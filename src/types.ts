@@ -36,3 +36,5 @@ export type ComposedItem = Override & { source: Membership }
 export type PassportItemData = ClubsOffering<Membership> & {
 	passportItem: PassportItemDocument
 }
+
+export type ClipCategory = 'All' | 'Skin' | 'Clip' | 'BGM' | 'Video' | 'Unknown'
