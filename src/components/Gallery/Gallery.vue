@@ -2,6 +2,7 @@
 import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 import { defineProps, ref } from 'vue'
+import { i18nFactory } from '@devprotocol/clubs-core'
 import type { HomeConfig } from '../../types.ts'
 
 type Props = {
@@ -9,6 +10,20 @@ type Props = {
 }
 
 const { features } = defineProps<Props>()
+
+function mapFeaturesToTitles(features: HomeConfig['features']) {
+	return features.reduce((acc, feature, index) => {
+		return {
+			...acc,
+			[`title${index}`]: feature.title,
+			[`description${index}`]: feature.description
+		}
+	}, {})
+}
+
+const i18nSeed = mapFeaturesToTitles(features)
+const i18nBase = i18nFactory(i18nSeed)
+const i18n = i18nBase(navigator.languages)
 
 const currentSlide = ref(0)
 
@@ -44,10 +59,8 @@ const slideTo = (index: number) => {
 					class="flex w-full flex-col items-start justify-end p-6 font-bold text-white"
 					:style="`background-image: linear-gradient(0deg, ${feature.color} 10%, transparent 100%);`"
 				>
-					<p class="text-[8.142vw] md:text-[1.852vw]">{{ feature.title.en }}</p>
-					<p class="text-[3.563vw] md:text-[0.810vw]">
-						{{ feature.description.en }}
-					</p>
+					<p class="text-[8.142vw] md:text-[1.852vw]">{{ i18n(`title${index}`) }}</p>
+					<p class="text-[3.563vw] md:text-[0.810vw]">{{ i18n(`description${index}`) }}</p>
 				</div>
 			</div>
 		</Slide>

@@ -42,10 +42,10 @@ watch(
 		/>
 
 		<!-- content -->
-		<div class="flex flex-col gap-9 md:gap-16">
-			<section>
+		<div class="flex flex-col gap-9 md:gap-16 w-full">
+			<div>
 				<Gallery :features="homeConfig.features" />
-			</section>
+			</div>
 			<FilteringMenu
 				class="flex md:hidden"
 				:items="passportOfferings"

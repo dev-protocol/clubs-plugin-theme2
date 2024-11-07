@@ -24,7 +24,19 @@ export default () =>
 				value: [
 					{
 						display: 'Home',
-						path: '/',
+						path: '#',
+					},
+					{
+						display: 'Creators',
+						path: '#',
+					},
+					{
+						display: 'Community',
+						path: '#',
+					},
+					{
+						display: 'News',
+						path: '#',
 					},
 				],
 			},
