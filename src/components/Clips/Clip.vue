@@ -4,7 +4,13 @@ import { FastAverageColor } from 'fast-average-color'
 import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
 import ModalContent from './ModalContent.vue'
 import Modal from '../Home/Modal.vue'
-import { BGM, CLIP, getTagName, SKIN, VIDEO } from '../../utils/filtering-clips.ts'
+import {
+	BGM,
+	CLIP,
+	getTagName,
+	SKIN,
+	VIDEO,
+} from '../../utils/filtering-clips.ts'
 
 // Define the types of props
 type Props = {
