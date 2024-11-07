@@ -2,6 +2,10 @@ import { encode } from '@devprotocol/clubs-core'
 import { GlobalConfig, HomeConfig } from '../src/types'
 import HeroImage from '../src/assets/bg_image01.png'
 import Logo from '../src/assets/logo.png'
+import Gallery1 from '../src/assets/gallery/image01.png'
+import Gallery2 from '../src/assets/gallery/image02.png'
+import Gallery3 from '../src/assets/gallery/image03.png'
+import Gallery4 from '../src/assets/gallery/image04.png'
 
 export default () =>
 	encode({
@@ -20,7 +24,19 @@ export default () =>
 				value: [
 					{
 						display: 'Home',
-						path: '/',
+						path: '#',
+					},
+					{
+						display: 'Creators',
+						path: '#',
+					},
+					{
+						display: 'Community',
+						path: '#',
+					},
+					{
+						display: 'News',
+						path: '#',
 					},
 				],
 			},
@@ -42,11 +58,57 @@ export default () =>
 						value: {
 							hero: {
 								image: HeroImage.src,
+								color: '#4a0c43',
 								text: {
 									ja: 'Into a world where magic and mystery intertwine.',
 									en: 'Into a world where magic and mystery intertwine.',
 								},
 							},
+							features: [
+								{
+									image: 'https://picsum.photos/512/308',
+									color: '#B63075',
+									title: {
+										ja: 'メタリック アート キャンバス',
+										en: 'Metallic Art Canvas',
+									},
+									description: {
+										ja: 'ただいまご予約受付中',
+										en: 'Now Accepting Reservations',
+									},
+									link: '',
+								},
+								{
+									image: Gallery2.src,
+									color: '#FF66C4',
+									title: { ja: 'ニュースキンが可能', en: 'New skin available' },
+									description: { ja: 'ただいまご予約受付中', en: 'Get Now' },
+									link: '',
+								},
+								{
+									image: Gallery3.src,
+									color: '#B63075',
+									title: {
+										ja: 'メタリック アート キャンバス２',
+										en: 'Metallic Art Canvas',
+									},
+									description: {
+										ja: 'ただいまご予約受付中',
+										en: 'Now Accepting Reservations',
+									},
+									link: '',
+								},
+								{
+									image: Gallery4.src,
+									color: '#FF66C4',
+									title: {
+										ja: 'ニュースキンが可能３',
+										en: 'New skin available',
+									},
+									description: { ja: 'ただいまご予約受付中', en: 'Get Now' },
+									link: '',
+								},
+							],
 							body: 'Hendrerit pellentesque tincidunt, sociis dictumst.',
 							description: 'Description',
 						} satisfies HomeConfig,
@@ -89,6 +151,7 @@ export default () =>
 						value: {
 							hero: {
 								image: 'https://i.imgur.com/ldH4ZIo.jpg',
+								gradientColor: '#4a0c43',
 							},
 							description:
 								'I create art in Canada using flowers and light refraction. Recently, I have focused on creating online artworks that allow user interaction through JavaScript.',
