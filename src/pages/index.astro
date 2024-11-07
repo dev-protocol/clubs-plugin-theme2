@@ -27,4 +27,8 @@ const {
 } = Astro.props
 ---
 
-<Home client:only="vue" passportOfferings={passportOfferings} homeConfig={homeConfig} />
+<Home
+	client:only="vue"
+	passportOfferings={passportOfferings}
+	homeConfig={homeConfig}
+/>

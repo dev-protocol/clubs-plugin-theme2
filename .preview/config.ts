@@ -52,33 +52,48 @@ export default () =>
 									en: 'Into a world where magic and mystery intertwine.',
 								},
 							},
-							features:[
+							features: [
 								{
 									image: 'https://picsum.photos/512/308',
 									color: '#B63075',
-									title: {ja: 'メタリック アート キャンバス', en: 'Metallic Art Canvas'},
-									description: {ja: 'ただいまご予約受付中', en: 'Now Accepting Reservations'},
+									title: {
+										ja: 'メタリック アート キャンバス',
+										en: 'Metallic Art Canvas',
+									},
+									description: {
+										ja: 'ただいまご予約受付中',
+										en: 'Now Accepting Reservations',
+									},
 									link: '',
 								},
 								{
 									image: Gallery2.src,
 									color: '#FF66C4',
-									title: {ja: 'ニュースキンが可能', en: 'New skin available'},
-									description: {ja: 'ただいまご予約受付中', en: 'Get Now'},
+									title: { ja: 'ニュースキンが可能', en: 'New skin available' },
+									description: { ja: 'ただいまご予約受付中', en: 'Get Now' },
 									link: '',
 								},
 								{
 									image: Gallery3.src,
 									color: '#B63075',
-									title: {ja: 'メタリック アート キャンバス２', en: 'Metallic Art Canvas'},
-									description: {ja: 'ただいまご予約受付中', en: 'Now Accepting Reservations'},
+									title: {
+										ja: 'メタリック アート キャンバス２',
+										en: 'Metallic Art Canvas',
+									},
+									description: {
+										ja: 'ただいまご予約受付中',
+										en: 'Now Accepting Reservations',
+									},
 									link: '',
 								},
 								{
 									image: Gallery4.src,
 									color: '#FF66C4',
-									title: {ja: 'ニュースキンが可能３', en: 'New skin available'},
-									description: {ja: 'ただいまご予約受付中', en: 'Get Now'},
+									title: {
+										ja: 'ニュースキンが可能３',
+										en: 'New skin available',
+									},
+									description: { ja: 'ただいまご予約受付中', en: 'Get Now' },
 									link: '',
 								},
 							],

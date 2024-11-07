@@ -37,13 +37,17 @@ const slideTo = (index: number) => {
 	>
 		<Slide v-for="(feature, index) in features" :key="index">
 			<div
-				class="flex w-full aspect-[5/3] overflow-hidden rounded bg-cover bg-top bg-no-repeat
-				md:aspect-[5/3] md:flex-row md:rounded-2xl md:bg-right"
+				class="flex aspect-[5/3] w-full overflow-hidden rounded bg-cover bg-top bg-no-repeat md:aspect-[5/3] md:flex-row md:rounded-2xl md:bg-right"
 				:style="`background-image: url(${feature.image});`"
 			>
-				<div class="flex flex-col justify-end items-start p-6 w-full text-white font-bold" :style="`background-image: linear-gradient(0deg, ${feature.color} 10%, transparent 100%);`">
-					<p class="text-[8.142vw] md:text-[1.852vw]">{{feature.title.en}}</p>
-					<p class="text-[3.563vw] md:text-[0.810vw]">{{feature.description.en}}</p>
+				<div
+					class="flex w-full flex-col items-start justify-end p-6 font-bold text-white"
+					:style="`background-image: linear-gradient(0deg, ${feature.color} 10%, transparent 100%);`"
+				>
+					<p class="text-[8.142vw] md:text-[1.852vw]">{{ feature.title.en }}</p>
+					<p class="text-[3.563vw] md:text-[0.810vw]">
+						{{ feature.description.en }}
+					</p>
 				</div>
 			</div>
 		</Slide>

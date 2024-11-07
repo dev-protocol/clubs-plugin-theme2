@@ -29,7 +29,7 @@ watch(
 )
 </script>
 <template>
-	<div class="flex flex-col grow gap-9 md:flex-row">
+	<div class="flex grow flex-col gap-9 md:flex-row">
 		<!-- filtering menu -->
 		<FilteringMenu
 			class="hidden md:flex"
