@@ -5,6 +5,7 @@ import type { PassportItemDocument } from '@devprotocol/clubs-plugin-passport'
 export type HomeConfig = {
 	hero: {
 		image: string
+		gradientColor: string
 		text: {
 			ja: string
 			en: string

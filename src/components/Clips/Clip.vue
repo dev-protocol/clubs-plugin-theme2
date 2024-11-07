@@ -4,7 +4,6 @@ import { FastAverageColor } from 'fast-average-color'
 import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
 import ModalContent from './ModalContent.vue'
 import Modal from '../Home/Modal.vue'
-import { Checkout } from '@devprotocol/clubs-core/ui/vue'
 
 // Define the types of props
 type Props = {
