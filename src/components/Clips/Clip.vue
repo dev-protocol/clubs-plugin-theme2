@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, ref, useTemplateRef, watch, watchEffect } from 'vue'
+import { defineProps, ref, useTemplateRef, watchEffect } from 'vue'
 import { FastAverageColor } from 'fast-average-color'
 import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
 import ModalContent from './ModalContent.vue'
