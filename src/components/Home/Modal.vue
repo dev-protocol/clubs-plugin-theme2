@@ -90,11 +90,7 @@ html:has(#modal-container[data-active='true']) {
 	>
 		<div class="modal-overlay" @click.stop="$emit('closeEvent')"></div>
 		<Transition>
-			<component
-				class="modal-content"
-				:is="modalContent"
-				v-bind="attrs"
-			>
+			<component class="modal-content" :is="modalContent" v-bind="attrs">
 				<template #after:description>
 					<slot name="after:description" />
 				</template>
