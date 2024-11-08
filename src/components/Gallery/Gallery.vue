@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { Carousel, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
-import { defineProps, ref } from 'vue'
+import { defineProps, onMounted, ref } from 'vue'
 import type { HomeConfig } from '../../types.ts'
 import SlideContent from './SlideContent.vue'
 
 type Props = {
 	features: HomeConfig['features']
+	langs: string[]
 }
 
-const { features } = defineProps<Props>()
+const { features, langs } = defineProps<Props>()
 
 const currentSlide = ref(0)
+const mounted = ref(false)
 
 const breakpoints = {
 	768: {
@@ -23,10 +25,14 @@ const breakpoints = {
 const slideTo = (index: number) => {
 	currentSlide.value = index
 }
-</script>
 
+onMounted(() => {
+	mounted.value = true
+})
+</script>
 <template>
 	<Carousel
+		v-if="mounted"
 		id="gallery"
 		:items-to-show="1"
 		:items-to-scroll="1"
@@ -37,7 +43,7 @@ const slideTo = (index: number) => {
 		v-model="currentSlide"
 	>
 		<Slide v-for="(feature, index) in features" :key="index">
-			<SlideContent :feature="feature" />
+			<SlideContent :feature="feature" :langs="langs" />
 		</Slide>
 	</Carousel>
 

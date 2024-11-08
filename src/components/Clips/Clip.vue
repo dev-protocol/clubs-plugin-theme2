@@ -83,7 +83,7 @@ watchEffect(async () => {
 		<div class="relative overflow-hidden rounded">
 			<img
 				ref="image-element"
-				class="aspect-square h-[40.458vw] w-[40.458vw] md:h-[232px] md:w-[232px]"
+				class="aspect-square h-[40.458vw] w-[40.458vw] object-cover md:h-[232px] md:w-[232px]"
 				:class="{
 					hidden: SKIN.includes(tag),
 				}"
