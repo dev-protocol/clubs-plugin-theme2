@@ -28,12 +28,12 @@ const selectedCategory = ref<ClipCategory>('All')
 
 <template>
 	<ul
-		class="flex flex-row gap-4 overflow-x-auto p-2 md:flex-col md:overflow-visible md:p-0"
+		class="sticky top-0 z-20 flex flex-row gap-4 overflow-x-auto bg-white p-2 md:top-2 md:flex-col md:overflow-visible md:p-0"
 	>
 		<li>
 			<button
 				type="button"
-				class="w-full rounded-lg bg-gray-800 p-4 text-sm font-bold text-white hover:bg-gray-900"
+				class="w-full rounded-lg bg-gray-800 px-4 py-2 text-sm font-bold text-white hover:bg-gray-900 md:p-4"
 				:class="{
 					'border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white':
 						selectedCategory === 'All',
@@ -51,7 +51,7 @@ const selectedCategory = ref<ClipCategory>('All')
 		<li v-for="[category, _] of Object.entries(groupedItems)">
 			<button
 				type="button"
-				class="flex w-full items-center justify-between gap-1 rounded-lg bg-gray-800 p-4 text-sm font-bold text-white hover:bg-gray-900"
+				class="flex w-full items-center justify-between gap-1 rounded-lg bg-gray-800 px-4 py-2 text-sm font-bold text-white hover:bg-gray-900 md:p-4"
 				:class="{
 					'border-gray-800 ring-2 ring-gray-800 ring-offset-2 ring-offset-white':
 						selectedCategory === category,

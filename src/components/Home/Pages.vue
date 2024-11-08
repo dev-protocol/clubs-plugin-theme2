@@ -9,9 +9,10 @@ import { getTagName } from '../../utils/filtering-clips.ts'
 type Props = {
 	passportOfferings: PassportItemData[]
 	homeConfig: HomeConfig
+	langs: string[]
 }
 
-const { passportOfferings, homeConfig } = defineProps<Props>()
+const { passportOfferings, homeConfig, langs } = defineProps<Props>()
 
 const selectedCategory = ref<ClipCategory>('All')
 const filteredItems = ref<PassportItemData[]>([])
@@ -29,7 +30,7 @@ watch(
 )
 </script>
 <template>
-	<div class="flex grow flex-col gap-9 md:flex-row">
+	<div class="relative flex grow flex-col items-start gap-9 md:flex-row">
 		<!-- filtering menu -->
 		<FilteringMenu
 			class="hidden md:flex"
@@ -44,10 +45,10 @@ watch(
 		<!-- content -->
 		<div class="flex w-full flex-col gap-9 md:gap-16">
 			<div>
-				<Gallery :features="homeConfig.features" />
+				<Gallery :features="homeConfig.features" :langs="langs" />
 			</div>
 			<FilteringMenu
-				class="flex md:hidden"
+				class="-mx-2 flex md:hidden"
 				:items="passportOfferings"
 				@selected-category="
 					(category) => {

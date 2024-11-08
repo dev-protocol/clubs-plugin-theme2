@@ -25,10 +25,12 @@ const {
 	clubsPaymentsOverrides,
 	passportOfferings,
 } = Astro.props
+const langs = Astro.request.headers.get('accept-language')?.split(',') ?? ['en']
 ---
 
 <Home
-	client:only="vue"
+	client:load
 	passportOfferings={passportOfferings}
 	homeConfig={homeConfig}
+	langs={langs}
 />

@@ -1,19 +1,23 @@
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
+import { defineProps, onMounted, ref } from 'vue'
 import { i18nFactory } from '@devprotocol/clubs-core'
 import type { HomeConfig } from '../../types.ts'
 
 type Props = {
 	feature: HomeConfig['features'][0]
+	langs: string[]
 }
 
-const { feature } = defineProps<Props>()
+const { feature, langs } = defineProps<Props>()
 
 const i18nBase = i18nFactory({
 	title: feature.title,
 	description: feature.description,
 })
-const i18n = i18nBase(navigator.languages)
+const i18n = ref<ReturnType<typeof i18nBase>>(i18nBase(langs))
+onMounted(() => {
+	i18n.value = i18nBase(navigator.languages)
+})
 </script>
 
 <template>
