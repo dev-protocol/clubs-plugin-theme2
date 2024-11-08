@@ -78,7 +78,7 @@ watchEffect(async () => {
 		:style="{
 			backgroundImage: SKIN.includes(tag) ? `url(${image})` : '',
 		}"
-		@click="modalOpen"
+		@click.stop="modalOpen"
 	>
 		<div class="relative overflow-hidden rounded">
 			<img
@@ -130,7 +130,6 @@ watchEffect(async () => {
 			</p>
 		</div>
 		<Modal
-			:modalClose="modalClose"
 			:is-visible="modalVisible"
 			:modal-content="ModalContent"
 			:attrs="{
@@ -141,6 +140,7 @@ watchEffect(async () => {
 				itemName: title,
 				description: description,
 			}"
+			@close-event="modalClose"
 		/>
 	</div>
 </template>
