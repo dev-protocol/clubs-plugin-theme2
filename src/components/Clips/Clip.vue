@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, ref, useTemplateRef, watchEffect } from 'vue'
+import { defineProps, ref, useTemplateRef, watch, watchEffect } from 'vue'
 import { FastAverageColor } from 'fast-average-color'
 import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
 import ModalContent from './ModalContent.vue'
@@ -78,7 +78,7 @@ watchEffect(async () => {
 		:style="{
 			backgroundImage: SKIN.includes(tag) ? `url(${image})` : '',
 		}"
-		@click="modalOpen"
+		@click.stop="modalOpen"
 	>
 		<div class="relative overflow-hidden rounded">
 			<img
@@ -130,7 +130,6 @@ watchEffect(async () => {
 			</p>
 		</div>
 		<Modal
-			:modalClose="modalClose"
 			:is-visible="modalVisible"
 			:modal-content="ModalContent"
 			:attrs="{
@@ -141,6 +140,7 @@ watchEffect(async () => {
 				itemName: title,
 				description: description,
 			}"
+			@close-event="modalClose"
 		/>
 	</div>
 </template>

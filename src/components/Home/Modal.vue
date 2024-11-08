@@ -2,7 +2,6 @@
 import { Component as VueComponent } from 'vue'
 
 defineProps<{
-	modalClose?: () => void
 	isVisible: boolean
 	modalContent: VueComponent
 	attrs?: { [key: string]: any }
@@ -83,29 +82,23 @@ html:has(#modal-container[data-active='true']) {
 </style>
 
 <template>
-	<div>
-		<Teleport to="body">
-			<div
-				id="modal-container"
-				v-show="isVisible"
-				class="modal-container z-50"
-				:data-active="isVisible"
+	<div
+		id="modal-container"
+		v-show="isVisible"
+		class="modal-container z-50"
+		:data-active="isVisible"
+	>
+		<div class="modal-overlay" @click.stop="$emit('closeEvent')"></div>
+		<Transition>
+			<component
+				class="modal-content"
+				:is="modalContent"
+				v-bind="attrs"
 			>
-				<div class="modal-overlay" @click="modalClose"></div>
-				<Transition>
-					<component
-						:modalClose="modalClose"
-						v-show="isVisible"
-						class="modal-content"
-						:is="modalContent"
-						v-bind="attrs"
-					>
-						<template #after:description>
-							<slot name="after:description" />
-						</template>
-					</component>
-				</Transition>
-			</div>
-		</Teleport>
+				<template #after:description>
+					<slot name="after:description" />
+				</template>
+			</component>
+		</Transition>
 	</div>
 </template>

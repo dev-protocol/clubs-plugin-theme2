@@ -1,19 +1,17 @@
 <script setup lang="ts">
 import { Checkout } from '@devprotocol/clubs-core/ui/vue'
-import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
 
 type Props = {
 	itemImageSrc: string
 	itemName: string
 	description: string
-	tag: PassportItemAssetType
 	propertyAddress?: string
 	price?: number
 	currency?: string
 }
 
 // Define props with types
-const { itemImageSrc, itemName, description, tag } = defineProps<Props>()
+const { itemImageSrc, itemName, description } = defineProps<Props>()
 </script>
 
 <template>

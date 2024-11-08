@@ -114,13 +114,12 @@ const truncatedDescription = ((desc) =>
 
 	<body class="font-body">
 		<Header
-			chainId={chainId}
-			config={config}
 			connection={!notDisplayConnection}
 			navigationLinks={navigationLinks}
 		>
 			<slot name="clubs:connect-button" slot="header:connect-button" />
 		</Header>
+
 		{
 			!page && (
 				<Hero
