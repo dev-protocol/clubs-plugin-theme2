@@ -1,9 +1,19 @@
 import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
 
-const SKIN = ['css', 'stylesheet-link']
-const CLIP = ['image', 'image-link']
-const BGM = ['bgm', 'bgm-link']
-const VIDEO = ['video', 'video-link']
+const SKIN: PassportItemAssetType[] = ['css', 'stylesheet-link']
+const CLIP: PassportItemAssetType[] = [
+	'image',
+	'image-link',
+	'image-playable',
+	'image-playable-link',
+]
+const BGM: PassportItemAssetType[] = ['bgm', 'bgm-link']
+const VIDEO: PassportItemAssetType[] = [
+	'video',
+	'video-link',
+	'short-video',
+	'short-video-link',
+]
 
 export const getTagName = (tag: PassportItemAssetType) => {
 	return SKIN.includes(tag)

@@ -46,11 +46,22 @@ onMounted(() => {
 			<SlideContent :feature="feature" :langs="langs" />
 		</Slide>
 	</Carousel>
+	<div v-if="!mounted" class="flex w-full gap-4">
+		<!-- Loading placeholder -->
+		<SlideContent
+			v-for="(feature, index) in features.slice(0, 2)"
+			:key="index"
+			:feature="feature"
+			:as-placeholder="true"
+			:langs="langs"
+			:class="[{ 'hidden md:flex': index > 0 }]"
+		/>
+	</div>
 
 	<div class="mt-4 w-full text-center" style="line-height: 0">
-		<div class="relative inline-flex gap-0">
+		<div class="relative inline-flex gap-0 overflow-hidden rounded-full">
 			<div
-				class="absolute h-[5px] w-[50px] bg-gray-600 transition-all"
+				class="absolute h-[5px] w-[50px] rounded-full bg-gray-600 transition-all"
 				:style="`left: calc((100% / ${features.length}) * ${currentSlide})`"
 			/>
 			<div
