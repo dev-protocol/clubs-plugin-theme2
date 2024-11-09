@@ -119,6 +119,7 @@ export default () =>
 							bg: '#fff',
 							ink: '#000',
 							logo: Logo.src,
+							copyright: '🄫CLUBS - FRAME00 Example',
 						} satisfies GlobalConfig,
 					},
 				],

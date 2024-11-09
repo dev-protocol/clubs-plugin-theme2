@@ -6,28 +6,40 @@ type Props = {
 	logo?: string
 	text?: string
 	gradientColor?: string
+	copyright?: string
 }
 
 const { image, logo, text } = defineProps<Props>()
 </script>
 
 <template>
-	<section class="relative md:mb-2 md:p-2">
+	<section class="md:mb-2 md:p-2">
 		<div
-			class="flex aspect-[2/3] flex-col-reverse overflow-hidden rounded-b-xl bg-cover bg-top bg-no-repeat md:aspect-[2/1] md:flex-row md:rounded-2xl md:bg-right"
-			:style="`background-image: url(${image});`"
+			class="relative flex overflow-hidden rounded-b-xl md:aspect-[2/1] md:justify-end md:rounded-2xl"
 		>
+			<img
+				:src="image"
+				class="pointer-events-none absolute top-0 aspect-[3/4] w-full object-cover md:relative md:aspect-[4/3] md:h-full md:w-auto"
+			/>
 			<div
-				class="gradient flex w-full flex-col justify-center gap-2 px-8 py-9 md:w-1/2 md:px-8 md:py-0"
+				class="relative inset-0 grid grid-cols-1 grid-rows-[auto_1fr] justify-center md:absolute md:grid-cols-2 md:grid-rows-1"
 			>
-				<img :src="logo" class="" alt="" />
-				<p
-					class="text-[6.107vw] leading-none text-white md:text-[1.3889vw] md:leading-normal"
+				<span class="row-start-1 aspect-square md:col-start-2"></span>
+				<span
+					class="gradient row-start-2 flex flex-col justify-center gap-2 p-8 md:col-start-1 md:row-start-1"
 				>
-					{{ text }}
-				</p>
+					<img :src="logo" class="" alt="" />
+					<p v-if="text" class="leading-none text-white md:leading-normal">
+						{{ text }}
+					</p>
+					<p
+						v-if="copyright"
+						class="place-self-end self-end text-sm text-white opacity-50 md:absolute md:bottom-8 md:left-8"
+					>
+						{{ copyright }}
+					</p>
+				</span>
 			</div>
-			<div class="w-full md:w-1/2"></div>
 		</div>
 	</section>
 </template>
@@ -45,7 +57,7 @@ const { image, logo, text } = defineProps<Props>()
 	.gradient {
 		background-image: linear-gradient(
 			90deg,
-			v-bind(gradientColor) 69%,
+			v-bind(gradientColor) 70%,
 			transparent 100%
 		);
 	}

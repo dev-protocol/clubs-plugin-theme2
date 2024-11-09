@@ -6,7 +6,7 @@ export type HomeConfig = {
 	hero: {
 		image: string
 		color: string
-		text: {
+		text?: {
 			ja: string
 			en: string
 		}
@@ -33,6 +33,7 @@ export type GlobalConfig = {
 	backgroundGradient?: [string, string]
 	ink?: string
 	logo: string
+	copyright?: string
 }
 
 export type Override = Readonly<{
