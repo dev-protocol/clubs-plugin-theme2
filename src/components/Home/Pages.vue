@@ -4,7 +4,7 @@ import { defineProps, ref, watch, watchEffect } from 'vue'
 import Gallery from '../Gallery/Gallery.vue'
 import FilteringMenu from '../Clips/FilteringMenu.vue'
 import type { ClipCategory, HomeConfig, PassportItemData } from '../../types.ts'
-import { getTagName } from '../../utils/filtering-clips.ts'
+import { CLIP, getTagName, SKIN, VIDEO } from '../../utils/filtering-clips.ts'
 
 type Props = {
 	passportOfferings: PassportItemData[]
@@ -57,12 +57,23 @@ watch(
 				"
 			/>
 			<section
-				class="flex flex-wrap justify-between gap-4 md:justify-start md:gap-4"
+				class="grid grid-cols-5 grid-cols-[repeat(auto-fill,minmax(150px,1fr))] justify-between gap-4 md:gap-4 lg:grid-cols-5"
 			>
 				<Clip
 					v-for="item in filteredItems"
 					:tag="item.passportItem.itemAssetType"
-					:image="item.imageSrc"
+					:image="
+						CLIP.includes(item.passportItem.itemAssetType)
+							? item.passportItem.itemAssetValue
+							: SKIN.includes(item.passportItem.itemAssetType)
+								? item.imageSrc
+								: item.imageSrc
+					"
+					:video="
+						VIDEO.includes(item.passportItem.itemAssetType)
+							? item.passportItem.itemAssetValue
+							: undefined
+					"
 					:title="item.passportItem.itemAssetType"
 					:description="item.description"
 					:property-address="item.id"

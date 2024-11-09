@@ -5,10 +5,11 @@ import type { HomeConfig } from '../../types.ts'
 
 type Props = {
 	feature: HomeConfig['features'][0]
+	asPlaceholder?: boolean
 	langs: string[]
 }
 
-const { feature, langs } = defineProps<Props>()
+const { feature, asPlaceholder, langs } = defineProps<Props>()
 
 const i18nBase = i18nFactory({
 	title: feature.title,
@@ -22,12 +23,18 @@ onMounted(() => {
 
 <template>
 	<div
-		class="flex aspect-[5/3] w-full overflow-hidden rounded bg-cover bg-top bg-no-repeat md:aspect-[5/3] md:flex-row md:rounded-2xl md:bg-right"
-		:style="`background-image: url(${feature.image});`"
+		class="relative flex aspect-[5/3] w-full overflow-hidden rounded-2xl md:aspect-[5/3] md:flex-row"
 	>
 		<div
-			class="flex w-full flex-col items-start justify-end p-6 font-bold text-white"
-			:style="`background-image: linear-gradient(0deg, ${feature.color} 10%, transparent 100%);`"
+			role="presentation"
+			class="absolute inset-0 bg-cover bg-no-repeat"
+			:style="`background-image: url(${feature.image});`"
+			:class="[{ '-m-3 animate-pulse blur-md': asPlaceholder }]"
+		></div>
+		<div
+			v-if="!asPlaceholder"
+			class="relative flex w-full flex-col items-start justify-end p-6 font-bold text-white"
+			:style="`background-image: linear-gradient(0deg, ${feature.color} 20%, transparent 50%);`"
 		>
 			<p class="text-[8.142vw] md:text-[1.852vw]">
 				{{ i18n('title') }}
