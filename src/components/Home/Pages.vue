@@ -12,7 +12,7 @@ type Props = {
 	langs: string[]
 }
 
-const { passportOfferings, homeConfig, langs } = defineProps<Props>()
+const { passportOfferings = [], homeConfig, langs } = defineProps<Props>()
 
 const selectedCategory = ref<ClipCategory>('All')
 const filteredItems = ref<PassportItemData[]>([])
