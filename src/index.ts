@@ -196,7 +196,7 @@ export const getLayout = (async (options, config, { getPluginConfigById }) => {
 }) satisfies ClubsFunctionGetLayout
 
 export const meta = {
-	id: 'devprotocol:clubs:theme-2',
+	id: 'devprotocol:clubs:plugin:akiba',
 	displayName: 'Minimalist',
 	category: ClubsPluginCategory.Theme,
 	theme: {

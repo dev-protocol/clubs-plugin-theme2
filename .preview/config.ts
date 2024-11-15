@@ -51,7 +51,7 @@ export default () =>
 		],
 		plugins: [
 			{
-				id: 'devprotocol:clubs:theme-2',
+				id: 'devprotocol:clubs:plugin:akiba',
 				options: [
 					{
 						key: 'homeConfig',
