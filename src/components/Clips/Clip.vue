@@ -150,7 +150,7 @@ onMounted(async () => {
 				{{ title }}
 			</h3>
 			<div
-				class="flex flex-col gap-0 w-full justify-start text-sm"
+				class="flex w-full flex-col justify-start gap-0 text-sm"
 				:class="{
 					'text-gray-800':
 						CLIP.includes(tag) || BGM.includes(tag) || VIDEO.includes(tag),
@@ -159,23 +159,35 @@ onMounted(async () => {
 				}"
 				style="--tw-text-opacity: 0.6"
 			>
-				<p v-if="isDiscountActive" class="flex gap-1 overflow-hidden text-ellipsis text-nowrap">
-					<span class="text-right" :class="{'font-bold': isDiscountActive}">
+				<p
+					v-if="isDiscountActive"
+					class="flex gap-1 overflow-hidden text-ellipsis text-nowrap"
+				>
+					<span class="text-right" :class="{ 'font-bold': isDiscountActive }">
 						{{ discountPrice }}
 					</span>
 
-					<span class="text-right" :class="{'font-bold': isDiscountActive}">
+					<span class="text-right" :class="{ 'font-bold': isDiscountActive }">
 						{{ discountCurrency }}
 					</span>
 				</p>
-				<p class="flex gap-1 overflow-hidden text-ellipsis text-nowrap" :class="{
-							'line-through': isDiscountActive,
-						}">
-					<span class="text-right text-[inherit]" :class="{'text-sm': isDiscountActive}">
+				<p
+					class="flex gap-1 overflow-hidden text-ellipsis text-nowrap"
+					:class="{
+						'line-through': isDiscountActive,
+					}"
+				>
+					<span
+						class="text-right text-[inherit]"
+						:class="{ 'text-sm': isDiscountActive }"
+					>
 						{{ price }}
 					</span>
 
-					<span class="text-right text-[inherit]" :class="{'text-sm': isDiscountActive}">
+					<span
+						class="text-right text-[inherit]"
+						:class="{ 'text-sm': isDiscountActive }"
+					>
 						{{ currency }}
 					</span>
 				</p>

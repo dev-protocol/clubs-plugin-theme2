@@ -54,11 +54,11 @@ export type ClipCategory = 'All' | 'Skin' | 'Clip' | 'BGM' | 'Video' | 'Unknown'
 
 type Discount = {
 	discount?: {
-		start: number,
-		end: number,
+		start: number
+		end: number
 		price: {
-			yen: number,
-			MATIC: number,
-		},
-	},
+			yen: number
+			MATIC: number
+		}
+	}
 }

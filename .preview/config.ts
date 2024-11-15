@@ -335,7 +335,7 @@ export default () =>
 				id: '0x853104df48aedb4f2438eab3b14e0ff808bc84c1c41a46b7059972687ffb4cbc',
 				managedBy: 'devprotocol:clubs:plugin:passport',
 				fiat: {
-					yen: 1000
+					yen: 1000,
 				},
 				fiatCurrency: 'Yen',
 				discount: {
@@ -363,7 +363,7 @@ export default () =>
 				id: '0x6d3eb162876cda668a25af9576dfe89448c9818a761ae80c8f6ea3d874b551e0',
 				managedBy: 'devprotocol:clubs:plugin:passport',
 				fiat: {
-					yen: 1000
+					yen: 1000,
 				},
 				fiatCurrency: 'Yen',
 				discount: {
@@ -390,7 +390,7 @@ export default () =>
 				id: '0xf93308f50be0e535a7c44b5db7f7244baa712c74319b01d19661868afc3a4726',
 				managedBy: 'devprotocol:clubs:plugin:passport',
 				fiat: {
-					yen: 1000
+					yen: 1000,
 				},
 				fiatCurrency: 'Yen',
 				discount: {
@@ -417,7 +417,7 @@ export default () =>
 				id: '0x9d487b5cb4c4dd6771fe0b4b5b97388df6b3d88e5854c771737195505a980d93',
 				managedBy: 'devprotocol:clubs:plugin:passport',
 				fiat: {
-					yen: 1000
+					yen: 1000,
 				},
 				fiatCurrency: 'Yen',
 				discount: {
