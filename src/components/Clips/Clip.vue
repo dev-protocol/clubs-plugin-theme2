@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps, onMounted, ref } from 'vue'
 import { FastAverageColor, FastAverageColorResult } from 'fast-average-color'
-import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
+import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passports'
 import ModalContent from './ModalContent.vue'
 import Modal from '../Home/Modal.vue'
 import {

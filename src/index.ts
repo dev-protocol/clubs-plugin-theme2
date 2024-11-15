@@ -21,7 +21,7 @@ import Preview3 from './assets/default-theme-3.jpg'
 import { composeItems } from './utils/compose-items'
 import passportPlugin, {
 	getPassportItemFromPayload,
-} from '@devprotocol/clubs-plugin-passport'
+} from '@devprotocol/clubs-plugin-passports'
 
 export const colorPresets = {
 	Purple: {

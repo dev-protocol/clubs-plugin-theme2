@@ -1,4 +1,4 @@
-import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passport'
+import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passports'
 
 const SKIN: PassportItemAssetType[] = ['css', 'stylesheet-link']
 const CLIP: PassportItemAssetType[] = [

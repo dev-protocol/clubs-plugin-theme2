@@ -1,8 +1,8 @@
 {
-	"name": "@devprotocol/clubs-plugin-starter-kit",
-	"version": "0.1.0",
+	"name": "@devprotocol/clubs-plugin-akiba",
+	"version": "0.1.0-beta.1",
 	"type": "module",
-	"description": "Template repository for using TypeScript",
+	"description": "Akiba theme plugin for clubs.",
 	"main": "dist/index.js",
 	"exports": {
 		".": {
@@ -36,7 +36,7 @@
 	"author": "",
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@devprotocol/clubs-plugin-passport": "^0.1.0-beta.16",
+		"@devprotocol/clubs-plugin-passports": "^0.1.0-beta.21",
 		"@devprotocol/dev-kit": "8.7.0",
 		"@devprotocol/util-ts": "4.0.0",
 		"bignumber.js": "9.1.2",
