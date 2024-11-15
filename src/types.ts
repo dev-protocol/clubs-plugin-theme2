@@ -49,6 +49,16 @@ export type ComposedItem = Override & { source: Membership }
 
 export type PassportItemData = ClubsOffering<Membership> & {
 	passportItem: PassportItemDocument
-}
-
+} & Discount
 export type ClipCategory = 'All' | 'Skin' | 'Clip' | 'BGM' | 'Video' | 'Unknown'
+
+type Discount = {
+	discount?: {
+		start: number,
+		end: number,
+		price: {
+			yen: number,
+			MATIC: number,
+		},
+	},
+}

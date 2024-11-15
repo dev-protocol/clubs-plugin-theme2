@@ -324,7 +324,7 @@ export default () =>
 				payload: new Uint8Array([61, 192, 94, 90, 63, 143, 128, 99]),
 				name: 'Passport Image- One Piece',
 				imageSrc: 'https://i.imgur.com/2zGWsvL.jpeg',
-				price: 0.000001,
+				price: 20,
 				currency: 'MATIC',
 				fee: {
 					percentage: 0,
@@ -334,13 +334,25 @@ export default () =>
 					'This membership represents a passport item with image available at: https://wallpapersmug.com/large/d0eb43/monkey-d-luffy-one-piece-aime.jpg',
 				id: '0x853104df48aedb4f2438eab3b14e0ff808bc84c1c41a46b7059972687ffb4cbc',
 				managedBy: 'devprotocol:clubs:plugin:passport',
+				fiat: {
+					yen: 1000
+				},
+				fiatCurrency: 'Yen',
+				discount: {
+					start: 1731629875000,
+					end: 1732978800000,
+					price: {
+						yen: 800,
+						MATIC: 17,
+					},
+				},
 			},
 			{
 				payload: new Uint8Array([223, 184, 5, 157, 157, 113, 151, 210]),
 				name: 'Passport Image- Naruto',
 				imageSrc:
 					'https://cdn.pixabay.com/photo/2023/10/06/23/29/ai-generated-8299238_1280.jpg',
-				price: 0.000001,
+				price: 20,
 				currency: 'MATIC',
 				fee: {
 					percentage: 0,
@@ -350,12 +362,24 @@ export default () =>
 					'This is a passport item where the image used is available at https://cdn.pixabay.com/photo/2023/10/06/23/29/ai-generated-8299238_1280.jpg',
 				id: '0x6d3eb162876cda668a25af9576dfe89448c9818a761ae80c8f6ea3d874b551e0',
 				managedBy: 'devprotocol:clubs:plugin:passport',
+				fiat: {
+					yen: 1000
+				},
+				fiatCurrency: 'Yen',
+				discount: {
+					start: 1731629875000,
+					end: 1732978800000,
+					price: {
+						yen: 800,
+						MATIC: 17,
+					},
+				},
 			},
 			{
 				payload: new Uint8Array([225, 164, 186, 106, 243, 112, 57, 90]),
 				name: 'Passort Skin- CSS Type A',
 				imageSrc: 'https://i.imgur.com/dE4Ok06.png',
-				price: 0.000001,
+				price: 20,
 				currency: 'MATIC',
 				fee: {
 					percentage: 0,
@@ -365,12 +389,24 @@ export default () =>
 					'This is a passport skin with dummy CSS:  with CSS available at https://github.com/dev-protocol/clubsx/blob/main/src/pages/passport2/dummyData.css',
 				id: '0xf93308f50be0e535a7c44b5db7f7244baa712c74319b01d19661868afc3a4726',
 				managedBy: 'devprotocol:clubs:plugin:passport',
+				fiat: {
+					yen: 1000
+				},
+				fiatCurrency: 'Yen',
+				discount: {
+					start: 1731629875000,
+					end: 1732978800000,
+					price: {
+						yen: 800,
+						MATIC: 17,
+					},
+				},
 			},
 			{
 				payload: new Uint8Array([24, 78, 173, 213, 194, 201, 142, 35]),
 				name: 'Passort Skin- CSS Type B',
 				imageSrc: 'https://i.imgur.com/59p923q.jpeg',
-				price: 0.000001,
+				price: 20,
 				currency: 'MATIC',
 				fee: {
 					percentage: 0,
@@ -380,6 +416,18 @@ export default () =>
 					'This is a passport skin with dummy CSS:  with CSS available at https://github.com/dev-protocol/clubsx/blob/main/src/pages/passport2/dummyData.css',
 				id: '0x9d487b5cb4c4dd6771fe0b4b5b97388df6b3d88e5854c771737195505a980d93',
 				managedBy: 'devprotocol:clubs:plugin:passport',
+				fiat: {
+					yen: 1000
+				},
+				fiatCurrency: 'Yen',
+				discount: {
+					start: 1731629875000,
+					end: 1732978800000,
+					price: {
+						yen: 800,
+						MATIC: 17,
+					},
+				},
 			},
 		],
 	})

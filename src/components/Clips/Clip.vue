@@ -22,10 +22,33 @@ type Props = {
 	propertyAddress?: string
 	price?: number
 	currency?: string
+	discountPrice?: number
+	discountCurrency?: string
+	discountStart?: number
+	discountEnd?: number
 }
 
 // Define props with types
-const { image, video, title, description, tag } = defineProps<Props>()
+const {
+	image,
+	video,
+	title,
+	description,
+	tag,
+	discountPrice,
+	discountCurrency,
+	discountStart,
+	discountEnd,
+} = defineProps<Props>()
+
+// discount state
+const isDiscountActive = ref(false)
+
+// check if the discount is active
+if (discountStart && discountEnd) {
+	const now = new Date().getTime()
+	isDiscountActive.value = discountStart < now && now < discountEnd
+}
 
 // modal visibility
 const modalVisible = ref(false)
@@ -126,8 +149,8 @@ onMounted(async () => {
 			>
 				{{ title }}
 			</h3>
-			<p
-				class="overflow-hidden text-ellipsis text-nowrap text-sm"
+			<div
+				class="flex flex-col gap-0 w-full justify-start text-sm"
 				:class="{
 					'text-gray-800':
 						CLIP.includes(tag) || BGM.includes(tag) || VIDEO.includes(tag),
@@ -136,8 +159,27 @@ onMounted(async () => {
 				}"
 				style="--tw-text-opacity: 0.6"
 			>
-				{{ price }} {{ currency }}
-			</p>
+				<p v-if="isDiscountActive" class="flex gap-1 overflow-hidden text-ellipsis text-nowrap">
+					<span class="text-right" :class="{'font-bold': isDiscountActive}">
+						{{ discountPrice }}
+					</span>
+
+					<span class="text-right" :class="{'font-bold': isDiscountActive}">
+						{{ discountCurrency }}
+					</span>
+				</p>
+				<p class="flex gap-1 overflow-hidden text-ellipsis text-nowrap" :class="{
+							'line-through': isDiscountActive,
+						}">
+					<span class="text-right text-[inherit]" :class="{'text-sm': isDiscountActive}">
+						{{ price }}
+					</span>
+
+					<span class="text-right text-[inherit]" :class="{'text-sm': isDiscountActive}">
+						{{ currency }}
+					</span>
+				</p>
+			</div>
 		</div>
 		<Modal
 			:is-visible="modalVisible"

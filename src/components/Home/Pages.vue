@@ -79,6 +79,10 @@ watch(
 					:property-address="item.id"
 					:price="item.price"
 					:currency="item.currency"
+					:discount-price="item.discount?.price.MATIC"
+					:discount-currency="item.currency"
+					:discount-start="item.discount?.start"
+					:discount-end="item.discount?.end"
 				/>
 			</section>
 		</div>
