@@ -75,7 +75,7 @@ const discountCurrency = computed(() => {
 })
 
 const discountPrice = computed(() => {
-	return composedItem.props.discount?.price[composedItem.props.currency]
+	return composedItem.props.discount?.price[discountCurrency.value || '']
 })
 
 const chainId = computed(() => {
