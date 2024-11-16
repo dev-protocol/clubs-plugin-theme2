@@ -109,7 +109,7 @@ const color = ref<FastAverageColorResult>()
 onMounted(async () => {
 	if (SKIN.includes(tag)) {
 		const fac = new FastAverageColor()
-		color.value = await fac.getColorAsync(image.value ?|| '').catch((e) => {
+		color.value = await fac.getColorAsync(image.value || '').catch((e) => {
 			console.error(e)
 			return undefined
 		})
