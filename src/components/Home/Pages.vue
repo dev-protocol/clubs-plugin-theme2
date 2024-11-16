@@ -83,6 +83,8 @@ watch(
 					:discount-currency="item.currency"
 					:discount-start="item.discount?.start"
 					:discount-end="item.discount?.end"
+					:chain-id="1"
+					:rpc-url="'https://rpc-mainnet.maticvigil.com'"
 				/>
 			</section>
 		</div>

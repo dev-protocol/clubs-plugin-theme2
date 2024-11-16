@@ -26,6 +26,8 @@ type Props = {
 	discountCurrency?: string
 	discountStart?: number
 	discountEnd?: number
+	chainId?: number
+	rpcUrl?: string
 }
 
 // Define props with types
@@ -203,6 +205,8 @@ onMounted(async () => {
 				itemImageSrc: image,
 				itemName: title,
 				description: description,
+				chainId: chainId,
+				rpcUrl: 'https://rpc-mainnet.maticvigil.com',
 			}"
 			@close-event="modalClose"
 		/>
