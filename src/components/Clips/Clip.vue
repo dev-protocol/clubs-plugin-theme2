@@ -75,7 +75,7 @@ const discountCurrency = computed(() => {
 })
 
 const discountPrice = computed(() => {
-	return composedItem.props.discount?.price[discountCurrency]
+	return composedItem.props.discount?.price[discountCurrency.value]
 })
 
 const chainId = computed(() => {
@@ -86,9 +86,9 @@ const rpcUrl = computed(() => {
 	return composedItem.props.rpcUrl
 })
 
-if (discountStart && discountEnd) {
+if (discountStart.value && discountEnd.value) {
 	const now = new Date().getTime()
-	isDiscountActive.value = discountStart < now && now < discountEnd
+	isDiscountActive.value = discountStart.value < now && now < discountEnd.value
 }
 
 // modal visibility
@@ -109,7 +109,7 @@ const color = ref<FastAverageColorResult>()
 onMounted(async () => {
 	if (SKIN.includes(tag)) {
 		const fac = new FastAverageColor()
-		color.value = await fac.getColorAsync(image).catch((e) => {
+		color.value = await fac.getColorAsync(image.value).catch((e) => {
 			console.error(e)
 			return undefined
 		})
