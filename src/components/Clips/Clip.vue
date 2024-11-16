@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { defineProps, onMounted, ref } from 'vue'
+import { defineProps, onMounted, ref, computed } from 'vue'
 import { FastAverageColor, FastAverageColorResult } from 'fast-average-color'
-import { PassportItemAssetType } from '@devprotocol/clubs-plugin-passports'
-import ModalContent from './ModalContent.vue'
+import type {
+	PassportItemAssetType,
+	ComposedCheckoutProps,
+} from '@devprotocol/clubs-plugin-passports'
+
 import Modal from '../Home/Modal.vue'
+import ModalContent from './ModalContent.vue'
 import {
 	BGM,
 	CLIP,
@@ -12,41 +16,76 @@ import {
 	VIDEO,
 } from '../../utils/filtering-clips.ts'
 
-// Define the types of props
 type Props = {
-	image: string
-	video?: string
-	title: string
-	description: string
-	tag: PassportItemAssetType
-	propertyAddress?: string
-	price?: number
-	currency?: string
-	discountPrice?: number
-	discountCurrency?: string
-	discountStart?: number
-	discountEnd?: number
-	chainId?: number
-	rpcUrl?: string
+	composedItem: { payload: string; props: ComposedCheckoutProps }
 }
 
-// Define props with types
-const {
-	image,
-	video,
-	title,
-	description,
-	tag,
-	discountPrice,
-	discountCurrency,
-	discountStart,
-	discountEnd,
-} = defineProps<Props>()
+const { composedItem } = defineProps<Props>()
 
-// discount state
 const isDiscountActive = ref(false)
 
-// check if the discount is active
+const discountStart = computed(() => {
+	return composedItem.props.discount?.start
+})
+
+const discountEnd = computed(() => {
+	return composedItem.props.discount?.end
+})
+
+const image = computed(() => {
+	return CLIP.includes(composedItem.props.passportItem.itemAssetType)
+		? composedItem.props.passportItem.itemAssetValue
+		: SKIN.includes(composedItem.props.passportItem.itemAssetType)
+			? composedItem.props.itemImageSrc
+			: composedItem.props.itemImageSrc
+})
+
+const tag = computed(() => {
+	return composedItem.props.passportItem.itemAssetType
+})
+
+const video = computed(() => {
+	return VIDEO.includes(composedItem.props.passportItem.itemAssetType)
+		? composedItem.props.passportItem.itemAssetValue
+		: undefined
+})
+
+const title = computed(() => {
+	return composedItem.props.name
+})
+
+const description = computed(() => {
+	return composedItem.props.description
+})
+
+const propertyAddress = computed(() => {
+	return composedItem.props.id // TODO: probably change this.
+})
+
+const price = computed(() => {
+	return composedItem.props.price
+})
+
+const currency = computed(() => {
+	return composedItem.props.currency
+})
+
+const discountPrice = computed(() => {
+	return composedItem.props.discount?.price.MATIC
+})
+
+const discountCurrency = computed(() => {
+	return composedItem.props.currency
+})
+
+const chainId = computed(() => {
+	return 1
+})
+
+const rpcUrl = computed(() => {
+	return 'https://rpc-mainnet.maticvigil.com'
+})
+
 if (discountStart && discountEnd) {
 	const now = new Date().getTime()
 	isDiscountActive.value = discountStart < now && now < discountEnd
@@ -77,6 +116,7 @@ onMounted(async () => {
 	}
 })
 </script>
+
 <style scoped>
 .gradation {
 	position: relative;
@@ -92,6 +132,7 @@ onMounted(async () => {
 	background: linear-gradient(0deg, v-bind(color?.hex) 25%, transparent);
 }
 </style>
+
 <template>
 	<div
 		class="flex aspect-[3/4] flex-col gap-4 overflow-hidden rounded border border-gray-300 p-1 shadow md:p-2"
@@ -199,14 +240,7 @@ onMounted(async () => {
 			:is-visible="modalVisible"
 			:modal-content="ModalContent"
 			:attrs="{
-				amount: price,
-				currency: currency,
-				propertyAddress: propertyAddress,
-				itemImageSrc: image,
-				itemName: title,
-				description: description,
-				chainId: chainId,
-				rpcUrl: 'https://rpc-mainnet.maticvigil.com',
+				composedItem: composedItem,
 			}"
 			@close-event="modalClose"
 		/>

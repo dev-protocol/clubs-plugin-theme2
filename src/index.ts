@@ -20,6 +20,8 @@ import Preview2 from './assets/default-theme-2.jpg'
 import Preview3 from './assets/default-theme-3.jpg'
 import { composeItems } from './utils/compose-items'
 import passportPlugin, {
+	CheckoutFromPassportOffering,
+	checkoutPassportItems,
 	getPassportItemFromPayload,
 } from '@devprotocol/clubs-plugin-passports'
 
@@ -134,6 +136,9 @@ export const getPagePaths = (async (options, config, utils) => {
 		.then((items) => (items.length ? items : undefined))
 		.catch(() => undefined)
 
+	const passportOfferingsWithComposedData: CheckoutFromPassportOffering =
+		await checkoutPassportItems(config, options)
+
 	return homeConfig
 		? [
 				{
@@ -153,6 +158,8 @@ export const getPagePaths = (async (options, config, utils) => {
 						clubsPaymentsOverrides,
 						signals: ['connection-button-hide'],
 						passportOfferings: passportOfferingWithItemData,
+						passportOfferingsWithComposedData:
+							passportOfferingsWithComposedData,
 					},
 				},
 			]

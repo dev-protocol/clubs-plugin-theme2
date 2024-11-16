@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { defineProps, ref } from 'vue'
-import { ClipCategory, PassportItemData } from '../../types.ts'
+import type { CheckoutFromPassportOffering } from '@devprotocol/clubs-plugin-passport'
+
+import { ClipCategory } from '../../types.ts'
 import { getTagName } from '../../utils/filtering-clips.ts'
 
 type Props = {
-	items: PassportItemData[]
+	items: CheckoutFromPassportOffering
 }
 
 const { items } = defineProps<Props>()
 
 const groupedItems = items.reduce(
 	(acc, item) => {
-		const itemAssetType = item.passportItem.itemAssetType
+		const itemAssetType = item.props.passportItem.itemAssetType
 		const key = getTagName(itemAssetType)
 
 		if (!acc[key]) {
@@ -20,7 +22,9 @@ const groupedItems = items.reduce(
 		acc[key].push(item)
 		return acc
 	},
-	{} as { [key: string]: PassportItemData[] },
+	{} as {
+		[key: string]: CheckoutFromPassportOffering
+	},
 )
 
 const selectedCategory = ref<ClipCategory>('All')
