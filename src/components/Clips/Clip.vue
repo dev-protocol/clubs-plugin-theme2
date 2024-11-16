@@ -3,7 +3,7 @@ import { defineProps, onMounted, ref, computed } from 'vue'
 import { FastAverageColor, FastAverageColorResult } from 'fast-average-color'
 import type {
 	PassportItemAssetType,
-	ComposedCheckoutProps,
+	ComposedCheckoutOptions,
 } from '@devprotocol/clubs-plugin-passports'
 
 import Modal from '../Home/Modal.vue'
@@ -17,7 +17,7 @@ import {
 } from '../../utils/filtering-clips.ts'
 
 type Props = {
-	composedItem: { payload: string; props: ComposedCheckoutProps }
+	composedItem: { payload: string; props: ComposedCheckoutOptions }
 }
 
 const { composedItem } = defineProps<Props>()

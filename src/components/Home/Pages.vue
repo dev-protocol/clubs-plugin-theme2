@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps, ref, watch, watchEffect } from 'vue'
-import type { CheckoutFromPassportOffering } from '@devprotocol/clubs-plugin-passport'
+import type { CheckoutFromPassportOffering } from '@devprotocol/clubs-plugin-passports'
 
 import Clip from '../Clips/Clip.vue'
 import Gallery from '../Gallery/Gallery.vue'

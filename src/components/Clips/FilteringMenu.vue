@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { defineProps, ref } from 'vue'
-import type { CheckoutFromPassportOffering } from '@devprotocol/clubs-plugin-passport'
+import type { CheckoutFromPassportOffering } from '@devprotocol/clubs-plugin-passports'
 
 import { ClipCategory } from '../../types.ts'
 import { getTagName } from '../../utils/filtering-clips.ts'
