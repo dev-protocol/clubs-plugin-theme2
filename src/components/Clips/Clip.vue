@@ -25,11 +25,11 @@ const { composedItem } = defineProps<Props>()
 const isDiscountActive = ref(false)
 
 const discountStart = computed(() => {
-	return composedItem.props.discount?.start
+	return composedItem.props.discount?.start_utc
 })
 
 const discountEnd = computed(() => {
-	return composedItem.props.discount?.end
+	return composedItem.props.discount?.end_utc
 })
 
 const image = computed(() => {
@@ -51,7 +51,7 @@ const video = computed(() => {
 })
 
 const title = computed(() => {
-	return composedItem.props.name
+	return composedItem.props.itemName
 })
 
 const description = computed(() => {
@@ -59,31 +59,31 @@ const description = computed(() => {
 })
 
 const propertyAddress = computed(() => {
-	return composedItem.props.id // TODO: probably change this.
+	return composedItem.props.propertyAddress
 })
 
 const price = computed(() => {
-	return composedItem.props.price
+	return composedItem.props.amount // TODO: confirm this.
 })
 
 const currency = computed(() => {
 	return composedItem.props.currency
 })
 
-const discountPrice = computed(() => {
-	return composedItem.props.discount?.price.MATIC
-})
-
 const discountCurrency = computed(() => {
 	return composedItem.props.currency
 })
 
+const discountPrice = computed(() => {
+	return composedItem.props.discount?.price[discountCurrency]
+})
+
 const chainId = computed(() => {
-	return 1
+	return composedItem.props.chainId
 })
 
 const rpcUrl = computed(() => {
-	return 'https://rpc-mainnet.maticvigil.com'
+	return composedItem.props.rpcUrl
 })
 
 if (discountStart && discountEnd) {

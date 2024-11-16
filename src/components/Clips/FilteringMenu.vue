@@ -23,7 +23,7 @@ const groupedItems = items.reduce(
 		return acc
 	},
 	{} as {
-		[key: string]: CheckoutFromPassportOffering
+		[key: string]: { payload: string; props: ComposedCheckoutOptions }[]
 	},
 )
 

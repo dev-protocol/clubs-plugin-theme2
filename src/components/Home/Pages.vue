@@ -23,7 +23,7 @@ const {
 } = defineProps<Props>()
 
 const selectedCategory = ref<ClipCategory>('All')
-const filteredItems = ref<PassportItemData[]>([])
+const filteredItems = ref<CheckoutFromPassportOffering[]>([])
 
 watch(
 	selectedCategory,
