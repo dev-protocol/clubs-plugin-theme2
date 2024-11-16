@@ -14,27 +14,40 @@ type Props = {
 }
 
 // Define props with types
-const { itemImageSrc, itemName, description, propertyAddress, chainId, rpcUrl, price } = defineProps<Props>()
+const {
+	itemImageSrc,
+	itemName,
+	description,
+	propertyAddress,
+	chainId,
+	rpcUrl,
+	price,
+} = defineProps<Props>()
 
-
-const res = checkoutPassportItems({
-	name: itemName,
-	adminPageVisibility: 'public',
-	twitterHandle: 'foo',
-	description: description,
-	url: 'https://example.com',
-	propertyAddress: propertyAddress,
-	adminRolePoints: 0,
-	chainId: chainId,
-	rpcUrl: rpcUrl,
-	plugins: []
-}, [])
+const res = checkoutPassportItems(
+	{
+		name: itemName,
+		adminPageVisibility: 'public',
+		twitterHandle: 'foo',
+		description: description,
+		url: 'https://example.com',
+		propertyAddress: propertyAddress,
+		adminRolePoints: 0,
+		chainId: chainId,
+		rpcUrl: rpcUrl,
+		plugins: [],
+	},
+	[],
+)
 
 console.log('res', res)
 
 // When get component successfully, assign it to ComposedCheckout
-const {payload, component: ComposedCheckout, props: ComposedCheckoutProps} = res
-
+const {
+	payload,
+	component: ComposedCheckout,
+	props: ComposedCheckoutProps,
+} = res
 </script>
 
 <template>
