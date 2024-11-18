@@ -76,7 +76,7 @@ const discountCurrency = computed(() => {
 
 const discountPrice = computed(() => {
 	return composedItem.props.discount?.price[
-		composedItem.props.currency || 'USDC'
+		composedItem.props.currency as keyof Price || 'USDC'
 	]
 })
 
