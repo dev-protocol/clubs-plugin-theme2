@@ -75,7 +75,9 @@ const discountCurrency = computed(() => {
 })
 
 const discountPrice = computed(() => {
-	return composedItem.props.discount?.price[discountCurrency.value || '']
+	return composedItem.props.discount?.price[
+		composedItem.props.currency as keyof Price || 'USDC'
+	]
 })
 
 const chainId = computed(() => {
@@ -107,7 +109,7 @@ const modalClose = () => {
 const color = ref<FastAverageColorResult>()
 
 onMounted(async () => {
-	if (SKIN.includes(tag)) {
+	if (SKIN.includes(tag.value)) {
 		const fac = new FastAverageColor()
 		color.value = await fac.getColorAsync(image.value || '').catch((e) => {
 			console.error(e)

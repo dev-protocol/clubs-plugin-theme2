@@ -5,13 +5,12 @@ import type {
 	ClubsFunctionThemePlugin,
 	ClubsThemePluginMeta,
 	ClubsNavigationLink as NavLink,
-	ClubsOffering,
 	Membership,
 } from '@devprotocol/clubs-core'
-import { bytes32Hex, ClubsPluginCategory } from '@devprotocol/clubs-core'
+import { ClubsPluginCategory } from '@devprotocol/clubs-core'
 import { default as Layout } from './layouts/Default.astro'
 import { default as Index } from './pages/index.astro'
-import type { GlobalConfig, HomeConfig, PassportItemData } from './types'
+import type { GlobalConfig, HomeConfig } from './types'
 import PreviewImage from './assets/preview.jpg'
 import { default as Icon } from './assets/icon.svg'
 import { Content as Readme } from './README.md'
@@ -19,10 +18,9 @@ import Preview1 from './assets/default-theme-1.jpg'
 import Preview2 from './assets/default-theme-2.jpg'
 import Preview3 from './assets/default-theme-3.jpg'
 import { composeItems } from './utils/compose-items'
-import passportPlugin, {
+import {
 	CheckoutFromPassportOffering,
 	checkoutPassportItems,
-	getPassportItemFromPayload,
 } from '@devprotocol/clubs-plugin-passports'
 
 export const colorPresets = {
@@ -116,26 +114,6 @@ export const getPagePaths = (async (options, config, utils) => {
 	)
 	const clubsPaymentsOverrides = composeItems(clubsPay?.options || [], utils)
 
-	const _passportOfferings = (
-		config?.offerings ?? ([] as ClubsOffering<Membership>[])
-	)?.filter((offering) => offering.managedBy === passportPlugin.meta.id)
-	const passportOfferingWithItemData = await Promise.all(
-		_passportOfferings?.map((offering) =>
-			getPassportItemFromPayload({
-				sTokenPayload: bytes32Hex(offering.payload ?? '') ?? '',
-			})
-				.then((item) =>
-					item instanceof Error || !item
-						? undefined
-						: ({ ...offering, passportItem: item } as PassportItemData),
-				)
-				.catch(undefined),
-		) ?? ([] as Array<PassportItemData | undefined>),
-	)
-		.then((items) => items.filter((items) => !!items))
-		.then((items) => (items.length ? items : undefined))
-		.catch(() => undefined)
-
 	const passportOfferingsWithComposedData: CheckoutFromPassportOffering =
 		await checkoutPassportItems(config, options)
 
@@ -157,7 +135,6 @@ export const getPagePaths = (async (options, config, utils) => {
 						sectionsOrderConfig,
 						clubsPaymentsOverrides,
 						signals: ['connection-button-hide'],
-						passportOfferings: passportOfferingWithItemData,
 						passportOfferingsWithComposedData:
 							passportOfferingsWithComposedData,
 					},

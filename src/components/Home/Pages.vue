@@ -9,18 +9,13 @@ import { CLIP, getTagName, SKIN, VIDEO } from '../../utils/filtering-clips.ts'
 import type { ClipCategory, HomeConfig, PassportItemData } from '../../types.ts'
 
 type Props = {
-	passportOfferings: PassportItemData[]
 	homeConfig: HomeConfig
 	langs: string[]
 	passportOfferingsWithComposedData: CheckoutFromPassportOffering
 }
 
-const {
-	passportOfferings = [],
-	homeConfig,
-	langs,
-	passportOfferingsWithComposedData,
-} = defineProps<Props>()
+const { homeConfig, langs, passportOfferingsWithComposedData } =
+	defineProps<Props>()
 
 const selectedCategory = ref<ClipCategory>('All')
 const filteredItems = ref<CheckoutFromPassportOffering>([])
