@@ -17,11 +17,8 @@ type Props = ClubsPropsPages & {
 	passportOfferingsWithComposedData: CheckoutFromPassportOffering
 }
 
-const {
-	homeConfig,
-	passportOfferings,
-	passportOfferingsWithComposedData,
-} = Astro.props
+const { homeConfig, passportOfferings, passportOfferingsWithComposedData } =
+	Astro.props
 
 const langs = Astro.request.headers.get('accept-language')?.split(',') ?? ['en']
 ---

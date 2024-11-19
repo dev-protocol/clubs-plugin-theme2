@@ -7,11 +7,10 @@ import type {
 import menuIcon from '../../assets/menu.svg'
 import closeIcon from '../../assets/close.svg'
 
-const { navigationLinks } =
-	Astro.props as ClubsPropsPages & {
-		connection?: boolean
-		navigationLinks: ClubsNavigationLink[]
-	}
+const { navigationLinks } = Astro.props as ClubsPropsPages & {
+	connection?: boolean
+	navigationLinks: ClubsNavigationLink[]
+}
 ---
 
 <script>
