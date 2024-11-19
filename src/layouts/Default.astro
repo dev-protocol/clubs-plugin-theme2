@@ -1,7 +1,6 @@
 ---
 import {
 	type ClubsConfiguration,
-	ClubsPluginSignal,
 } from '@devprotocol/clubs-core'
 import { ClubsPictogramAdaptable as Favicon } from '@devprotocol/clubs-core/images'
 import type { UndefinedOr } from '@devprotocol/util-ts'
@@ -20,9 +19,7 @@ const {
 		config,
 		homeConfig,
 		globalConfig,
-		memberships,
 		description,
-		membersCountConfig,
 	},
 	signals,
 } = Astro.props as {
@@ -38,10 +35,8 @@ const {
 	signals?: string[]
 }
 
-const displayFullPage = signals?.includes(ClubsPluginSignal.DisplayFullPage)
 const notDisplayConnection = signals?.includes('connection-button-hide')
 
-const { name, propertyAddress, rpcUrl, chainId } = config
 const title = metaTitle ? `${config.name} : ${metaTitle}` : config.name
 
 const ogp = config.options?.find((option) => option.key === 'ogp')
@@ -51,32 +46,15 @@ const avatarImgSrc: UndefinedOr<string> = config.options?.find(
 	(option) => option.key === 'avatarImgSrc',
 )?.value as string
 
-const socialLinks =
-	(config.options?.find((option) => option.key === 'socialLinks')
-		?.value as UndefinedOr<NavLink[]>) ?? ([] as NavLink[])
-
-const twitter = socialLinks?.find((l) => l.kind === 'twitter')
-const discord = socialLinks?.find((l) => l.kind === 'discord')
-const socials =
-	twitter || discord ? [twitter, discord].map((x) => x) : socialLinks
-
 const navigationLinks: NavLink[] = [
 	...((config.options?.find((option) => option.key === 'navigationLinks')
 		?.value as NavLink[]) ?? []),
 ]
-const currentLink = navigationLinks?.find((link) =>
-	((pathname) => pathname === link.path)(`/${page ?? ''}`),
-)
-const footerLinks = config.options?.find(
-	(option) => option.key === 'footerLinks',
-)?.value as UndefinedOr<NavLink[]>
 
 const url = Astro.url.origin
 
 const bodyColor = globalConfig?.ink ?? '#fff'
 const backgroundColor = globalConfig?.bg ?? '#ADADAD'
-
-const hasNotAMembership = memberships ? memberships.length < 1 : true
 
 const truncatedDescription = ((desc) =>
 	desc.slice(0, 139).join('') + (desc.length > 139 ? '...' : ''))([

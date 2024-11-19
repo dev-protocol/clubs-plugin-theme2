@@ -7,7 +7,7 @@ import type {
 import menuIcon from '../../assets/menu.svg'
 import closeIcon from '../../assets/close.svg'
 
-const { connection = true, navigationLinks } =
+const { navigationLinks } =
 	Astro.props as ClubsPropsPages & {
 		connection?: boolean
 		navigationLinks: ClubsNavigationLink[]
@@ -24,7 +24,7 @@ const { connection = true, navigationLinks } =
 	menuButton?.addEventListener('click', () => {
 		menu?.classList.add('open')
 		body.classList.add('no-scroll')
-		menuItems.forEach((item, index) => {
+		menuItems.forEach((item) => {
 			item.classList.add('active')
 		})
 		closeButton?.classList.add('active')
@@ -33,7 +33,7 @@ const { connection = true, navigationLinks } =
 	closeButton?.addEventListener('click', () => {
 		menu?.classList.remove('open')
 		body.classList.remove('no-scroll')
-		menuItems.forEach((item, index) => {
+		menuItems.forEach((item) => {
 			item.classList.remove('active')
 		})
 		closeButton?.classList.remove('active')
