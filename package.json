@@ -36,7 +36,7 @@
 	"author": "Dev Protocol",
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@devprotocol/clubs-plugin-passports": "^0.1.0-beta.26",
+		"@devprotocol/clubs-plugin-passports": "^0.1.0-beta.28",
 		"@devprotocol/clubs-plugin-payments": "^0.1.2",
 		"@devprotocol/dev-kit": "8.7.0",
 		"@devprotocol/util-ts": "4.0.0",

@@ -602,10 +602,10 @@
     svelte "^5.0.0"
     vue "^3.2.0"
 
-"@devprotocol/clubs-plugin-passports@^0.1.0-beta.26":
-  version "0.1.0-beta.26"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-passports/-/clubs-plugin-passports-0.1.0-beta.26.tgz#96a6b302347b2a38af9619a427a625a4c8855e4c"
-  integrity sha512-BQZ8rRm39iKVIvPyND8n6MNN5mD9yOTfoCrs2RLIxPvCUW66AnXzk89jSGVPH/i9wMxm/MNbmS+4TIt0+OP1Uw==
+"@devprotocol/clubs-plugin-passports@^0.1.0-beta.28":
+  version "0.1.0-beta.28"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-passports/-/clubs-plugin-passports-0.1.0-beta.28.tgz#bc20077b3cef9018d713bdd6732447955bbb36c4"
+  integrity sha512-6KBpo8BWaTKkHsbzW/7zIbvS1rkpZ2o+tmaTIuJU+b4wX0VjJI0S3PwjtUXiJ/qGisYCH1B6/kmUZoY8auXAQQ==
   dependencies:
     "@devprotocol/dev-kit" "8.7.0"
     "@devprotocol/util-ts" "4.0.0"
