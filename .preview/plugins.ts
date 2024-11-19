@@ -4,9 +4,4 @@ import passportPlugin from '@devprotocol/clubs-plugin-passports'
 import example from './example'
 import thisPlugin from '../src/index'
 
-export default [
-	example,
-	thisPlugin,
-	passportPlugin,
-	paymentsPlugin,
-]
+export default [example, thisPlugin, passportPlugin, paymentsPlugin]

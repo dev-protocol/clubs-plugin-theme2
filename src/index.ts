@@ -110,10 +110,12 @@ export const getPagePaths = (async (options, config, utils) => {
 		(option) => option.key === 'avatarImgSrc',
 	)?.value
 
-	const [clubsPay] = utils.getPluginConfigById(
-		PASSPORT_PLUGIN_ID,
+	const [clubsPay] = utils.getPluginConfigById(PASSPORT_PLUGIN_ID)
+	const clubsPaymentsOverrides = composeItems(
+		clubsPay?.options || [],
+		utils,
+		config.offerings || [],
 	)
-	const clubsPaymentsOverrides = composeItems(clubsPay?.options || [], utils, config.offerings || [])
 
 	const passportOfferingsWithComposedData: CheckoutFromPassportOffering =
 		await checkoutPassportItems(config, options)
