@@ -84,39 +84,36 @@ onMounted(async () => {
 		}
 	})
 })
-
 </script>
 
 <template>
-  <span class="relative block">
-    <div
+	<span class="relative block">
+		<div
 			v-if="error"
 			class="absolute top-[100%] -mt-1 w-full rounded-b-lg bg-dp-red-400 p-2 pt-3 text-center text-sm text-white opacity-50"
 		>
-      {{ error.message }}
-    </div>
-    <button
+			{{ error.message }}
+		</div>
+		<button
 			:class="`${
-        props.overrideClass
-          ? props.overrideClass
-          : 'rounded-lg bg-black px-4 py-2 text-xs font-bold text-white'
-      } ${error ? 'is-error' : ''}`"
+				props.overrideClass
+					? props.overrideClass
+					: 'rounded-lg bg-black px-4 py-2 text-xs font-bold text-white'
+			} ${error ? 'is-error' : ''}`"
 			v-bind:class="props.class"
 			:disabled="props.isDisabled"
 			:data-is-loading="!loaded"
 			@click="modal.open()"
 		>
-      {{
+			{{
 				truncatedAddress
 					? truncatedAddress
 					: props.label
 						? props.label
 						: 'Connect'
 			}}
-    </button>
-  </span>
+		</button>
+	</span>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

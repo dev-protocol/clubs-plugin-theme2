@@ -2,7 +2,8 @@
 import { ClubsLogo as Clubs } from '@devprotocol/clubs-core/layouts'
 import {
 	ClubsNavigationLink,
-	ClubsPropsPages, ClubsSlotName
+	ClubsPropsPages,
+	ClubsSlotName,
 } from '@devprotocol/clubs-core'
 import menuIcon from '../../assets/menu.svg'
 import closeIcon from '../../assets/close.svg'
@@ -12,6 +13,7 @@ const { navigationLinks } = Astro.props as ClubsPropsPages & {
 	navigationLinks: ClubsNavigationLink[]
 }
 ---
+
 <style>
 	:root {
 		--r-globalnav-flyout-item-number: 0;
@@ -114,7 +116,7 @@ const { navigationLinks } = Astro.props as ClubsPropsPages & {
 
 	<div class="flex gap-4">
 		<!-- signin button -->
-		<slot name="clubs:connect-button"/>
+		<slot name="clubs:connect-button" />
 
 		<!-- Mobile menu button -->
 		<button id="menu-button" class="block md:hidden">
