@@ -5,6 +5,7 @@ import type { UndefinedOr } from '@devprotocol/util-ts'
 import '@devprotocol/clubs-core/styles'
 import Header from '../components/Header/Header.astro'
 import Hero from '../components/Hero/Hero.vue'
+import ConnectButton from '../components/Wallet/ConnectButton.vue'
 import type { ClubsNavigationLink as NavLink } from '@devprotocol/clubs-core'
 import type { Membership } from '@devprotocol/clubs-core'
 import type { MembersCountVisibilityValue } from '..'
@@ -87,7 +88,7 @@ const truncatedDescription = ((desc) =>
 			connection={!notDisplayConnection}
 			navigationLinks={navigationLinks}
 		>
-			<slot name="clubs:connect-button" slot="header:connect-button" />
+			<ConnectButton client:load projectId="akiba" label="SignIn" slot="clubs:connect-button" />
 		</Header>
 
 		{
