@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { defineProps, onMounted, ref, computed } from 'vue'
 import { FastAverageColor, FastAverageColorResult } from 'fast-average-color'
-import type {
-	PassportItemAssetType,
-	ComposedCheckoutOptions,
-} from '@devprotocol/clubs-plugin-passports'
+import type { ComposedCheckoutOptions } from '@devprotocol/clubs-plugin-passports'
 
 import Modal from '../Home/Modal.vue'
 import ModalContent from './ModalContent.vue'
@@ -71,13 +68,11 @@ const currency = computed(() => {
 })
 
 const discountCurrency = computed(() => {
-	return composedItem.props.currency
+	return 'usdc'
 })
 
 const discountPrice = computed(() => {
-	return composedItem.props.discount?.price[
-		(composedItem.props.currency as keyof Price) || 'USDC'
-	]
+	return composedItem.props.discount?.price?.usdc
 })
 
 const chainId = computed(() => {
