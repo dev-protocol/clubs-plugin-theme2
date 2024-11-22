@@ -88,12 +88,7 @@ const truncatedDescription = ((desc) =>
 			connection={!notDisplayConnection}
 			navigationLinks={navigationLinks}
 		>
-			<ConnectButton
-				client:load
-				projectId="akiba"
-				label="SignIn"
-				slot="clubs:connect-button"
-			/>
+			<slot name="clubs:connect-button" />
 		</Header>
 
 		{
