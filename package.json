@@ -33,12 +33,15 @@
 		"prepare": "husky",
 		"typecheck": "astro check && tsc --noEmit && svelte-check && vue-tsc --noEmit --p tsconfig.vue.json"
 	},
-	"author": "",
+	"author": "Dev Protocol",
 	"license": "MPL-2.0",
 	"dependencies": {
-		"@devprotocol/clubs-plugin-passports": "^0.1.0-beta.22",
+		"@devprotocol/clubs-plugin-passports": "^0.1.0-beta.26",
+		"@devprotocol/clubs-plugin-payments": "^0.1.2",
 		"@devprotocol/dev-kit": "8.7.0",
 		"@devprotocol/util-ts": "4.0.0",
+		"@wagmi/core": "1.4.1",
+		"@web3modal/wagmi": "3.5.7",
 		"bignumber.js": "9.1.2",
 		"fast-average-color": "^9.4.0",
 		"ramda": "0.30.1",

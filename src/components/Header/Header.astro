@@ -1,44 +1,19 @@
 ---
 import { ClubsLogo as Clubs } from '@devprotocol/clubs-core/layouts'
-import type {
+import {
 	ClubsNavigationLink,
 	ClubsPropsPages,
+	ClubsSlotName,
 } from '@devprotocol/clubs-core'
 import menuIcon from '../../assets/menu.svg'
 import closeIcon from '../../assets/close.svg'
 
-const { connection = true, navigationLinks } =
-	Astro.props as ClubsPropsPages & {
-		connection?: boolean
-		navigationLinks: ClubsNavigationLink[]
-	}
+const { navigationLinks } = Astro.props as ClubsPropsPages & {
+	connection?: boolean
+	navigationLinks: ClubsNavigationLink[]
+}
 ---
 
-<script>
-	const menuButton = document.getElementById('menu-button')
-	const closeButton = document.getElementById('close-button')
-	const menu = document.querySelector('.menu')
-	const menuItems = document.querySelectorAll('.menu-item')
-	const body = document.body
-
-	menuButton?.addEventListener('click', () => {
-		menu?.classList.add('open')
-		body.classList.add('no-scroll')
-		menuItems.forEach((item, index) => {
-			item.classList.add('active')
-		})
-		closeButton?.classList.add('active')
-	})
-
-	closeButton?.addEventListener('click', () => {
-		menu?.classList.remove('open')
-		body.classList.remove('no-scroll')
-		menuItems.forEach((item, index) => {
-			item.classList.remove('active')
-		})
-		closeButton?.classList.remove('active')
-	})
-</script>
 <style>
 	:root {
 		--r-globalnav-flyout-item-number: 0;
@@ -110,6 +85,7 @@ const { connection = true, navigationLinks } =
 		}
 	}
 </style>
+
 <header
 	class="flex w-full items-center justify-between px-3 py-3 md:px-6 md:py-2"
 >
@@ -140,12 +116,7 @@ const { connection = true, navigationLinks } =
 
 	<div class="flex gap-4">
 		<!-- signin button -->
-
-		<span slot="clubs:connect-button">
-			<button class="rounded-lg bg-black px-4 py-2 text-xs font-bold text-white"
-				>SignIn</button
-			>
-		</span>
+		<slot name="clubs:connect-button" />
 
 		<!-- Mobile menu button -->
 		<button id="menu-button" class="block md:hidden">
@@ -161,3 +132,29 @@ const { connection = true, navigationLinks } =
 		<img src={closeIcon.src} alt="close" />
 	</button>
 </header>
+
+<script>
+	const menuButton = document.getElementById('menu-button')
+	const closeButton = document.getElementById('close-button')
+	const menu = document.querySelector('.menu')
+	const menuItems = document.querySelectorAll('.menu-item')
+	const body = document.body
+
+	menuButton?.addEventListener('click', () => {
+		menu?.classList.add('open')
+		body.classList.add('no-scroll')
+		menuItems.forEach((item) => {
+			item.classList.add('active')
+		})
+		closeButton?.classList.add('active')
+	})
+
+	closeButton?.addEventListener('click', () => {
+		menu?.classList.remove('open')
+		body.classList.remove('no-scroll')
+		menuItems.forEach((item) => {
+			item.classList.remove('active')
+		})
+		closeButton?.classList.remove('active')
+	})
+</script>

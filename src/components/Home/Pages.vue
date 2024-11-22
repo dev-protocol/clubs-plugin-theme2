@@ -1,27 +1,30 @@
 <script setup lang="ts">
-import Clip from '../Clips/Clip.vue'
 import { defineProps, ref, watch, watchEffect } from 'vue'
+import type { CheckoutFromPassportOffering } from '@devprotocol/clubs-plugin-passports'
+
+import Clip from '../Clips/Clip.vue'
 import Gallery from '../Gallery/Gallery.vue'
 import FilteringMenu from '../Clips/FilteringMenu.vue'
-import type { ClipCategory, HomeConfig, PassportItemData } from '../../types.ts'
 import { CLIP, getTagName, SKIN, VIDEO } from '../../utils/filtering-clips.ts'
+import type { ClipCategory, HomeConfig, PassportItemData } from '../../types.ts'
 
 type Props = {
-	passportOfferings: PassportItemData[]
 	homeConfig: HomeConfig
 	langs: string[]
+	passportOfferingsWithComposedData: CheckoutFromPassportOffering
 }
 
-const { passportOfferings = [], homeConfig, langs } = defineProps<Props>()
+const { homeConfig, langs, passportOfferingsWithComposedData } =
+	defineProps<Props>()
 
 const selectedCategory = ref<ClipCategory>('All')
-const filteredItems = ref<PassportItemData[]>([])
+const filteredItems = ref<CheckoutFromPassportOffering>([])
 
 watch(
 	selectedCategory,
 	(category) => {
-		filteredItems.value = passportOfferings.filter((item) => {
-			const itemAssetType = item.passportItem.itemAssetType
+		filteredItems.value = passportOfferingsWithComposedData.filter((item) => {
+			const itemAssetType = item.props.passportItem.itemAssetType
 			const key = getTagName(itemAssetType)
 			return category === 'All' || key === category
 		})
@@ -29,12 +32,13 @@ watch(
 	{ immediate: true },
 )
 </script>
+
 <template>
 	<div class="relative flex grow flex-col items-start gap-9 md:flex-row">
 		<!-- filtering menu -->
 		<FilteringMenu
 			class="hidden md:flex"
-			:items="passportOfferings"
+			:items="passportOfferingsWithComposedData"
 			@selected-category="
 				(category) => {
 					selectedCategory = category
@@ -47,43 +51,21 @@ watch(
 			<div>
 				<Gallery :features="homeConfig.features" :langs="langs" />
 			</div>
+
 			<FilteringMenu
 				class="-mx-2 flex md:hidden"
-				:items="passportOfferings"
+				:items="passportOfferingsWithComposedData"
 				@selected-category="
 					(category) => {
 						selectedCategory = category
 					}
 				"
 			/>
+
 			<section
-				class="grid grid-cols-5 grid-cols-[repeat(auto-fill,minmax(150px,1fr))] justify-between gap-4 md:gap-4 lg:grid-cols-5"
+				class="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] justify-between gap-4 md:gap-4 lg:grid-cols-5"
 			>
-				<Clip
-					v-for="item in filteredItems"
-					:tag="item.passportItem.itemAssetType"
-					:image="
-						CLIP.includes(item.passportItem.itemAssetType)
-							? item.passportItem.itemAssetValue
-							: SKIN.includes(item.passportItem.itemAssetType)
-								? item.imageSrc
-								: item.imageSrc
-					"
-					:video="
-						VIDEO.includes(item.passportItem.itemAssetType)
-							? item.passportItem.itemAssetValue
-							: undefined
-					"
-					:title="item.passportItem.itemAssetType"
-					:description="item.description"
-					:property-address="item.id"
-					:price="item.price"
-					:currency="item.currency"
-					:discount-price="item.discount?.price.MATIC"
-					:discount-currency="item.currency"
-					:discount-start="item.discount?.start"
-					:discount-end="item.discount?.end"
-				/>
+				<Clip v-for="item in filteredItems" :composedItem="item" />
 			</section>
 		</div>
 	</div>

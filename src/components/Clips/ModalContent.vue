@@ -1,29 +1,17 @@
 <script setup lang="ts">
-import { Checkout } from '@devprotocol/clubs-core/ui/vue'
+import type { ComposedCheckoutOptions } from '@devprotocol/clubs-plugin-passports'
+import { ComposedCheckout } from '@devprotocol/clubs-plugin-passports/components'
 
 type Props = {
-	itemImageSrc: string
-	itemName: string
-	description: string
-	propertyAddress?: string
-	price?: number
-	currency?: string
+	composedItem: { payload: string; props: ComposedCheckoutOptions }
 }
 
-// Define props with types
-const { itemImageSrc, itemName, description } = defineProps<Props>()
+const { composedItem } = defineProps<Props>()
 </script>
 
 <template>
 	<div>
-		<Checkout
-			:amount="price"
-			:currency="currency"
-			:propertyAddress="propertyAddress"
-			:itemImageSrc="itemImageSrc"
-			:itemName="itemName"
-			:description="description"
-		/>
+		<ComposedCheckout v-bind="composedItem.props" />
 	</div>
 </template>
 

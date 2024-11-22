@@ -1,11 +1,11 @@
 ---
 import type { Membership } from '@devprotocol/clubs-core'
 import { type ClubsPropsPages } from '@devprotocol/clubs-core'
+import { CheckoutFromPassportOffering } from '@devprotocol/clubs-plugin-passports'
 
 import type { SectionOrderingValue } from '..'
-import type { ComposedItem, HomeConfig } from '../types'
-import type { PassportItemData } from '../types.ts'
 import Home from '../components/Home/Pages.vue'
+import type { ComposedItem, HomeConfig } from '../types'
 
 type Props = ClubsPropsPages & {
 	memberships?: Membership[]
@@ -13,24 +13,18 @@ type Props = ClubsPropsPages & {
 	name: string
 	sectionsOrderConfig: SectionOrderingValue
 	clubsPaymentsOverrides: ComposedItem[]
-	passportOfferings: PassportItemData[]
+	passportOfferingsWithComposedData: CheckoutFromPassportOffering
 }
 
-const {
-	memberships,
-	homeConfig,
-	name,
-	clubs,
-	sectionsOrderConfig,
-	clubsPaymentsOverrides,
-	passportOfferings,
-} = Astro.props
+const { homeConfig, passportOfferings, passportOfferingsWithComposedData } =
+	Astro.props
+
 const langs = Astro.request.headers.get('accept-language')?.split(',') ?? ['en']
 ---
 
 <Home
 	client:load
-	passportOfferings={passportOfferings}
 	homeConfig={homeConfig}
 	langs={langs}
+	passportOfferingsWithComposedData={passportOfferingsWithComposedData}
 />
