@@ -18,8 +18,7 @@ const props = defineProps<{
 	redirectOnSignin?: boolean
 }>()
 
-const projectId =
-	props.projectId ?? import.meta.env.PUBLIC_WALLET_CONNECT_PROJECT_ID
+const projectId = props.projectId
 
 const truncatedAddress = ref<string>()
 const error = ref<Error>()

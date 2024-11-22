@@ -10,6 +10,7 @@ import {
 import type { UndefinedOr } from '@devprotocol/util-ts'
 import config from '../../../config'
 import plugins from '../../../plugins'
+import ConnectButton from './ConnectButton.vue'
 
 const { page } = Astro.params
 const options = {
@@ -33,6 +34,12 @@ const Layout = path?.props.layout
 {
 	Layout && Content && (
 		<Layout {...path.props}>
+			<ConnectButton
+				client:load
+				projectId="clubs"
+				label="SignIn"
+				slot="clubs:connect-button"
+			/>
 			<Content {...path.props} />
 		</Layout>
 	)
