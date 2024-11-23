@@ -41,7 +41,7 @@
 		"@devprotocol/dev-kit": "8.7.0",
 		"@devprotocol/util-ts": "4.0.0",
 		"@wagmi/core": "2.15.0",
-		"@web3modal/wagmi": "3.5.7",
+		"@web3modal/wagmi": "5.1.11",
 		"bignumber.js": "9.1.2",
 		"fast-average-color": "^9.4.0",
 		"ramda": "0.30.1",
