@@ -39,9 +39,6 @@ export default [
 		plugins: [
 			typescript(),
 			vue(),
-			resolve({
-				mainFields: ['module', 'import', 'browser'],
-			}),
 			useSrc({
 				ext: [
 					'.astro',
