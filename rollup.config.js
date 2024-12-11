@@ -2,6 +2,7 @@ import { dirname, relative, resolve } from 'path'
 import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 import { cwd } from 'process'
+import vue from 'rollup-plugin-vue'
 
 const dir = 'dist'
 
@@ -37,6 +38,10 @@ export default [
 		],
 		plugins: [
 			typescript(),
+			vue(),
+			resolve({
+				mainFields: ['module', 'import', 'browser'],
+			}),
 			useSrc({
 				ext: [
 					'.astro',
