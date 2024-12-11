@@ -123,7 +123,7 @@ export const getPagePaths = (async (options, config, utils) => {
 	return homeConfig
 		? [
 				{
-					paths: [],
+					paths: ['akiba'],
 					component: Index,
 					props: {
 						name,
