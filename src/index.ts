@@ -17,10 +17,11 @@ import { Content as Readme } from './README.md'
 import Preview1 from './assets/default-theme-1.jpg'
 import Preview2 from './assets/default-theme-2.jpg'
 import Preview3 from './assets/default-theme-3.jpg'
-import { composeItems } from './utils/compose-items'
+import { composeItems } from '@devprotocol/clubs-plugin-payments/utils'
 import {
-	CheckoutFromPassportOffering,
+	type CheckoutFromPassportOffering,
 	checkoutPassportItems,
+	PLUGIN_ID as PASSPORT_PLUGIN_ID,
 } from '@devprotocol/clubs-plugin-passports'
 
 export const colorPresets = {
@@ -109,13 +110,15 @@ export const getPagePaths = (async (options, config, utils) => {
 		(option) => option.key === 'avatarImgSrc',
 	)?.value
 
-	const [clubsPay] = utils.getPluginConfigById(
-		'devprotocol:clubs:plugin:clubs-payments',
+	const [clubsPay] = utils.getPluginConfigById(PASSPORT_PLUGIN_ID)
+	const clubsPaymentsOverrides = composeItems(
+		clubsPay?.options || [],
+		utils,
+		config.offerings || [],
 	)
-	const clubsPaymentsOverrides = composeItems(clubsPay?.options || [], utils)
 
 	const passportOfferingsWithComposedData: CheckoutFromPassportOffering =
-		await checkoutPassportItems(config, options)
+		await checkoutPassportItems(config, clubsPay?.options || [])
 
 	return homeConfig
 		? [
