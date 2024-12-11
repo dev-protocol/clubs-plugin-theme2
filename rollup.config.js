@@ -62,10 +62,7 @@ export default [
 				out: (path) => path.replace('src', 'dist'),
 			}),
 		],
-		external: [
-			'vue',
-			'vue3-carousel',
-		],
+		external: ['vue', 'vue3-carousel'],
 	},
 	{
 		input: 'dist/src/index.d.ts',
