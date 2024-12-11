@@ -2,6 +2,7 @@ import { dirname, relative, resolve } from 'path'
 import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts'
 import { cwd } from 'process'
+import commonjs from '@rollup/plugin-commonjs'
 import vue from 'rollup-plugin-vue'
 
 const dir = 'dist'
@@ -34,11 +35,16 @@ export default [
 			{
 				dir,
 				format: 'es',
+				preserveModules: true,
 			},
 		],
 		plugins: [
 			typescript(),
 			vue(),
+			resolve({
+				mainFields: ['module', 'import', 'browser'], // Prioritize ESM over browser
+			}),
+			commonjs(),
 			useSrc({
 				ext: [
 					'.astro',
@@ -55,6 +61,10 @@ export default [
 				dir,
 				out: (path) => path.replace('src', 'dist'),
 			}),
+		],
+		external: [
+			'vue',
+			'vue3-carousel',
 		],
 	},
 	{
