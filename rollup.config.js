@@ -4,6 +4,7 @@ import dts from 'rollup-plugin-dts'
 import { cwd } from 'process'
 import commonjs from '@rollup/plugin-commonjs'
 import vue from 'rollup-plugin-vue'
+import nodeResolve from '@rollup/plugin-node-resolve'
 
 const dir = 'dist'
 
@@ -41,7 +42,7 @@ export default [
 		plugins: [
 			typescript(),
 			vue(),
-			resolve({
+			nodeResolve({
 				mainFields: ['module', 'import', 'browser'], // Prioritize ESM over browser
 			}),
 			commonjs(),
