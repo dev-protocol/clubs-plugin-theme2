@@ -199,7 +199,7 @@ export default () =>
 			},
 			{
 				id: 'devprotocol:clubs:plugin:clubs-payments',
-				options: [],
+				options: [{ key: 'debug', value: true }],
 			},
 			{
 				id: 'devprotocol:clubs:plugin:passports',
