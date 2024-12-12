@@ -120,11 +120,15 @@ export const getPagePaths = (async (options, config, utils) => {
 	const passportOfferingsWithComposedData: CheckoutFromPassportOffering =
 		await checkoutPassportItems(config, clubsPay?.options || [])
 
+	const globalConfig = options.find((opt) => opt.key === 'globalConfig')
+		?.value as UndefinedOr<GlobalConfig>
+
 	return homeConfig
 		? [
 				{
 					paths: ['akiba'],
 					component: Index,
+					layout: Layout,
 					props: {
 						name,
 						propertyAddress,
@@ -140,6 +144,12 @@ export const getPagePaths = (async (options, config, utils) => {
 						signals: ['connection-button-hide'],
 						passportOfferingsWithComposedData:
 							passportOfferingsWithComposedData,
+						theme2: {
+							config,
+							homeConfig,
+							globalConfig,
+							description: homeConfig?.description,
+						},
 					},
 				},
 			]
