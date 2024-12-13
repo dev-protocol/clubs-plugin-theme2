@@ -16,26 +16,29 @@ const currentSlide = ref(0)
 const mounted = ref(false)
 
 const current = ref(1)
-const [container, slider] = useKeenSlider({
-	loop: true,
-	slides: {
-		perView: 2,
-		spacing: 20,
-	},
-	slideChanged: (s) => {
-		current.value = s.track.details.rel
-	},
-	breakpoints: {
-		'(min-width: 768px)': {
-			slides: {
-				perView: 2,
-				spacing: 20,
+const [container, slider] = useKeenSlider(
+	{
+		loop: true,
+		slides: {
+			perView: 2,
+			spacing: 20,
+		},
+		slideChanged: (s) => {
+			current.value = s.track.details.rel
+		},
+		breakpoints: {
+			'(min-width: 768px)': {
+				slides: {
+					perView: 2,
+					spacing: 20,
+				},
 			},
 		},
 	},
-}, [
-	// add plugins here
-])
+	[
+		// add plugins here
+	],
+)
 
 const breakpoints = {
 	768: {
@@ -61,7 +64,11 @@ onMounted(() => {
 			:class="`number-slide${index + 1}`"
 			:style="`min-width: 535.07px; max-width: 535.07px; transform: translate3d(${20 * index}px, 0px, 0px);`"
 		>
-			<SlideContent :feature="feature" :langs="langs" :as-placeholder="!mounted" />
+			<SlideContent
+				:feature="feature"
+				:langs="langs"
+				:as-placeholder="!mounted"
+			/>
 		</div>
 	</div>
 
