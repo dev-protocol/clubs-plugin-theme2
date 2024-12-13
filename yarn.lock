@@ -5358,6 +5358,11 @@ keccak@^3.0.3:
     node-gyp-build "^4.2.0"
     readable-stream "^3.6.0"
 
+keen-slider@^6.8.6:
+  version "6.8.6"
+  resolved "https://registry.yarnpkg.com/keen-slider/-/keen-slider-6.8.6.tgz#17bb7b219860f291a5ea5fde4496b737bf407a83"
+  integrity sha512-dcEQ7GDBpCjUQA8XZeWh3oBBLLmyn8aoeIQFGL/NTVkoEOsmlnXqA4QykUm/SncolAZYGsEk/PfUhLZ7mwMM2w==
+
 keyv@^4.5.3:
   version "4.5.4"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-4.5.4.tgz#a879a99e29452f942439f2a405e3af8b31d4de93"
@@ -8506,11 +8511,6 @@ vue-tsc@^2.0.0:
     "@volar/typescript" "~2.4.8"
     "@vue/language-core" "2.1.10"
     semver "^7.5.4"
-
-vue3-carousel@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.9.0.tgz#73ed6781dbd78e4a815f905e8bcc5b7a2d88b902"
-  integrity sha512-WtMtvQ6F9NdfUoACXnqJU2xbya9xJYk5Vg7bIwSXyp/Lt85iTzr4AwniHXKB8MX/zJdPClaura67Mk9qaSAaWg==
 
 vue@3.5.13, vue@>=3, vue@^3.2.0:
   version "3.5.13"
