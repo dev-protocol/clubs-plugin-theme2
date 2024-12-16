@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { Carousel, Slide } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
 import { defineProps, onMounted, ref } from 'vue'
 import type { HomeConfig } from '../../types.ts'
 import SlideContent from './SlideContent.vue'
+import { useKeenSlider } from 'keen-slider/vue'
+import 'keen-slider/keen-slider.min.css'
 
 type Props = {
 	features: HomeConfig['features']
@@ -14,6 +14,31 @@ const { features, langs } = defineProps<Props>()
 
 const currentSlide = ref(0)
 const mounted = ref(false)
+
+const current = ref(1)
+const [container, slider] = useKeenSlider(
+	{
+		loop: true,
+		slides: {
+			perView: 2,
+			spacing: 20,
+		},
+		slideChanged: (s) => {
+			current.value = s.track.details.rel
+		},
+		breakpoints: {
+			'(min-width: 768px)': {
+				slides: {
+					perView: 2,
+					spacing: 20,
+				},
+			},
+		},
+	},
+	[
+		// add plugins here
+	],
+)
 
 const breakpoints = {
 	768: {
@@ -31,51 +56,33 @@ onMounted(() => {
 })
 </script>
 <template>
-	<Carousel
-		v-if="mounted"
-		id="gallery"
-		:items-to-show="1"
-		:items-to-scroll="1"
-		:wrap-around="true"
-		snap-align="start"
-		:autoplay="0"
-		:breakpoints="breakpoints"
-		v-model="currentSlide"
-	>
-		<Slide v-for="(feature, index) in features" :key="index">
-			<SlideContent :feature="feature" :langs="langs" />
-		</Slide>
-	</Carousel>
-	<div v-if="!mounted" class="flex w-full gap-4">
-		<!-- Loading placeholder -->
-		<SlideContent
-			v-for="(feature, index) in features.slice(0, 2)"
+	<div ref="container" class="keen-slider">
+		<div
+			v-for="(feature, index) in features"
 			:key="index"
-			:feature="feature"
-			:as-placeholder="true"
-			:langs="langs"
-			:class="[{ 'hidden md:flex': index > 0 }]"
-		/>
+			class="keen-slider__slide"
+			:class="`number-slide${index + 1}`"
+			:style="`min-width: 535.07px; max-width: 535.07px; transform: translate3d(${20 * index}px, 0px, 0px);`"
+		>
+			<SlideContent
+				:feature="feature"
+				:langs="langs"
+				:as-placeholder="!mounted"
+			/>
+		</div>
 	</div>
 
 	<div class="mt-4 w-full text-center" style="line-height: 0">
 		<div class="relative inline-flex gap-0 overflow-hidden rounded-full">
 			<div
 				class="absolute h-[5px] w-[50px] rounded-full bg-gray-600 transition-all"
-				:style="`left: calc((100% / ${features.length}) * ${currentSlide})`"
+				:style="`left: calc((100% / ${features.length}) * ${current})`"
 			/>
 			<div
 				v-for="index in features.length"
 				class="h-[5px] w-[50px] bg-gray-200"
-				@click="slideTo(index - 1)"
+				@click="slider?.moveToIdx(index - 1)"
 			></div>
 		</div>
 	</div>
 </template>
-
-<style>
-.carousel__slide {
-	padding-left: 8px;
-	padding-right: 8px;
-}
-</style>
