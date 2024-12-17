@@ -482,10 +482,10 @@
     redis "^4.7.0"
     sass "1.82.0"
 
-"@devprotocol/clubs-plugin-payments@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-payments/-/clubs-plugin-payments-0.3.0.tgz#780509aa729fba15e0783ad1f8ba55e3138b6fa0"
-  integrity sha512-n6LmTlreqgV7rxJgmAsvH1wEHq94cXB1dcWsf4t9+/u9PSJzUdBIDq9WQLKZxpLO7ep0ve4tPGsXBWfSLM2TXw==
+"@devprotocol/clubs-plugin-payments@^0.2.3":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-payments/-/clubs-plugin-payments-0.2.4.tgz#3a405438ab1ff45461d42f2068f8dcf97a6993f5"
+  integrity sha512-E7LzlXufSP25fyP0RDvqkiYAIIExt+ur5t+UMcO5qvbHpQQ8O/lpe+j2zcFPXY2+9ePUKYgzLchWqQlfMfrSQQ==
   dependencies:
     "@devprotocol/dev-kit" "8.7.0"
     "@devprotocol/util-ts" "4.0.0"
