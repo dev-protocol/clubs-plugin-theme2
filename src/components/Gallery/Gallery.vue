@@ -2,7 +2,7 @@
 import { defineProps, onMounted, ref } from 'vue'
 import type { HomeConfig } from '../../types.ts'
 import SlideContent from './SlideContent.vue'
-import { useKeenSlider } from 'keen-slider/vue'
+import { useKeenSlider } from 'keen-slider/vue.es'
 import 'keen-slider/keen-slider.min.css'
 
 type Props = {
