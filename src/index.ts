@@ -118,7 +118,7 @@ export const getPagePaths = (async (options, config, utils) => {
 	)
 
 	const passportOfferingsWithComposedData: CheckoutFromPassportOffering =
-		await checkoutPassportItems(config, clubsPay?.options || [])
+		await checkoutPassportItems(config)
 
 	const globalConfig = options.find((opt) => opt.key === 'globalConfig')
 		?.value as UndefinedOr<GlobalConfig>
