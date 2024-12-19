@@ -10,26 +10,9 @@ const { composedItem } = defineProps<Props>()
 </script>
 
 <template>
-	<div>
-		<ComposedCheckout v-bind="composedItem.props" />
+	<div class="flex justify-center">
+		<div class="rounded-xl bg-white p-4 text-black shadow">
+			<ComposedCheckout v-bind="composedItem.props" />
+		</div>
 	</div>
 </template>
-
-<style>
-#modal-container > div.modal-content {
-	width: auto;
-}
-
-#modal-container > div.modal-content > div {
-	margin-bottom: 0;
-}
-
-#modal-container > div.modal-content > div > div > section > div > span {
-	display: block;
-	overflow: hidden;
-}
-
-#modal-container > div.modal-content > div > div > section > aside > p {
-	word-break: break-all;
-}
-</style>
