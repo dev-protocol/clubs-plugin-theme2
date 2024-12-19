@@ -483,9 +483,9 @@
     sass "1.83.0"
 
 "@devprotocol/clubs-plugin-payments@^0.3.0":
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-payments/-/clubs-plugin-payments-0.3.2.tgz#731ab4f3e3dd6b8b52ec09aa58a5b86da33b9dc3"
-  integrity sha512-TexA9Fq/0CiPcB7uWGTQrc24Fd1hEpXPT+WCxd2dHXhbf27GUr2+qdlcm6XxMeQhLzt6WUsrn2g+me1CqL+rXw==
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/@devprotocol/clubs-plugin-payments/-/clubs-plugin-payments-0.3.4.tgz#423d27631e703491bd94cbb059744f4b7cc1619e"
+  integrity sha512-/bN3xgN4xUEHdAoF+G9bzgjG2wFMJxJ5sU8jzCXI0TUQXuFv7LOAjAWRE/yd6a11OpvnnCuS2A0l9msvM54fUA==
   dependencies:
     "@devprotocol/dev-kit" "8.7.0"
     "@devprotocol/util-ts" "4.0.0"
