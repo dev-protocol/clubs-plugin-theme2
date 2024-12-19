@@ -10,9 +10,7 @@ const { composedItem } = defineProps<Props>()
 </script>
 
 <template>
-	<div class="flex justify-center">
-		<div class="rounded-xl bg-white p-4 text-black shadow">
-			<ComposedCheckout v-bind="composedItem.props" />
-		</div>
+	<div class="rounded-xl bg-white p-4 text-black shadow">
+		<ComposedCheckout v-bind="composedItem.props" />
 	</div>
 </template>

@@ -51,12 +51,16 @@ html:has(dialog[open]) {
 			@click.stop="$emit('closeEvent')"
 		></div>
 		<Transition>
-			<div class="relative m-auto w-full py-4">
-				<component v-show="isVisible" :is="modalContent" v-bind="attrs">
-					<template #after:description>
-						<slot name="after:description" />
-					</template>
-				</component>
+			<div
+				class="pointer-events-none relative m-auto flex w-full justify-center py-4"
+			>
+				<div class="pointer-events-auto">
+					<component v-show="isVisible" :is="modalContent" v-bind="attrs">
+						<template #after:description>
+							<slot name="after:description" />
+						</template>
+					</component>
+				</div>
 			</div>
 		</Transition>
 	</dialog>
