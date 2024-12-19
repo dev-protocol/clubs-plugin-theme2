@@ -36,30 +36,6 @@ defineProps<{
 	z-index: -1;
 }
 
-.modal-content {
-	display: flex;
-	flex-direction: column;
-	padding: 1rem;
-	width: 100%;
-	max-width: 64rem;
-	background: white;
-	border-top-left-radius: 0.5rem;
-	border-top-right-radius: 0.5rem;
-	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
-	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
-
-	max-height: 80vh;
-	overflow-y: auto;
-}
-
-@media (min-width: 1024px) {
-	.modal-content {
-		border-bottom-left-radius: 0.5rem;
-		border-bottom-right-radius: 0.5rem;
-	}
-}
-
 .v-enter-active {
 	transition: transform 600ms cubic-bezier(0.07, 1.28, 0.5, 1);
 }
@@ -85,12 +61,12 @@ html:has(#modal-container[data-active='true']) {
 	<div
 		id="modal-container"
 		v-show="isVisible"
-		class="modal-container z-50"
+		class="modal-container z-50 overflow-y-auto"
 		:data-active="isVisible"
 	>
 		<div class="modal-overlay" @click.stop="$emit('closeEvent')"></div>
 		<Transition>
-			<component class="modal-content" :is="modalContent" v-bind="attrs">
+			<component class="m-auto py-4" :is="modalContent" v-bind="attrs">
 				<template #after:description>
 					<slot name="after:description" />
 				</template>
